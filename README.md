@@ -10,12 +10,12 @@
 This platform is to serve all who are interested in either mastering/polishing their technical wherewithal in bioinformatics as well as any curious persons interested in learning the science of bioinformatics. The contents herein, have been carefully selected and designed such that, it gives you the relevant skills in the industry. Various literature that are consulted are duly acknowledged. Recommended materials will also be added as a guide for further reading/studies. All you will need to be successful in completing this path is a curious mindset, diligence and consistency. It is recommended to follow the following path in the order listed for an easier understanding of the concepts and a gradual build-up into your studies. Good Luck and happy learning!
 
 1.  [Introduction to Bioinformatics](./introduction-to-bioinformatics.md)
-2.  [Biology Fundamentals for Bioinformatics](https://www.bioinfolearninfinite.com/biology-fundamentals-for-bioinformatics)
-3.  [Statistical Analysis and Inference](https://www.bioinfolearninfinite.com/statistical-analysis-and-inference)
-4.  [Bioinformatics core skills](https://www.bioinfolearninfinite.com/bioinformatics-core-skills)
-5.  [Bioinformatics Data Analysis-Focused (NGS)](https://www.bioinfolearninfinite.com/bioinformatics-data-analysis-focused-ngs)
-6.  [Machine Learning](https://www.bioinfolearninfinite.com/machine-learning)
-7.  [Neuro-imaging data analysis](https://www.bioinfolearninfinite.com/neuroimaging-data-analysis)
+2.  [Biology Fundamentals for Bioinformatics](./biology-fundamentals-for-bioinformatics.md)
+3.  [Statistical Analysis and Inference](./statistical-analysis-and-inference.md)
+4.  [Bioinformatics core skills](./bioinformatics-core-skills.md)
+5.  [Bioinformatics Data Analysis-Focused (NGS)](./bioinformatics-data-analysis-focused-ngs.md)
+6.  [Machine Learning](./machine-learning.md)
+7.  [Neuro-imaging data analysis](./neuro-imaging-data-analysis.md)
 
 ## Explore our Learning Center
 
