@@ -1,5 +1,7 @@
 # Introduction to Bioinformatics
 
+![Introduction to Bioinformatics](https://lh3.googleusercontent.com/sitesv/APaQ0SRq1iH5Lx16dubfPvwtWz4eLmJYwpbRdPy_xBrNcWZ_c10xQDFWJxYjHSf_8zjGw3X90-RJ22OUgDyFM0n02Tk_Oe3pmUn-H_QnESIKhzIIJGAqD4LUHP5fGam9Cv0-s1DFjidgbIzxAtOaSaYwVVhu7gRvLG9HbSa9bGHIxPBrQIVf7obwFamDMqo=w16383)
+
 ## What is Bioinformatics?
 
 The application of advanced computing techniques in analysis and managing biological data.
@@ -71,3 +73,20 @@ The publication of the draft sequence of the human genome in 2001 signaled the f
 
 
 ## References
+
+## About the Author
+
+![JBML JBML](https://lh3.googleusercontent.com/sitesv/APaQ0SRbWuKfF5f4FOVs6riXSul2lqnBK53GELMaCQoI1VVP9MQErIzVgThlPcDxU8iiEfAPDEQSmznNJVlmJXAs_CKAc7zA6YcqziRlPzaO2DoA9OYvtkjv5sxxFcRuIPIAjC7kv_KkwJw1wem-V_mKK2tX19ainwE5U_uicjZImgduQiP8bDrR3ls9KgCBUTHXdJhyvdhPMZUDEOVPVdFzO8taohCO8PsuOzYZ=w1280)
+
+**JBML JBML, MS**
+
+JBML JBML is a Bioinformatician with 3+ years of experience in Bioinformatics Research and Machine Learning, with a demonstrated command of Object Oriented programming and data structures. Focused on further developing acquired skills by learning from top teams and completing development projects. He loves to share his knowledge and experience and is open to collaborations.
+
+## Connect with Us
+
+*   **Twitter**: [@BioLnInfinite](https://twitter.com/BioLnInfinite)
+*   **Email**: [raymondotoo115@gmail.com](mailto:raymondotoo115@gmail.com)
+
+## Support Us
+
+[Donate via PayPal](https://www.paypal.com/donate/?hosted_button_id=8JHU8H2AZFU8Q)
