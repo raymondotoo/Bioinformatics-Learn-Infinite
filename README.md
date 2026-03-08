@@ -1,10 +1,9 @@
 
 # Bioinformatics Learn Infinite
 
-![Bioinformatics Learn Infinite Banner](https://lh3.googleusercontent.com/sitesv/APaQ0SRq1iH5Lx16dubfPvwtWz4eLmJYwpbRdPy_xBrNcWZ_c10xQDFWJxYjHSf_8zjGw3X90-RJ22OUgDyFM0n02Tk_Oe3pmUn-H_QnESIKhzIIJGAqD4LUHP5fGam9Cv0-s1DFjidgbIzxAtOaSaYwVVhu7gRvLG9HbSa9bGHIxPBrQIVf7obwFamDMqo=w16383)
 
----
-layout: default
+
+![Bioinformatics Learn Infinite Banner](https://lh3.googleusercontent.com/sitesv/APaQ0SRq1iH5Lx16dubfPvwtWz4eLmJYwpbRdPy_xBrNcWZ_c10xQDFWJxYjHSf_8zjGw3X90-RJ22OUgDyFM0n02Tk_Oe3pmUn-H_QnESIKhzIIJGAqD4LUHP5fGam9Cv0-s1DFjidgbIzxAtOaSaYwVVhu7gRvLG9HbSa9bGHIxPBrQIVf7obwFamDMqo=w16383)
 
 **Website accompanying this page: https://www.bioinflearninfinite.com/**
 
@@ -12,21 +11,13 @@ layout: default
 
 This platform is to serve all who are interested in either mastering/polishing their technical wherewithal in bioinformatics as well as any curious persons interested in learning the science of bioinformatics. The contents herein, have been carefully selected and designed such that, it gives you the relevant skills in the industry. Various literature that are consulted are duly acknowledged. Recommended materials will also be added as a guide for further reading/studies. All you will need to be successful in completing this path is a curious mindset, diligence and consistency. It is recommended to follow the following path in the order listed for an easier understanding of the concepts and a gradual build-up into your studies. Good Luck and happy learning!
 
-
 1.  [Introduction to Bioinformatics](./introduction-to-bioinformatics.md)
-    *   *Get started with the basics of bioinformatics and its applications.*
 2.  [Biology Fundamentals for Bioinformatics](./biology-fundamentals-for-bioinformatics.md)
-     *   *Learn the core biological concepts essential for bioinformatics analysis.*
 3.  [Statistical Analysis and Inference](./statistical-analysis-and-inference.md)
-     *   *Master statistical methods to interpret biological data.*
 4.  [Bioinformatics core skills](./bioinformatics-core-skills.md)
-     *   *Acquire essential command-line, scripting, and data management skills.*
 5.  [Bioinformatics Data Analysis-Focused (NGS)](./bioinformatics-data-analysis-focused-ngs.md)
-     *   *Dive into next-generation sequencing data analysis pipelines.*
 6.  [Machine Learning](./machine-learning.md)
-     *   *Explore machine learning algorithms for biological predictions.*
 7.  [Neuro-imaging data analysis](./neuro-imaging-data-analysis.md)
-     *   *Delve into the analysis of brain imaging data using neuroinformatics.*
 
 ## Explore our Learning Center
 
@@ -41,12 +32,11 @@ Here are some useful links and platforms for bioinformatics-directed analysis.
 
 ## About the Author
 
-
 ![JBML JBML](https://lh3.googleusercontent.com/sitesv/APaQ0SRbWuKfF5f4FOVs6riXSul2lqnBK53GELMaCQoI1VVP9MQErIzVgThlPcDxU8iiEfAPDEQSmznNJVlmJXAs_CKAc7zA6YcqziRlPzaO2DoA9OYvtkjv5sxxFcRuIPIAjC7kv_KkwJw1wem-V_mKK2tX19ainwE5U_uicjZImgduQiP8bDrR3ls9KgCBUTHXdJhyvdhPMZUDEOVPVdFzO8taohCO8PsuOzYZ=w1280)
 
 **JBML JBML, MS**
 
-*JBML JBML* is a Bioinformatician with 3+ years of experience in Bioinformatics Research and Machine Learning, with a demonstrated command of Object Oriented programming and data structures. Focused on further developing acquired skills by learning from top teams and completing development projects. He loves to share his knowledge and experience and is open to collaborations.
+JBML JBML is a Bioinformatician with 3+ years of experience in Bioinformatics Research and Machine Learning, with a demonstrated command of Object Oriented programming and data structures. Focused on further developing acquired skills by learning from top teams and completing development projects. He loves to share his knowledge and experience and is open to collaborations.
 
 ## Connect with Us
 
@@ -55,11 +45,8 @@ Here are some useful links and platforms for bioinformatics-directed analysis.
 
 ## Support Us
 
-
-**Like what we do? Consider supporting us!**
-
-[![Donate via PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate/?hosted_button_id=8JHU8H2AZFU8Q)
+[Donate via PayPal](https://www.paypal.com/donate/?hosted_button_id=8JHU8H2AZFU8Q)
 
 ---
 
-*© 2022 Bioinformatics Learn Infinite |* [*Privacy Policy*] *| Join our slack channel*
+© 2022 Bioinformatics Learn Infinite | Privacy Policy | Join our slack channel
