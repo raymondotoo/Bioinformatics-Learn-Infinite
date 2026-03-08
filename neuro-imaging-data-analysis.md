@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Neuro-imaging Data Analysis
 
 Neuroinformatics combines neuroscience and informatics to analyze brain imaging data.

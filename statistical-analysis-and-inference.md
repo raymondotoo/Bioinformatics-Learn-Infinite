@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Statistical Analysis and Inference
 
 Bioinformatics relies heavily on statistics to interpret biological data, distinguish signal from noise, and make predictions.

@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Machine Learning in Bioinformatics
 
 Machine learning (ML) algorithms allow us to predict biological properties and discover patterns in large datasets.

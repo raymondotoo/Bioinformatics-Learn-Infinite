@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Bioinformatics Core Skills
 
 Before diving into complex analyses, a bioinformatician must master the tools of the trade. These core skills are essential for managing data and running software.

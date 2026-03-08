@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Biology Fundamentals for Bioinformatics
 
 To understand bioinformatics, one must first understand the biological data being analyzed. This section covers the essential biological concepts required for computational analysis.
