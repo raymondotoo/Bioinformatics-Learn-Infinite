@@ -1,4 +1,5 @@
 theme: jekyll-theme-slate
 title: Bioinformatics Learn Infinite
 description: Mastering and polishing technical wherewithal in bioinformatics.
+defaults: {scope: {path: ""}, values: {layout: "default"}}
 show_downloads: false

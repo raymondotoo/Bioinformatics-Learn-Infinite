@@ -6,11 +6,14 @@
 
 The application of advanced computing techniques in analysis and managing biological data.
 
+
 OR
 
 "The mathematical, statistical and computing methods that aim to solve biological problems using DNA and amino acid sequences and related information." -Frank Tekaia
 
+
 ## What are the main Sub-disciplines in Bioinformatics?
+
 
 Three important sub-disciplines within bioinformatics:
 
@@ -20,12 +23,14 @@ Three important sub-disciplines within bioinformatics:
 
 ## History of Bioinformatics
 
+
 Computers emerged as important tools in molecular biology during the early 1960s. Margaret Dayhoff gathered all the available protein sequence data to create the first bioinformatics database in 1965.
 
 * Dayhoff and co-workers organized the proteins into families and superfamilies based on degree of sequence similarity
 * Sequence alignment was introduced as well as special tables that reflected the frequency of changes observed in the sequences of a group of closely related proteins.
 
 ### Timeline
+
 
 * **1965** Margaret Dayhoff's Atlas of Protein Sequences
 * **1970** Needleman-Wunsch algorithm
@@ -51,6 +56,7 @@ Computers emerged as important tools in molecular biology during the early 1960s
 
 ### The Human Genome Project
 
+
 The publication of the draft sequence of the human genome in 2001 signaled the future of bioinformatics.
 
 * **Diagnosis of disease and disease risks**
@@ -61,6 +67,7 @@ The publication of the draft sequence of the human genome in 2001 signaled the f
     * Sequence analysis permits selecting drugs and dosages optimal for individual patients.
 
 ## Fields
+
 
 * **Computation Biology**: Primarily concerned with evolutionary, population and theoretical biology, rather than the cellular or molecular level.
 * **Cheminformatics**: The study and application of computing methods, along with chemical and biological technology, for drug design and development.

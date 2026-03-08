@@ -3,19 +3,10 @@
 
 ![Bioinformatics Learn Infinite Banner](https://lh3.googleusercontent.com/sitesv/APaQ0SRq1iH5Lx16dubfPvwtWz4eLmJYwpbRdPy_xBrNcWZ_c10xQDFWJxYjHSf_8zjGw3X90-RJ22OUgDyFM0n02Tk_Oe3pmUn-H_QnESIKhzIIJGAqD4LUHP5fGam9Cv0-s1DFjidgbIzxAtOaSaYwVVhu7gRvLG9HbSa9bGHIxPBrQIVf7obwFamDMqo=w16383)
 
-<div align="center">
-  <input type="text" placeholder="Search..." style="padding: 10px; width: 50%; border-radius: 5px; border: 1px solid #ccc;">
-</div>
+---
+layout: default
 
 **Website accompanying this page: https://www.bioinflearninfinite.com/**
-
-## Table of Contents
-
-- [Introduction to the Bioinformatics Learning Path](#introduction-to-the-bioinformatics-learning-path)
-- [Explore our Learning Center](#explore-our-learning-center)
-- [About the Author](#about-the-author)
-- [Connect with Us](#connect-with-us)
-- [Support Us](#support-us)
 
 ## Introduction to the Bioinformatics Learning Path
 
