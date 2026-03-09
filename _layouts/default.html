@@ -47,28 +47,28 @@
         <section class="learning-support" aria-label="Learning support resources">
           <div class="support-card support-feedback">
             <h2>Give Feedback</h2>
-            <p class="support-note">Submit feedback below. You do not need a GitHub login. Entries are stored in this repository for review.</p>
+            <p class="support-note">Submit feedback below. You do not need a GitHub login. Submissions are sent to the project email for tracking and export.</p>
             {% assign max_words = site.feedback.max_words | default: 120 %}
-            {% if site.feedback.endpoint contains 'YOUR-STATICMAN-ENDPOINT' %}
-            <p class="support-note"><strong>Setup needed:</strong> configure <code>feedback.endpoint</code> in <code>_config.yml</code> to your Staticman service URL.</p>
-            {% endif %}
             <form
               id="feedback-form"
               class="feedback-form"
               method="POST"
               action="{{ site.feedback.endpoint }}"
               data-max-words="{{ max_words }}">
-              <input type="hidden" name="options[slug]" value="{{ page.url | slugify }}">
-              <input type="hidden" name="options[redirect]" value="{{ page.url | relative_url }}?feedback=thanks">
-              <input type="hidden" name="fields[page]" value="{{ page.title }} ({{ page.url }})">
+              <input type="hidden" name="_subject" value="Bioinformatics Learn Infinite feedback: {{ page.title }}">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="{{ page.url | relative_url }}?feedback=thanks">
+              <input type="hidden" name="page" value="{{ page.title }} ({{ page.url }})">
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="feedback-honey">
 
               <label for="feedback-email">Email</label>
-              <input id="feedback-email" name="fields[email]" type="email" required placeholder="you@example.com">
+              <input id="feedback-email" name="email" type="email" required placeholder="you@example.com">
 
               <label for="feedback-message">Feedback</label>
               <textarea
                 id="feedback-message"
-                name="fields[message]"
+                name="message"
                 rows="5"
                 required
                 maxlength="1200"

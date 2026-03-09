@@ -1,0 +1,48 @@
+name: Learning Path Feedback
+description: Submit feedback on a learning path page
+title: "Feedback: <path title>"
+labels:
+  - learning-feedback
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The learning path/page this feedback is about
+      placeholder: "Introduction to Bioinformatics (/introduction-to-bioinformatics/)"
+    validations:
+      required: true
+
+  - type: input
+    id: email
+    attributes:
+      label: Email
+      description: Contact email (optional if you prefer anonymous feedback)
+      placeholder: "you@example.com"
+    validations:
+      required: false
+
+  - type: textarea
+    id: worked_well
+    attributes:
+      label: What worked well?
+      placeholder: "Briefly describe what helped you learn."
+    validations:
+      required: false
+
+  - type: textarea
+    id: unclear_or_missing
+    attributes:
+      label: What was unclear or missing?
+      placeholder: "Describe gaps, confusing sections, or errors."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_improvement
+    attributes:
+      label: Suggested improvement
+      description: Keep this concise (recommended max 120 words)
+      placeholder: "What change would improve this page for learners?"
+    validations:
+      required: true

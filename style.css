@@ -321,6 +321,10 @@ body {
   background: #ffffff;
 }
 
+.feedback-honey {
+  display: none;
+}
+
 .feedback-form input:focus,
 .feedback-form textarea:focus {
   outline: 2px solid #b6d8f3;

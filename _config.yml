@@ -10,4 +10,4 @@ defaults:
 show_downloads: false
 feedback:
   max_words: 120
-  endpoint: "https://YOUR-STATICMAN-ENDPOINT/v3/entry/github/raymondotoo/Bioinformatics-Learn-Infinite/main/comments"
+  endpoint: "https://formsubmit.co/raymondotoo115@gmail.com"
