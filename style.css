@@ -257,6 +257,7 @@ body {
   margin-top: 1rem;
   padding-top: 0.8rem;
   border-top: 1px solid #cfe7e1;
+  text-align: center;
 }
 
 .toc-support-label {
