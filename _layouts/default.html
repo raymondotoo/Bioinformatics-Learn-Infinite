@@ -17,7 +17,8 @@
           <img class="brand-logo" src="{{ '/bioinf_logo.png' | relative_url }}" alt="Bioinformatics Learn Infinite logo">
         </a>
         <a class="brand" href="{{ '/' | relative_url }}">Bioinformatics Learn Infinite</a>
-        <a class="home-link" href="{{ '/' | relative_url }}">Home</a>
+        <a class="menu-link{% if page.url == '/' %} is-active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
+        <a class="menu-link{% if page.url == '/blog/' or page.url contains '/blog/' %} is-active{% endif %}" href="{{ '/blog/' | relative_url }}">Blog</a>
       </div>
       {% if page.title %}
       <p class="page-title">{{ page.title }}</p>

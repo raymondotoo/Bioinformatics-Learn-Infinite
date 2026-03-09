@@ -70,15 +70,21 @@ body {
   letter-spacing: 0.01em;
 }
 
-.home-link {
+.menu-link {
   color: var(--ink-soft);
   text-decoration: none;
   font-weight: 600;
 }
 
-.home-link:hover,
+.menu-link:hover,
 .brand:hover {
   text-decoration: underline;
+}
+
+.menu-link.is-active {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
 
 .page-title {
@@ -511,6 +517,87 @@ body {
 
 .table-wrap {
   overflow-x: auto;
+}
+
+.blog-hero {
+  background: linear-gradient(130deg, #f2fbff 0%, #e8f7ff 55%, #e6f8f2 100%);
+}
+
+.blog-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.blog-card {
+  border: 1px solid #bfe0f4;
+  border-radius: 0.75rem;
+  background: linear-gradient(160deg, #ffffff 0%, #f5fbff 65%, #f0f9ff 100%);
+  padding: 1rem 1.05rem;
+  box-shadow: 0 6px 18px rgba(15, 70, 78, 0.08);
+}
+
+.blog-card h2 {
+  margin: 0.2rem 0 0.35rem;
+}
+
+.blog-card h2 a {
+  color: #084f67;
+  text-decoration: none;
+}
+
+.blog-card h2 a:hover {
+  text-decoration: underline;
+}
+
+.blog-card-date {
+  margin: 0;
+  color: #496f72;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.blog-read-link {
+  display: inline-block;
+  margin-top: 0.25rem;
+  text-decoration: none;
+  color: #ffffff;
+  background: #0f766e;
+  border: 1px solid #0f766e;
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.blog-read-link:hover {
+  background: #0b5f59;
+}
+
+.latest-blog-panel {
+  background: linear-gradient(140deg, #fbfffe 0%, #f2fbff 100%);
+}
+
+.latest-blog-card {
+  border: 1px solid #bfe0f4;
+  border-radius: 0.7rem;
+  background: #ffffff;
+  padding: 0.9rem 1rem;
+}
+
+.latest-blog-card h3 {
+  margin: 0.2rem 0 0.4rem;
+}
+
+.latest-blog-card h3 a {
+  color: #084f67;
+  text-decoration: none;
+}
+
+.latest-blog-card h3 a:hover {
+  text-decoration: underline;
 }
 
 

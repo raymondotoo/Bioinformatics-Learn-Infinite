@@ -59,6 +59,25 @@ permalink: /
   </article>
 </section>
 
+<section class="home-panel latest-blog-panel">
+  <h2>Latest from the Blog</h2>
+  {% assign latest_post = site.posts.first %}
+  {% if latest_post %}
+  <article class="latest-blog-card">
+    <p class="blog-card-date">{{ latest_post.date | date: "%B %-d, %Y" }}</p>
+    <h3><a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a></h3>
+    {% if latest_post.summary %}
+    <p>{{ latest_post.summary }}</p>
+    {% else %}
+    <p>{{ latest_post.excerpt | strip_html | truncatewords: 45 }}</p>
+    {% endif %}
+    <a class="blog-read-link" href="{{ latest_post.url | relative_url }}">Read latest post</a>
+  </article>
+  {% else %}
+  <p>No blog posts published yet. New weekly updates will appear here.</p>
+  {% endif %}
+</section>
+
 <section class="home-panel">
   <h2>Explore External Learning Resources</h2>
   <div class="table-wrap">
