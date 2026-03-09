@@ -9,7 +9,6 @@ permalink: /
 
 ![Bioinformatics Learn Infinite Banner](https://lh3.googleusercontent.com/sitesv/APaQ0SRq1iH5Lx16dubfPvwtWz4eLmJYwpbRdPy_xBrNcWZ_c10xQDFWJxYjHSf_8zjGw3X90-RJ22OUgDyFM0n02Tk_Oe3pmUn-H_QnESIKhzIIJGAqD4LUHP5fGam9Cv0-s1DFjidgbIzxAtOaSaYwVVhu7gRvLG9HbSa9bGHIxPBrQIVf7obwFamDMqo=w16383)
 
-**Website accompanying this page: https://www.bioinflearninfinite.com/**
 
 <section class="home-hero">
   <h2>Introduction to the Bioinformatics Learning Path</h2>
@@ -32,8 +31,13 @@ permalink: /
 <section class="home-grid">
   <article class="home-panel">
     <h2>About the Author</h2>
-    <p><strong>Raymond Otoo, Ph.D.</strong></p>
-    <p>Dr. Raymond Otoo is a Bioinformatics Scientist with 5+ years of experience at the intersection of bioinformatics research and machine learning. He specializes in integrative multimodal omics analytics, leveraging AI-driven approaches to advance translational discovery and enhance disease modeling. At the Barrow Neuroanalytics Center of the BNI, his current work focuses on uncovering risk factors and molecular mechanisms underlying Alzheimer’s disease and traumatic brain injury through integrative analysis of terabyte-scale genomics, proteomics, transcriptomics, and neuroimaging data. Outside of research, Raymond enjoys traveling and photography, passions that inspire his curiosity and creativity. Raymond is always open to connect and collaborate on innovative bioinformatics challenges!</p>
+    <div class="home-author">
+      <img src="{{ '/author.png' | relative_url }}" alt="Portrait of Raymond Otoo" class="author-photo">
+      <div>
+        <p><strong>Raymond Otoo, Ph.D.</strong></p>
+        <p>Dr. Raymond Otoo is a Bioinformatics Scientist with 5+ years of experience at the intersection of bioinformatics research and machine learning. He specializes in integrative multimodal omics analytics, leveraging AI-driven approaches to advance translational discovery and enhance disease modeling. At the Barrow Neuroanalytics Center of the BNI, his current work focuses on uncovering risk factors and molecular mechanisms underlying Alzheimer’s disease and traumatic brain injury through integrative analysis of terabyte-scale genomics, proteomics, transcriptomics, and neuroimaging data. Outside of research, Raymond enjoys traveling and photography, passions that inspire his curiosity and creativity. Raymond is always open to connect and collaborate on innovative bioinformatics challenges!</p>
+      </div>
+    </div>
   </article>
 
   <article class="home-panel">

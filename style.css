@@ -377,6 +377,22 @@ body {
   padding-left: 1rem;
 }
 
+.home-author {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.author-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 0.7rem;
+  border: 2px solid #b8e4dc;
+  box-shadow: 0 6px 16px rgba(9, 67, 70, 0.16);
+}
+
 .table-wrap {
   overflow-x: auto;
 }
@@ -458,6 +474,15 @@ body {
 
   .home-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-author {
+    grid-template-columns: 1fr;
+  }
+
+  .author-photo {
+    width: 180px;
+    height: 180px;
   }
 
 }
