@@ -25,6 +25,7 @@ permalink: /
     <li><a href="{{ '/bioinformatics-data-analysis-focused-ngs/' | relative_url }}">Bioinformatics Data Analysis Focused (NGS)</a></li>
     <li><a href="{{ '/machine-learning/' | relative_url }}">Machine Learning</a></li>
     <li><a href="{{ '/multiomics-data-integration/' | relative_url }}">Multi-Omics Data Integration</a></li>
+    <li><a href="{{ '/single-cell-and-spatial-omics-analysis/' | relative_url }}">Single-Cell and Spatial Omics Analysis</a></li>
   </ol>
 </section>
 

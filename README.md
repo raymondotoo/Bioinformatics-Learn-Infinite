@@ -18,6 +18,7 @@ This platform is to serve all who are interested in either mastering/polishing t
 5.  [Bioinformatics Data Analysis-Focused (NGS)](./bioinformatics-data-analysis-focused-ngs.md)
 6.  [Machine Learning](./machine-learning.md)
 7.  [Multi-Omics Data Integration](./multiomics-data-integration.md)
+8.  [Single-Cell and Spatial Omics Analysis](./single-cell-and-spatial-omics-analysis.md)
 
 ## Explore our Learning Center
 
