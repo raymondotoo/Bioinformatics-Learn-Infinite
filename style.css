@@ -442,6 +442,49 @@ body {
   font-size: 0.92rem;
 }
 
+.connect-extra {
+  margin-top: 0.9rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #cce9e3;
+  background: linear-gradient(140deg, #f9fdff 0%, #edf5ff 100%);
+  border-radius: 0.65rem;
+}
+
+.connect-extra h3 {
+  margin: 0 0 0.35rem;
+  color: #0f5f67;
+  font-size: 1rem;
+}
+
+.connect-extra p {
+  margin: 0;
+}
+
+.connect-extra ol {
+  margin: 0.45rem 0 0.65rem;
+  padding-left: 1.1rem;
+}
+
+.connect-extra li {
+  margin: 0.22rem 0;
+}
+
+.connect-extra-link {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 0.4rem;
+  padding: 0.45rem 0.72rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.connect-extra-link:hover {
+  background: #0b5f59;
+}
+
 .author-photo {
   width: 160px;
   height: 160px;

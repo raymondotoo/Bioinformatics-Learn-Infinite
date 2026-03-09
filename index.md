@@ -48,6 +48,16 @@ permalink: /
       <blockquote id="quote-of-day-text">Science is not only a disciple of reason but, also, one of romance and passion.</blockquote>
       <p class="quote-author" id="quote-of-day-author">- Stephen Hawking</p>
     </section>
+    <section class="connect-extra">
+      <h3>Start Here</h3>
+      <p>If you are new, begin with the first three pathways in sequence.</p>
+      <ol>
+        <li><a href="{{ '/introduction-to-bioinformatics/' | relative_url }}">Introduction to Bioinformatics</a></li>
+        <li><a href="{{ '/biology-fundamentals-for-bioinformatics/' | relative_url }}">Biology Fundamentals</a></li>
+        <li><a href="{{ '/statistical-analysis-and-inference/' | relative_url }}">Statistical Analysis and Inference</a></li>
+      </ol>
+      <a class="connect-extra-link" href="{{ site.feedback.form_url }}" target="_blank" rel="noopener">Share Feedback</a>
+    </section>
   </article>
 </section>
 
