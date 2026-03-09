@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Chapter 7: Statistics for Bioinformatics
+# 7: Statistics for Bioinformatics
 
 ## 7.1 The Language of Evidence
 
