@@ -460,13 +460,23 @@ body {
   margin: 0;
 }
 
-.connect-extra ol {
-  margin: 0.45rem 0 0.65rem;
-  padding-left: 1.1rem;
+.tip-kicker {
+  margin-top: 0.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.connect-extra li {
-  margin: 0.22rem 0;
+#featured-tip-title {
+  margin-bottom: 0.28rem;
+}
+
+#featured-tip-text {
+  margin-bottom: 0.7rem;
+  color: var(--ink-soft);
 }
 
 .connect-extra-link {

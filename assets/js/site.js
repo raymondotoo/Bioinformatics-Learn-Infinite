@@ -160,4 +160,29 @@
     quoteText.textContent = quote.text;
     quoteAuthor.textContent = '- ' + quote.author;
   }
+
+  var tipTitle = document.getElementById('featured-tip-title');
+  var tipText = document.getElementById('featured-tip-text');
+  var tipLink = document.getElementById('featured-tip-link');
+  if (tipTitle && tipText && tipLink) {
+    var weeklyTips = [];
+    var tipsData = document.getElementById('weekly-tips-data');
+
+    if (tipsData && tipsData.textContent) {
+      try {
+        weeklyTips = JSON.parse(tipsData.textContent);
+      } catch (error) {
+        weeklyTips = [];
+      }
+    }
+
+    if (Array.isArray(weeklyTips) && weeklyTips.length > 0) {
+      var weekIndex = Math.floor(Date.now() / 604800000) % weeklyTips.length;
+      var tip = weeklyTips[weekIndex];
+      tipTitle.textContent = tip.title || '';
+      tipText.textContent = tip.text || '';
+      tipLink.href = tip.url || '#';
+      tipLink.textContent = tip.link_label || 'Open this week\'s resource';
+    }
+  }
 })();

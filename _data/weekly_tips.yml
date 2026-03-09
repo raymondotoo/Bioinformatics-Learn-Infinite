@@ -1,0 +1,29 @@
+- title: Check read quality before trimming.
+  text: Run FastQC first to identify adapter contamination and poor-cycle quality before setting trimming thresholds.
+  url: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+  link_label: Learn FastQC basics
+
+- title: Keep sample metadata clean from day one.
+  text: Use consistent sample IDs and a single metadata table so analysis scripts remain reproducible.
+  url: https://hbctraining.github.io/Intro-to-rnaseq-hpc-O2/lessons/04_alignment_file_formats.html
+  link_label: See RNA-seq workflow notes
+
+- title: Visualize distributions before hypothesis testing.
+  text: Plot histograms and boxplots first to spot outliers, skew, and batch effects before statistical inference.
+  url: https://www.biostars.org/p/18211/
+  link_label: Read distribution-check guidance
+
+- title: Use versioned environments for every project.
+  text: Pin tool versions with Conda or containers so results are portable across machines and collaborators.
+  url: https://bioconda.github.io/
+  link_label: Use Bioconda packages
+
+- title: Validate model performance with proper splits.
+  text: Always separate training, validation, and test sets to avoid leakage and inflated performance estimates.
+  url: https://scikit-learn.org/stable/common_pitfalls.html
+  link_label: Review ML pitfalls
+
+- title: Inspect alignment summaries after mapping.
+  text: Review mapping rates and duplication metrics before continuing to quantification or variant calling.
+  url: https://broadinstitute.github.io/picard/picard-metric-definitions.html
+  link_label: Explore alignment metrics

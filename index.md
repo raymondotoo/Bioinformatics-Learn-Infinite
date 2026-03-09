@@ -49,15 +49,13 @@ permalink: /
       <p class="quote-author" id="quote-of-day-author">- Stephen Hawking</p>
     </section>
     <section class="connect-extra">
-      <h3>Start Here</h3>
-      <p>If you are new, begin with the first three pathways in sequence.</p>
-      <ol>
-        <li><a href="{{ '/introduction-to-bioinformatics/' | relative_url }}">Introduction to Bioinformatics</a></li>
-        <li><a href="{{ '/biology-fundamentals-for-bioinformatics/' | relative_url }}">Biology Fundamentals</a></li>
-        <li><a href="{{ '/statistical-analysis-and-inference/' | relative_url }}">Statistical Analysis and Inference</a></li>
-      </ol>
-      <a class="connect-extra-link" href="{{ site.feedback.form_url }}" target="_blank" rel="noopener">Share Feedback</a>
+      <h3>Featured Resource of the Week</h3>
+      <p class="tip-kicker">Latest bioinformatics tip</p>
+      <p id="featured-tip-title"><strong>Read FASTQ quality profiles before trimming.</strong></p>
+      <p id="featured-tip-text">Use a quick QC pass to avoid over-trimming and preserve informative reads for downstream analysis.</p>
+      <a class="connect-extra-link" id="featured-tip-link" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" target="_blank" rel="noopener">Open this week’s resource</a>
     </section>
+    <script id="weekly-tips-data" type="application/json">{{ site.data.weekly_tips | jsonify }}</script>
   </article>
 </section>
 
