@@ -333,6 +333,29 @@ body {
   padding-top: 0;
 }
 
+.learning-goals-card {
+  border: 1px solid #bee6df;
+  background: linear-gradient(145deg, #f3fcfb 0%, #e4f8f5 100%);
+  border-radius: 0.8rem;
+  padding: 1rem 1.1rem;
+  margin: 1rem 0 0.8rem;
+}
+
+.learning-goals-card h2 {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0;
+}
+
+.learning-goals-card p {
+  margin: 0 0 0.35rem;
+}
+
+.learning-goals-card ol {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
 .home-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;

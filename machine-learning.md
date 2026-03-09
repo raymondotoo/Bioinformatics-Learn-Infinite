@@ -9,14 +9,15 @@ permalink: /machine-learning/
 
 Machine learning helps detect patterns in high-dimensional biological data and build predictive models for diagnosis, prognosis, and discovery.
 
-## Learning Goals
-
-By the end of this chapter, you should be able to:
+<section class="learning-goals-card">
+<h2>Learning Goals</h2>
+<p>By the end of this chapter, you should be able to:</p>
 
 1. Explain key ML concepts with bioinformatics examples.
 2. Distinguish supervised and unsupervised learning.
 3. Choose suitable evaluation metrics.
 4. Identify overfitting, data leakage, and class imbalance issues.
+</section>
 
 ## When to Use Machine Learning
 

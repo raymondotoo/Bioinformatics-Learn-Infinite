@@ -7,6 +7,16 @@ permalink: /statistical-analysis-and-inference/
 
 # Statistics for Bioinformatics
 
+<section class="learning-goals-card">
+<h2>Learning Goals</h2>
+<p>By the end of this chapter, you should be able to:</p>
+
+1. Explain key statistical concepts used in bioinformatics.
+2. Interpret p-values and multiple-testing corrections correctly.
+3. Understand why FDR control is essential for omics studies.
+4. Use PCA for exploratory analysis of high-dimensional data.
+</section>
+
 ## The Language of Evidence
 
 Bioinformatics is data-driven. When we observe a difference—say, gene A is expressed more in tumor cells than normal cells—we need to know if this difference is real or just random noise. Statistics provides the framework to quantify this uncertainty.

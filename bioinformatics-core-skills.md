@@ -9,15 +9,16 @@ permalink: /bioinformatics-core-skills/
 
 This chapter covers the practical technical skills every bioinformatics learner needs to move from theory to real analysis.
 
-## Learning Goals
-
-By the end of this chapter, you should be able to:
+<section class="learning-goals-card">
+<h2>Learning Goals</h2>
+<p>By the end of this chapter, you should be able to:</p>
 
 1. Navigate Linux confidently.
 2. Inspect and transform text-based biological files.
 3. Write simple scripts in Python and R.
 4. Use Git for version control and collaboration.
 5. Build reproducible workflows.
+</section>
 
 ## Linux Command Line Essentials
 

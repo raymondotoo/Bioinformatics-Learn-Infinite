@@ -9,14 +9,15 @@ permalink: /introduction-to-bioinformatics/
 
 ![Introduction to Bioinformatics](https://lh3.googleusercontent.com/sitesv/APaQ0SRq1iH5Lx16dubfPvwtWz4eLmJYwpbRdPy_xBrNcWZ_c10xQDFWJxYjHSf_8zjGw3X90-RJ22OUgDyFM0n02Tk_Oe3pmUn-H_QnESIKhzIIJGAqD4LUHP5fGam9Cv0-s1DFjidgbIzxAtOaSaYwVVhu7gRvLG9HbSa9bGHIxPBrQIVf7obwFamDMqo=w16383)
 
-## Learning Goals
-
-By the end of this chapter, you should be able to:
+<section class="learning-goals-card">
+<h2>Learning Goals</h2>
+<p>By the end of this chapter, you should be able to:</p>
 
 1. Explain what bioinformatics is in plain language.
 2. Describe how biology, statistics, and computing work together.
 3. Recognize common bioinformatics data types and analysis tasks.
 4. Understand the historical milestones that shaped the field.
+</section>
 
 ## What is Bioinformatics?
 

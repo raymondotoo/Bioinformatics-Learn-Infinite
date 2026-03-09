@@ -9,14 +9,15 @@ permalink: /bioinformatics-data-analysis-focused-ngs/
 
 Next-Generation Sequencing (NGS) allows high-throughput measurement of genomes, transcriptomes, and epigenomes. This chapter focuses on practical analysis steps and how to avoid common mistakes.
 
-## Learning Goals
-
-By the end of this chapter, you should be able to:
+<section class="learning-goals-card">
+<h2>Learning Goals</h2>
+<p>By the end of this chapter, you should be able to:</p>
 
 1. Describe the NGS pipeline from raw reads to biological interpretation.
 2. Perform core quality checks before downstream analysis.
 3. Distinguish DNA-seq and RNA-seq workflows.
 4. Understand common outputs and quality metrics.
+</section>
 
 ## NGS Platforms and Data Types
 
