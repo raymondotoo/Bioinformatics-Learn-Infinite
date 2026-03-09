@@ -1,12 +1,12 @@
 :root {
-  --bg: #f3f8ff;
+  --bg: #f4f8ff;
   --surface: #ffffff;
-  --surface-soft: #e4efff;
-  --border: #a8c5ee;
+  --surface-soft: #eaf1ff;
+  --border: #b6c9e8;
   --ink: #0f2238;
-  --ink-soft: #3d5773;
-  --accent: #1f5ea8;
-  --accent-soft: #cddff9;
+  --ink-soft: #425b78;
+  --accent: #1f4f8f;
+  --accent-soft: #d6e3f8;
 }
 
 * {
@@ -210,7 +210,7 @@ body {
 }
 
 .page-search-controls button:hover {
-  background: #184b88;
+  background: #173f73;
 }
 
 .page-search-status {
@@ -523,7 +523,7 @@ body {
 }
 
 .connect-extra-link:hover {
-  background: #184b88;
+  background: #173f73;
 }
 
 .author-photo {
@@ -589,8 +589,8 @@ body {
   margin-top: 0.25rem;
   text-decoration: none;
   color: #ffffff;
-  background: #1f5ea8;
-  border: 1px solid #1f5ea8;
+  background: #1f4f8f;
+  border: 1px solid #1f4f8f;
   border-radius: 999px;
   padding: 0.25rem 0.65rem;
   font-size: 0.86rem;
@@ -598,7 +598,7 @@ body {
 }
 
 .blog-read-link:hover {
-  background: #184b88;
+  background: #173f73;
 }
 
 .latest-blog-panel {
@@ -665,7 +665,7 @@ body {
 }
 
 .feedback-button:hover {
-  background: #184b88;
+  background: #173f73;
 }
 
 @media (max-width: 960px) {
