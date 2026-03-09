@@ -47,42 +47,12 @@
         <section class="learning-support" aria-label="Learning support resources">
           <div class="support-card support-feedback">
             <h2>Give Feedback</h2>
-            <p class="support-note">Submit feedback below. You do not need a GitHub login. Feedback is written to this repository and synced into a CSV file automatically.</p>
-            {% assign max_words = site.feedback.max_words | default: 120 %}
-            {% if site.feedback.endpoint contains 'YOUR-WORKER' %}
-            <p class="support-note"><strong>Setup needed:</strong> set <code>feedback.endpoint</code> in <code>_config.yml</code> to your deployed Cloudflare Worker URL.</p>
+            <p class="support-note">Use the feedback form to share what worked, what was unclear, and what should be improved.</p>
+            {% if site.feedback.form_url contains 'YOUR_FORM_ID' %}
+            <p class="support-note"><strong>Setup needed:</strong> set <code>feedback.form_url</code> in <code>_config.yml</code> to your Google Form URL.</p>
+            {% else %}
+            <a class="feedback-button" href="{{ site.feedback.form_url }}" target="_blank" rel="noopener noreferrer">Open Feedback Form</a>
             {% endif %}
-            <form
-              id="feedback-form"
-              class="feedback-form"
-              method="POST"
-              action="{{ site.feedback.endpoint }}"
-              data-max-words="{{ max_words }}">
-              <input type="hidden" name="options[slug]" value="{{ page.url | slugify }}">
-              <input type="hidden" name="options[redirect]" value="{{ page.url | relative_url }}?feedback=thanks">
-              <input type="hidden" name="fields[page]" value="{{ page.title }} ({{ page.url }})">
-              <input type="hidden" name="fields[source]" value="website-form">
-              <input type="text" name="fields[botcheck]" tabindex="-1" autocomplete="off" class="feedback-honey">
-
-              <label for="feedback-email">Email</label>
-              <input id="feedback-email" name="fields[email]" type="email" required placeholder="you@example.com">
-
-              <label for="feedback-message">Feedback</label>
-              <textarea
-                id="feedback-message"
-                name="fields[message]"
-                rows="5"
-                required
-                maxlength="1200"
-                placeholder="What was helpful? What should be improved?"></textarea>
-
-              <p id="feedback-word-count" class="feedback-meta">0 / {{ max_words }} words</p>
-              <p id="feedback-error" class="feedback-error" aria-live="polite"></p>
-
-              <button type="submit" class="feedback-submit">
-                Send Feedback
-              </button>
-            </form>
           </div>
         </section>
         {% endif %}

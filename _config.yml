@@ -9,5 +9,4 @@ defaults:
       layout: default
 show_downloads: false
 feedback:
-  max_words: 120
-  endpoint: "https://YOUR-WORKER.workers.dev"
+  form_url: "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform"
