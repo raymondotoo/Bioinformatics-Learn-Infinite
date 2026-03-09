@@ -3,6 +3,8 @@ layout: default
 title: Machine Learning in Bioinformatics
 description: Core machine learning concepts and applications in omics research.
 permalink: /machine-learning/
+youtube_video_title: Machine Learning for Bioinformatics
+youtube_video_id: 87bhDuq9ib0
 ---
 
 # Machine Learning in Bioinformatics

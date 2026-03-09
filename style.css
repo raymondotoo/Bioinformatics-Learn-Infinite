@@ -271,6 +271,60 @@ body {
   text-align: left;
 }
 
+.learning-support {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.support-card {
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  padding: 1rem;
+  background: #f9fcff;
+}
+
+.support-card h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.support-note {
+  margin: 0 0 0.8rem;
+  color: var(--ink-soft);
+}
+
+.video-frame-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 0.45rem;
+  overflow: hidden;
+  background: #e7edf4;
+}
+
+.video-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.feedback-button {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 0.4rem;
+  padding: 0.55rem 0.8rem;
+  font-weight: 600;
+}
+
+.feedback-button:hover {
+  background: #0a3f62;
+}
+
 .search-hit {
   background: #fff5b8;
   transition: background-color 0.2s ease-in-out;

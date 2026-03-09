@@ -3,6 +3,8 @@ layout: default
 title: Statistical Analysis and Inference
 description: Hypothesis testing and statistics essentials for bioinformatics.
 permalink: /statistical-analysis-and-inference/
+youtube_video_title: P-values and Statistical Significance Explained
+youtube_video_id: vemZtEM63GY
 ---
 
 # 7: Statistics for Bioinformatics

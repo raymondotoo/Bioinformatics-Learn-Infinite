@@ -3,6 +3,8 @@ layout: default
 title: Neuro-imaging Data Analysis
 description: Core neuroinformatics modalities, preprocessing, and analysis basics.
 permalink: /neuro-imaging-data-analysis/
+youtube_video_title: fMRI Data Analysis and Preprocessing
+youtube_video_id: ZL-Tr1KSMKY
 ---
 
 # Neuro-imaging Data Analysis

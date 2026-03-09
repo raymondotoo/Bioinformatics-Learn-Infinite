@@ -3,6 +3,8 @@ layout: default
 title: Biology Fundamentals for Bioinformatics
 description: Core molecular biology concepts every bioinformatics learner needs.
 permalink: /biology-fundamentals-for-bioinformatics/
+youtube_video_title: Central Dogma of Molecular Biology
+youtube_video_id: wW90gn-M4kI
 ---
 
 # Biology Fundamentals for Bioinformatics
@@ -44,7 +46,11 @@ Cells do not directly use DNA as a working copy. Instead, a gene is transcribed 
 - RNA acts as an intermediate messenger.
 - In RNA, **U (uracil)** replaces **T (thymine)**.
 
-Process summary: **DNA -> RNA**
+Process summary:
+
+```text
+DNA -> RNA
+```
 
 ## Translation and Proteins
 
@@ -54,11 +60,17 @@ Ribosomes read mRNA in 3-letter units called **codons**.
 - Amino acids join to form proteins.
 - Protein structure determines function.
 
-Process summary: **RNA -> Protein**
+Process summary:
+
+```text
+RNA -> Protein
+```
 
 ## Central Dogma: Big Picture
 
-**DNA -> RNA -> Protein**
+```text
+DNA -> RNA -> Protein
+```
 
 This information flow underlies most analyses in bioinformatics:
 
