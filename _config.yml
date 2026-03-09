@@ -9,4 +9,4 @@ defaults:
       layout: default
 show_downloads: false
 feedback:
-  form_url: "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform"
+  form_url: "https://docs.google.com/forms/d/e/1FAIpQLSfN3JGG7rj_s0QrAavJFJpm5FFmIzIdLim-Ua6NAvILtqpZEQ/viewform?usp=publish-editor"
