@@ -46,7 +46,9 @@ Raymond Otoo is a Bioinformatician with 3+ years of experience in Bioinformatics
 
 ## Support Us
 
-[Donate via PayPal](https://www.paypal.com/donate/?hosted_button_id=8JHU8H2AZFU8Q)
+<a href="https://www.paypal.com/donate/?hosted_button_id=8JHU8H2AZFU8Q">
+  <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate with PayPal button" />
+</a>
 
 ---
 
