@@ -10,4 +10,4 @@ defaults:
 show_downloads: false
 feedback:
   max_words: 120
-  endpoint: "https://formsubmit.co/raymondotoo115@gmail.com"
+  endpoint: "https://YOUR-WORKER.workers.dev"

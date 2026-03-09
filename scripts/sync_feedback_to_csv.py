@@ -1,141 +1,88 @@
 #!/usr/bin/env python3
-"""Sync feedback issues into data/feedback.csv.
+"""Build data/feedback.csv from feedback files written into _data/feedback/.
 
-Expected source issues:
-- repository: current repo
-- label: learning-feedback
-
-CSV columns:
-source,issue_number,created_at,updated_at,page,email,message,issue_url,title,state
+Expected source files are created by Staticman according to staticman.yml.
 """
 
 import csv
-import json
+import datetime as dt
+import glob
 import os
-import re
-import sys
-import urllib.parse
-import urllib.request
+from pathlib import Path
 
-API_BASE = "https://api.github.com"
-LABEL = "learning-feedback"
+import yaml
+
+INPUT_GLOB = "_data/feedback/**/*.*"
 OUTPUT_PATH = "data/feedback.csv"
 
 
-def github_get(url: str, token: str):
-    req = urllib.request.Request(url)
-    req.add_header("Accept", "application/vnd.github+json")
-    req.add_header("Authorization", f"Bearer {token}")
-    req.add_header("X-GitHub-Api-Version", "2022-11-28")
-    with urllib.request.urlopen(req) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+def to_iso_from_timestamp_name(stem: str):
+    # Handles names like entry1700000000000 or entry1700000000
+    digits = "".join(ch for ch in stem if ch.isdigit())
+    if not digits:
+        return ""
+
+    try:
+        ts = int(digits)
+        if ts > 10_000_000_000:  # likely milliseconds
+            ts = ts / 1000.0
+        return dt.datetime.utcfromtimestamp(ts).isoformat() + "Z"
+    except Exception:
+        return ""
 
 
-def fetch_feedback_issues(repo: str, token: str):
-    """Fetch all open/closed issues with the feedback label."""
-    page = 1
-    per_page = 100
-    results = []
-
-    while True:
-        params = urllib.parse.urlencode(
-            {
-                "state": "all",
-                "labels": LABEL,
-                "per_page": per_page,
-                "page": page,
-            }
-        )
-        url = f"{API_BASE}/repos/{repo}/issues?{params}"
-        issues = github_get(url, token)
-
-        # Exclude pull requests (GitHub returns PRs from issues API).
-        issues = [item for item in issues if "pull_request" not in item]
-
-        if not issues:
-            break
-
-        results.extend(issues)
-        if len(issues) < per_page:
-            break
-        page += 1
-
-    return results
-
-
-def parse_issue_body(body: str):
-    body = body or ""
-
-    # Supports several templates; fallbacks try best-effort extraction.
-    page = ""
-    email = ""
-    message = body.strip()
-
-    page_match = re.search(r"^Page:\s*(.+)$", body, flags=re.MULTILINE)
-    if page_match:
-        page = page_match.group(1).strip()
-
-    email_match = re.search(r"(?:^|\n)(?:Email|email)\s*:\s*([^\n]+)", body)
-    if email_match:
-        email = email_match.group(1).strip()
-    else:
-        generic_email_match = re.search(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}", body)
-        if generic_email_match:
-            email = generic_email_match.group(0)
-
-    message_match = re.search(r"(?:^|\n)(?:Suggested improvement|Feedback|Message)\s*:\s*(.+)$", body, flags=re.MULTILINE)
-    if message_match:
-        message = message_match.group(1).strip()
-
-    return page, email, message
-
-
-def normalize_text(value: str):
-    return " ".join((value or "").split())
+def normalize_text(value):
+    if value is None:
+        return ""
+    return " ".join(str(value).split())
 
 
 def main():
-    repo = os.environ.get("GITHUB_REPOSITORY")
-    token = os.environ.get("GITHUB_TOKEN")
-
-    if not repo or not token:
-        print("Missing GITHUB_REPOSITORY or GITHUB_TOKEN", file=sys.stderr)
-        sys.exit(1)
-
-    issues = fetch_feedback_issues(repo, token)
+    files = sorted(glob.glob(INPUT_GLOB, recursive=True))
     rows = []
 
-    for issue in issues:
-        page, email, message = parse_issue_body(issue.get("body") or "")
+    for file_path in files:
+        ext = Path(file_path).suffix.lower()
+        if ext not in {".yml", ".yaml", ".json"}:
+            continue
+
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                payload = yaml.safe_load(f) or {}
+        except Exception:
+            continue
+
+        stem = Path(file_path).stem
+        created_at = to_iso_from_timestamp_name(stem)
+        if not created_at:
+            created_at = dt.datetime.utcfromtimestamp(os.path.getmtime(file_path)).isoformat() + "Z"
+
+        rel = Path(file_path).as_posix()
+        page_folder = Path(rel).parent.name
+
         rows.append(
             {
-                "source": "github_issue",
-                "issue_number": str(issue.get("number", "")),
-                "created_at": issue.get("created_at", ""),
-                "updated_at": issue.get("updated_at", ""),
-                "page": normalize_text(page),
-                "email": normalize_text(email),
-                "message": normalize_text(message),
-                "issue_url": issue.get("html_url", ""),
-                "title": normalize_text(issue.get("title", "")),
-                "state": issue.get("state", ""),
+                "source": normalize_text(payload.get("source") or "website-form"),
+                "entry_id": normalize_text(stem),
+                "created_at": created_at,
+                "page": normalize_text(payload.get("page") or page_folder),
+                "email": normalize_text(payload.get("email")),
+                "message": normalize_text(payload.get("message")),
+                "file_path": rel,
             }
         )
 
-    rows.sort(key=lambda x: (x["created_at"], x["issue_number"]))
+    rows.sort(key=lambda x: (x["created_at"], x["entry_id"]))
 
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     fieldnames = [
         "source",
-        "issue_number",
+        "entry_id",
         "created_at",
-        "updated_at",
         "page",
         "email",
         "message",
-        "issue_url",
-        "title",
-        "state",
+        "file_path",
     ]
 
     with open(OUTPUT_PATH, "w", newline="", encoding="utf-8") as f:
