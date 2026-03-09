@@ -87,7 +87,7 @@ The publication of the draft sequence of the human genome in 2001 signaled the f
 
 **Raymond Otoo, Ph.D.**
 
-Raymond Otoo is a Bioinformatician with 3+ years of experience in Bioinformatics Research and Machine Learning, with a demonstrated command of Object Oriented programming and data structures. Focused on further developing acquired skills by learning from top teams and completing development projects. He loves to share his knowledge and experience and is open to collaborations.
+Dr. Raymond Otoo is a Bioinformatics Scientist with 5+ years of experience at the intersection of bioinformatics research and machine learning. He specializes in integrative multimodal omics analytics, leveraging AI-driven approaches to advance translational discovery and enhance disease modeling. At the Barrow Neuroanalytics Center of the BNI, his current work focuses on uncovering risk factors and molecular mechanisms underlying Alzheimer’s disease and traumatic brain injury through integrative analysis of terabyte-scale genomics, proteomics, transcriptomics, and neuroimaging data. Outside of research, Raymond enjoys traveling and photography, passions that inspire his curiosity and creativity. Raymond is always open to connect and collaborate on innovative bioinformatics challenges!
 
 ## Connect with Us
 
