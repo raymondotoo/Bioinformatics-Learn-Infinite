@@ -2,62 +2,38 @@
 layout: default
 ---
 
-# Biology Fundamentals for Bioinformatics
 # Chapter 1: Introduction to the Central Dogma
 
-To understand bioinformatics, one must first understand the biological data being analyzed. This section covers the essential biological concepts required for computational analysis.
 Welcome to the very beginning of our journey into bioinformatics! Before we can run complex analyses or write scripts, we must first understand the fundamental story of life that is written inside every living cell. This story is called the **Central Dogma of Molecular Biology**.
 
-## The Cell
 Think of it as the core process, the assembly line, that turns the information stored in a cell's library into the functional machines that do all the work.
 
-*   **Prokaryotes vs. Eukaryotes**: Understanding the differences in cellular structure and genome organization.
-*   **Organelles**: The function of the nucleus, mitochondria, ribosomes, and other cellular components.
 ## 1.1 What is Bioinformatics?
 
-## The Central Dogma of Molecular Biology
 <p align="center">
   <img src="https://placehold.co/600x300/E8F5E9/333333?text=Bioinformatics:\nAnalyzing+Biological+Data" alt="Illustration of Bioinformatics Concept">
 </p>
 
-The flow of genetic information within a biological system is often described as:
 Imagine you have a library containing thousands of massive books, and you need to find specific sentences, compare paragraphs across different volumes, and understand the grammar of the language they're written in. Doing this by hand would be impossible.
 
-**DNA $\rightarrow$ RNA $\rightarrow$ Protein**
 Bioinformatics is the field of using computers and statistics to solve biological problems. It's our computational toolkit for reading, understanding, and comparing the massive "books" of life—our DNA. We use it to find the "sentences" (genes) that cause diseases, compare the "grammar" (evolutionary relationships) between species, and much more.
 
-1.  **Replication**: How DNA copies itself.
-2.  **Transcription**: The synthesis of RNA from a DNA template.
-3.  **Translation**: The synthesis of proteins from an mRNA template.
 ## 1.2 DNA: The Blueprint of Life
 
-## Genetic Material
 At the heart of it all is **Deoxyribonucleic Acid (DNA)**.
 
-### DNA (Deoxyribonucleic Acid)
-*   Structure: Double helix, nucleotides (A, T, C, G).
-*   Function: Long-term storage of genetic information.
 <p align="center">
   <img src="https://placehold.co/600x400/E8F5E9/333333?text=DNA+Double+Helix\n(A-T,+C-G)" alt="Illustration of DNA Double Helix">
 </p>
 
-### RNA (Ribonucleic Acid)
-*   Structure: Single-stranded, nucleotides (A, U, C, G).
-*   Types: mRNA, tRNA, rRNA, and non-coding RNAs.
 *   **The Cookbook:** DNA is the master cookbook of the cell. It contains all the recipes—called **genes**—needed to build and operate an entire organism.
 *   **The Alphabet:** This cookbook is written in a simple, four-letter alphabet: **A** (Adenine), **T** (Thymine), **C** (Cytosine), and **G** (Guanine).
 *   **The Structure:** These letters are arranged in a beautiful structure called a **double helix**. Imagine a twisted ladder. The two long backbones of the ladder are made of sugar and phosphate, and the "rungs" are made of pairs of our letters. A always pairs with T, and C always pairs with G.
 
-### Proteins
-*   Structure: Amino acids, polypeptide chains, folding (primary, secondary, tertiary, quaternary structures).
-*   Function: Enzymes, signaling, structural support.
 This entire cookbook for an organism is called its **genome**.
 
-## Genomics
 ## 1.3 Transcription: From DNA to RNA
 
-*   **Genes**: The basic physical and functional unit of heredity.
-*   **Genomes**: The complete set of DNA (including all of its genes) in an organism.
 <p align="center">
   <img src="https://placehold.co/600x300/E8F5E9/333333?text=Transcription:\nDNA+to+RNA" alt="Illustration of Transcription">
 </p>
