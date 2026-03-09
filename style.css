@@ -253,6 +253,30 @@ body {
   font-size: 0.9rem;
 }
 
+.toc-support {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #cfe7e1;
+}
+
+.toc-support-label {
+  margin: 0 0 0.45rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.toc-paypal-link {
+  display: inline-block;
+}
+
+.toc-paypal-link img {
+  max-width: 100%;
+  height: auto;
+}
+
 .content-pane {
   background: var(--surface);
   overflow-y: auto;
@@ -599,28 +623,6 @@ body {
 .latest-blog-card h3 a:hover {
   text-decoration: underline;
 }
-
-.support-home-panel {
-  text-align: center;
-  background: linear-gradient(140deg, #fffdf4 0%, #f7fbff 100%);
-}
-
-.support-home-panel p {
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.paypal-donate-link {
-  display: inline-block;
-  margin-top: 0.35rem;
-}
-
-.paypal-donate-link img {
-  max-width: 100%;
-  height: auto;
-}
-
 
 .learning-support {
   margin-top: 2rem;

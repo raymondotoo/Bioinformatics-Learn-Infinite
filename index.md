@@ -78,14 +78,6 @@ permalink: /
   {% endif %}
 </section>
 
-<section class="home-panel support-home-panel">
-  <h2>Support This Platform</h2>
-  <p>If these tutorials are useful, you can support ongoing content development through PayPal.</p>
-  <a class="paypal-donate-link" href="https://www.paypal.com/donate/?hosted_button_id=8JHU8H2AZFU8Q" target="_blank" rel="noopener noreferrer">
-    <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate with PayPal button" />
-  </a>
-</section>
-
 <section class="home-panel">
   <h2>Explore External Learning Resources</h2>
   <div class="table-wrap">
