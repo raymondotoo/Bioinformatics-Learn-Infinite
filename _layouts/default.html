@@ -45,49 +45,23 @@
 
         {% if page.url != '/' %}
         <section class="learning-support" aria-label="Learning support resources">
-          {% if page.youtube_video_id %}
-          <div class="support-card">
-            <h2>Video Walkthrough</h2>
-            {% if page.youtube_video_title %}
-            <p class="support-note">{{ page.youtube_video_title }}</p>
-            {% endif %}
-            <div class="video-frame-wrap">
-              <iframe
-                class="video-frame"
-                src="https://www.youtube-nocookie.com/embed/{{ page.youtube_video_id }}"
-                title="YouTube video player"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-          {% endif %}
-
           <div class="support-card">
             <h2>Give Feedback</h2>
-            <p class="support-note">Spotted a gap, typo, or unclear explanation? Send feedback directly to GitHub Issues.</p>
-            {% capture feedback_title %}Feedback: {{ page.title }}{% endcapture %}
-            {% capture feedback_body %}Page: {{ page.title }}
-Path: {{ page.url }}
-
-What worked well?
-- 
-
-What was unclear or missing?
-- 
-
-Suggested improvement:
-- 
-{% endcapture %}
-            <a
-              class="feedback-button"
-              href="https://github.com/raymondotoo/Bioinformatics-Learn-Infinite/issues/new?title={{ feedback_title | cgi_escape }}&body={{ feedback_body | cgi_escape }}"
-              target="_blank"
-              rel="noopener noreferrer">
-              Submit Feedback in GitHub Issues
-            </a>
+            <p class="support-note">Share feedback directly on this page. It is stored in GitHub Issues behind the scenes.</p>
+            <div class="feedback-widget">
+              <script
+                src="https://utteranc.es/client.js"
+                repo="raymondotoo/Bioinformatics-Learn-Infinite"
+                issue-term="pathname"
+                label="learning-feedback"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+              </script>
+            </div>
+            <noscript>
+              Enable JavaScript to use the in-page feedback widget.
+            </noscript>
           </div>
         </section>
         {% endif %}
