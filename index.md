@@ -24,7 +24,7 @@ permalink: /
     <li><a href="{{ '/bioinformatics-core-skills/' | relative_url }}">Bioinformatics Core Skills</a></li>
     <li><a href="{{ '/bioinformatics-data-analysis-focused-ngs/' | relative_url }}">Bioinformatics Data Analysis Focused (NGS)</a></li>
     <li><a href="{{ '/machine-learning/' | relative_url }}">Machine Learning</a></li>
-    <li><a href="{{ '/neuro-imaging-data-analysis/' | relative_url }}">Neuro-imaging Data Analysis</a></li>
+    <li><a href="{{ '/multiomics-data-integration/' | relative_url }}">Multi-Omics Data Integration</a></li>
   </ol>
 </section>
 
