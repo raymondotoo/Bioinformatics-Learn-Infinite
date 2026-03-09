@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-label="Biology Fundamentals banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f6f43"/>
+      <stop offset="100%" stop-color="#4caf50"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="520" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1600" height="520" fill="#00000010"/>
+  <circle cx="150" cy="120" r="80" fill="#ffffff20"/>
+  <circle cx="1460" cy="110" r="120" fill="#ffffff16"/>
+  <path d="M0 380 C250 310, 470 440, 760 380 C1020 330, 1270 430, 1600 350 L1600 520 L0 520 Z" fill="#ffffff1f"/>
+  <text x="90" y="205" fill="#ffffff" font-family="Georgia, serif" font-size="64" font-weight="700">Biology Fundamentals</text>
+  <text x="90" y="285" fill="#ffffff" font-family="Georgia, serif" font-size="64" font-weight="700">for Bioinformatics</text>
+  <text x="92" y="340" fill="#e9ffe8" font-family="Verdana, sans-serif" font-size="28">DNA, RNA, proteins, and variation</text>
+</svg>

@@ -7,6 +7,8 @@ permalink: /neuro-imaging-data-analysis/
 
 # Neuro-imaging Data Analysis
 
+![Neuro-imaging Data Analysis banner]({{ '/assets/banners/neuroimaging.svg' | relative_url }})
+
 Neuro-imaging analysis combines neuroscience, statistics, and computing to understand brain structure and function.
 
 ## Learning Goals

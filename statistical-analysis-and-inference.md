@@ -7,6 +7,8 @@ permalink: /statistical-analysis-and-inference/
 
 # Statistics for Bioinformatics
 
+![Statistical Analysis and Inference banner]({{ '/assets/banners/statistics-and-inference.svg' | relative_url }})
+
 ## Learning Goals
 
 <section class="learning-goals-card" markdown="1">

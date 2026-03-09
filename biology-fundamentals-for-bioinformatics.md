@@ -7,6 +7,8 @@ permalink: /biology-fundamentals-for-bioinformatics/
 
 # Biology Fundamentals for Bioinformatics
 
+![Biology Fundamentals banner]({{ '/assets/banners/biology-fundamentals.svg' | relative_url }})
+
 Before analyzing real datasets, you need a clear mental model of how biological information flows in cells. This chapter introduces the concepts that repeatedly appear in genomics, transcriptomics, and proteomics analyses.
 
 ## Learning Goals

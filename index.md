@@ -7,7 +7,7 @@ permalink: /
 
 # Bioinformatics Learn Infinite
 
-![Bioinformatics Learn Infinite Banner](https://lh3.googleusercontent.com/sitesv/APaQ0SRq1iH5Lx16dubfPvwtWz4eLmJYwpbRdPy_xBrNcWZ_c10xQDFWJxYjHSf_8zjGw3X90-RJ22OUgDyFM0n02Tk_Oe3pmUn-H_QnESIKhzIIJGAqD4LUHP5fGam9Cv0-s1DFjidgbIzxAtOaSaYwVVhu7gRvLG9HbSa9bGHIxPBrQIVf7obwFamDMqo=w16383)
+![Bioinformatics Learn Infinite Banner]({{ '/assets/banners/home-banner.svg' | relative_url }})
 
 
 <section class="home-hero">

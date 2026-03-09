@@ -7,6 +7,8 @@ permalink: /bioinformatics-data-analysis-focused-ngs/
 
 # Bioinformatics Data Analysis Focused (NGS)
 
+![NGS Data Analysis banner]({{ '/assets/banners/ngs-analysis.svg' | relative_url }})
+
 Next-Generation Sequencing (NGS) allows high-throughput measurement of genomes, transcriptomes, and epigenomes. This chapter focuses on practical analysis steps and how to avoid common mistakes.
 
 ## Learning Goals

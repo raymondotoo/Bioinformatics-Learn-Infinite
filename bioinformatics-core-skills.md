@@ -7,6 +7,8 @@ permalink: /bioinformatics-core-skills/
 
 # Bioinformatics Core Skills
 
+![Bioinformatics Core Skills banner]({{ '/assets/banners/core-skills.svg' | relative_url }})
+
 This chapter covers the practical technical skills every bioinformatics learner needs to move from theory to real analysis.
 
 ## Learning Goals

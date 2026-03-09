@@ -7,6 +7,8 @@ permalink: /machine-learning/
 
 # Machine Learning in Bioinformatics
 
+![Machine Learning in Bioinformatics banner]({{ '/assets/banners/machine-learning.svg' | relative_url }})
+
 Machine learning helps detect patterns in high-dimensional biological data and build predictive models for diagnosis, prognosis, and discovery.
 
 ## Learning Goals

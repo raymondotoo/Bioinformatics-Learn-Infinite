@@ -7,7 +7,7 @@ permalink: /introduction-to-bioinformatics/
 
 # Introduction to Bioinformatics
 
-![Introduction to Bioinformatics](https://lh3.googleusercontent.com/sitesv/APaQ0SRq1iH5Lx16dubfPvwtWz4eLmJYwpbRdPy_xBrNcWZ_c10xQDFWJxYjHSf_8zjGw3X90-RJ22OUgDyFM0n02Tk_Oe3pmUn-H_QnESIKhzIIJGAqD4LUHP5fGam9Cv0-s1DFjidgbIzxAtOaSaYwVVhu7gRvLG9HbSa9bGHIxPBrQIVf7obwFamDMqo=w16383)
+![Introduction to Bioinformatics]({{ '/assets/banners/introduction-to-bioinformatics.svg' | relative_url }})
 
 ## Learning Goals
 
