@@ -9,101 +9,129 @@ permalink: /introduction-to-bioinformatics/
 
 ![Introduction to Bioinformatics](https://lh3.googleusercontent.com/sitesv/APaQ0SRq1iH5Lx16dubfPvwtWz4eLmJYwpbRdPy_xBrNcWZ_c10xQDFWJxYjHSf_8zjGw3X90-RJ22OUgDyFM0n02Tk_Oe3pmUn-H_QnESIKhzIIJGAqD4LUHP5fGam9Cv0-s1DFjidgbIzxAtOaSaYwVVhu7gRvLG9HbSa9bGHIxPBrQIVf7obwFamDMqo=w16383)
 
+## Learning Goals
+
+By the end of this chapter, you should be able to:
+
+1. Explain what bioinformatics is in plain language.
+2. Describe how biology, statistics, and computing work together.
+3. Recognize common bioinformatics data types and analysis tasks.
+4. Understand the historical milestones that shaped the field.
+
 ## What is Bioinformatics?
 
-The application of advanced computing techniques in analysis and managing biological data.
+Bioinformatics is the use of computing, mathematics, and statistics to understand biological data.
 
+In simple terms, it answers questions like:
 
-OR
+- Which genes are active in disease vs. healthy samples?
+- How similar are two DNA sequences?
+- Which mutation is likely harmful?
+- Which proteins may interact with a drug?
 
-"The mathematical, statistical and computing methods that aim to solve biological problems using DNA and amino acid sequences and related information." -Frank Tekaia
+A classic definition by Frank Tekaia describes it as mathematical, statistical, and computational methods used to solve biological problems using sequence information.
 
+## Why Bioinformatics Matters
 
-## What are the main Sub-disciplines in Bioinformatics?
+Modern biology produces huge amounts of data:
 
+- A single human genome has about 3 billion base pairs.
+- RNA-seq studies can include thousands of genes across hundreds of samples.
+- Imaging and multi-omics studies can generate terabytes of data.
 
-Three important sub-disciplines within bioinformatics:
+Without computational methods, this data cannot be analyzed efficiently or reproducibly.
 
-1. The development of new algorithms and statistics with which to assess relationships among members of large data sets;
-2. The analysis and interpretation of various types of data including nucleotide and amino acid sequences, protein domains, and protein structures, et.al.
-3. The development and implementation of tools that enable efficient access and management of different types of information.
+## Main Sub-disciplines
 
-## History of Bioinformatics
+Three major sub-disciplines are central in bioinformatics:
 
+1. **Method Development**
+   Building new algorithms and statistical methods to analyze large biological datasets.
+2. **Biological Interpretation**
+   Understanding sequence, structure, function, and pathways from data.
+3. **Tool and Database Engineering**
+   Creating software, pipelines, and databases for data storage and access.
 
-Computers emerged as important tools in molecular biology during the early 1960s. Margaret Dayhoff gathered all the available protein sequence data to create the first bioinformatics database in 1965.
+## Core Data Types in Bioinformatics
 
-* Dayhoff and co-workers organized the proteins into families and superfamilies based on degree of sequence similarity
-* Sequence alignment was introduced as well as special tables that reflected the frequency of changes observed in the sequences of a group of closely related proteins.
+- **DNA sequences**: FASTA, FASTQ
+- **RNA expression data**: count matrices, TPM/FPKM tables
+- **Protein sequences and structures**: UniProt, PDB
+- **Variants**: VCF files (SNPs, indels, structural variants)
+- **Epigenomics data**: methylation, ATAC-seq, ChIP-seq
+- **Clinical/phenotypic metadata**: sample labels, outcomes, covariates
 
-### Timeline
+## Short History of Bioinformatics
 
+Computers started to become useful in molecular biology in the 1960s.
 
-* **1965** Margaret Dayhoff's Atlas of Protein Sequences
-* **1970** Needleman-Wunsch algorithm
-* **1977** DNA sequence assembly, editing, and analysis tools (Staden package)
-* **1981** Smith-Waterman algorithm developed
-* **1981** The concept of a sequence motif (RF Doolittle)
-* **1982** GenBank Release 3 made public
-* **1982** Phage lambda genome (a bacterial virus) sequenced. The genome contains 48,490 base pairs of double-stranded, linear DNA
-* **1983** Sequence database searching algorithm (Wilbur-Lipman)
-* **1985** FASTP/FASTN: fast sequence similarity searching
-* **1987** EMBL, Genbank, Swiss-Prot databases
-* **1988** National Center for Biotechnology Information (NCBI) created at NIH/NLM
-* **1988** The European Molecular Biology network (EMBnet) was founded for database distribution. In 2011 EMBnet has 37 nodes spread over 32 countries.
-* **1990** BLAST: fast sequence similarity searching
-* **1991** EST (expressed sequence tag sequencing)
-* **1993** Sanger Centre, Hinxton, UK
-* **1994** EMBL European Bioinformatics Institute, Hinxton, UK
-* **1995** First bacterial genomes completely sequenced
-* **1996** Yeast genome completely sequenced
-* **1997** PSI-BLAST
-* **1998** Worm (multicellular) genome completely sequenced
-* **1999** Fly genome completely sequenced
+- Margaret Dayhoff built one of the earliest sequence databases in 1965.
+- Alignment algorithms (Needleman-Wunsch, Smith-Waterman) enabled sequence comparison.
+- GenBank and EMBL made sequence data publicly available.
+- BLAST made rapid similarity search possible.
+- The Human Genome Project accelerated large-scale computational biology.
 
-### The Human Genome Project
+### Timeline Highlights
 
+- **1965**: Dayhoff's Atlas of Protein Sequences
+- **1970**: Needleman-Wunsch algorithm
+- **1981**: Smith-Waterman algorithm
+- **1982**: GenBank public release
+- **1990**: BLAST introduced
+- **2001**: Draft human genome published
 
-The publication of the draft sequence of the human genome in 2001 signaled the future of bioinformatics.
+## Human Genome Project and Its Impact
 
-* **Diagnosis of disease and disease risks**
-    * DNA sequencing can detect the absence of a particular gene, or a mutation.
-    * Identification of specific gene sequences associated with diseases will permit fast and reliable diagnosis of conditions.
-* **Genetics of responses to therapy**
-    * Because people differ in their ability to metabolize drugs, different patients with the same condition may require different dosages.
-    * Sequence analysis permits selecting drugs and dosages optimal for individual patients.
+The Human Genome Project transformed biology from low-throughput experiments to data-driven discovery.
 
-## Fields
+Major impacts:
 
+- Faster disease gene discovery
+- Better diagnostic panels
+- Pharmacogenomics (drug response prediction)
+- Foundations for precision medicine
 
-* **Computation Biology**: Primarily concerned with evolutionary, population and theoretical biology, rather than the cellular or molecular level.
-* **Cheminformatics**: The study and application of computing methods, along with chemical and biological technology, for drug design and development.
-* **Biomedical Informatics**: Generally concerned with how the data is manipulated rather than the data itself.
+## Important Algorithms in Bioinformatics
 
-## Algorithms used in Bioinformatics
+- **Sequence alignment**: Needleman-Wunsch (global), Smith-Waterman (local), BLAST (fast heuristic)
+- **Read mapping**: BWA, Bowtie2, STAR
+- **Variant calling**: GATK, FreeBayes
+- **Expression analysis**: DESeq2, edgeR
+- **Phylogenetics**: Neighbor-Joining, Maximum Likelihood
+- **Clustering and dimensionality reduction**: k-means, PCA, UMAP
 
+## Common Applications
 
-## Applications of Bioinformatics
+- Cancer genomics and mutation profiling
+- Infectious disease surveillance and pathogen tracking
+- Population and evolutionary genomics
+- Drug target and biomarker discovery
+- Metagenomics and microbiome analysis
+- Neuroinformatics and imaging-genomics integration
 
+## A Typical Bioinformatics Workflow
 
-## References
+1. Define the biological question.
+2. Acquire raw data and metadata.
+3. Perform quality control and preprocessing.
+4. Run statistical or machine learning analysis.
+5. Interpret results biologically.
+6. Validate findings and report reproducibly.
 
-## About the Author
+## Beginner Pitfalls to Avoid
 
-![Raymond Otoo](https://lh3.googleusercontent.com/sitesv/APaQ0SRbWuKfF5f4FOVs6riXSul2lqnBK53GELMaCQoI1VVP9MQErIzVgThlPcDxU8iiEfAPDEQSmznNJVlmJXAs_CKAc7zA6YcqziRlPzaO2DoA9OYvtkjv5sxxFcRuIPIAjC7kv_KkwJw1wem-V_mKK2tX19ainwE5U_uicjZImgduQiP8bDrR3ls9KgCBUTHXdJhyvdhPMZUDEOVPVdFzO8taohCO8PsuOzYZ=w1280)
+- Skipping metadata checks (sample swaps, wrong labels).
+- Ignoring batch effects.
+- Using p-values without multiple-testing correction.
+- Not recording software versions and parameters.
 
-**Raymond Otoo, Ph.D.**
+## Recommended Starter Resources
 
-Dr. Raymond Otoo is a Bioinformatics Scientist with 5+ years of experience at the intersection of bioinformatics research and machine learning. He specializes in integrative multimodal omics analytics, leveraging AI-driven approaches to advance translational discovery and enhance disease modeling. At the Barrow Neuroanalytics Center of the BNI, his current work focuses on uncovering risk factors and molecular mechanisms underlying Alzheimer’s disease and traumatic brain injury through integrative analysis of terabyte-scale genomics, proteomics, transcriptomics, and neuroimaging data. Outside of research, Raymond enjoys traveling and photography, passions that inspire his curiosity and creativity. Raymond is always open to connect and collaborate on innovative bioinformatics challenges!
+- NCBI and Ensembl for reference data
+- Bioconductor (R) for omics analysis
+- Galaxy for workflow-based analysis
+- Biopython and pandas for scripting
 
-## Connect with Us
+## Summary
 
-*   **Twitter**: [@BioLnInfinite](https://twitter.com/BioLnInfinite)
-*   **Email**: [raymondotoo115@gmail.com](mailto:raymondotoo115@gmail.com)
-*   **LinkedIn**: [Raymond Otoo](https://www.linkedin.com/in/raymondotoo)
-
-## Support Us
-
-<a href="https://www.paypal.com/donate/?hosted_button_id=8JHU8H2AZFU8Q">
-  <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate with PayPal button" />
-</a>
+Bioinformatics is the engine that converts complex biological data into useful biological knowledge. A strong foundation in biology, statistics, and programming will let you move from raw sequences to reliable conclusions.

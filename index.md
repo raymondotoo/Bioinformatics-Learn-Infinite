@@ -23,7 +23,7 @@ This platform serves learners and researchers who want to build practical bioinf
 6. [Machine Learning]({{ '/machine-learning/' | relative_url }})
 7. [Neuro-imaging Data Analysis]({{ '/neuro-imaging-data-analysis/' | relative_url }})
 
-## Explore Our Learning Center
+## Explore External Learning Resources 
 
 | Platform | Description | Link |
 | :--- | :--- | :--- |
