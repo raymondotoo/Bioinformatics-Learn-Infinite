@@ -1,0 +1,15 @@
+comments:
+  allowedFields:
+    - email
+    - message
+    - page
+  requiredFields:
+    - email
+    - message
+    - page
+  branch: main
+  format: yaml
+  moderation: false
+  path: "_data/feedback/{options.slug}"
+  filename: "entry{@timestamp}"
+  commitMessage: "Add feedback entry for {fields.page}"

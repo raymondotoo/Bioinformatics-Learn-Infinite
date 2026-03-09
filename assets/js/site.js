@@ -4,6 +4,10 @@
   var searchForm = document.getElementById('page-search-form');
   var searchInput = document.getElementById('page-search-input');
   var searchStatus = document.getElementById('page-search-status');
+  var feedbackForm = document.getElementById('feedback-form');
+  var feedbackMessage = document.getElementById('feedback-message');
+  var feedbackWordCount = document.getElementById('feedback-word-count');
+  var feedbackError = document.getElementById('feedback-error');
   if (!content || !tocList) return;
 
   var headings = Array.from(content.querySelectorAll('h2, h3'));
@@ -138,4 +142,37 @@
       searchStatus.textContent = '';
     }
   });
+
+  if (!feedbackForm || !feedbackMessage || !feedbackWordCount || !feedbackError) return;
+
+  var maxWords = parseInt(feedbackForm.dataset.maxWords || '120', 10);
+
+  function countWords(text) {
+    var cleaned = (text || '').trim();
+    if (!cleaned) return 0;
+    return cleaned.split(/\s+/).length;
+  }
+
+  function updateFeedbackState() {
+    var words = countWords(feedbackMessage.value);
+    feedbackWordCount.textContent = words + ' / ' + maxWords + ' words';
+
+    if (words > maxWords) {
+      feedbackError.textContent = 'Please shorten your feedback to ' + maxWords + ' words or fewer.';
+      return false;
+    }
+
+    feedbackError.textContent = '';
+    return true;
+  }
+
+  feedbackMessage.addEventListener('input', updateFeedbackState);
+
+  feedbackForm.addEventListener('submit', function (event) {
+    if (!updateFeedbackState()) {
+      event.preventDefault();
+    }
+  });
+
+  updateFeedbackState();
 })();

@@ -295,11 +295,58 @@ body {
   color: var(--ink-soft);
 }
 
-.feedback-widget {
+.feedback-form {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.feedback-form label {
+  font-weight: 700;
+  color: #0f2f4d;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
   border: 1px solid var(--border);
-  border-radius: 0.45rem;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.6rem;
+  font: inherit;
   background: #ffffff;
-  padding: 0.35rem;
+}
+
+.feedback-meta {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.feedback-error {
+  min-height: 1rem;
+  margin: 0;
+  color: #a01818;
+  font-size: 0.9rem;
+}
+
+.feedback-submit {
+  justify-self: start;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feedback-submit:hover {
+  background: #0a3f62;
+}
+
+.feedback-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .search-hit {
