@@ -1,0 +1,11 @@
+<nav class="lesson-nav" aria-label="Tutorial pages">
+  <span class="lesson-nav-label">Tutorials:</span>
+  <ul>
+    {% for tutorial in site.data.tutorials %}
+      {% assign tutorial_url = tutorial.url | relative_url %}
+      <li>
+        <a href="{{ tutorial_url }}" {% if page.url == tutorial.url %}class="is-active"{% endif %}>{{ tutorial.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

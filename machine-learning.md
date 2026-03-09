@@ -1,5 +1,8 @@
 ---
 layout: default
+title: Machine Learning in Bioinformatics
+description: Core machine learning concepts and applications in omics research.
+permalink: /machine-learning/
 ---
 
 # Machine Learning in Bioinformatics

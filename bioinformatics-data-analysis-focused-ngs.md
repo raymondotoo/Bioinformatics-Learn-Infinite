@@ -1,3 +1,10 @@
+---
+layout: default
+title: Bioinformatics Data Analysis Focused (NGS)
+description: NGS workflows, QC, and sequencing analysis pipelines.
+permalink: /bioinformatics-data-analysis-focused-ngs/
+---
+
 # Bioinformatics Data Analysis-Focused (NGS)
 
 Next-Generation Sequencing (NGS) has revolutionized biology. This section focuses on the pipelines used to analyze high-throughput sequencing data.

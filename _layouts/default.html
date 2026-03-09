@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-left">
+        <a class="brand" href="{{ '/' | relative_url }}">Bioinformatics Learn Infinite</a>
+        <a class="home-link" href="{{ '/' | relative_url }}">Home</a>
+      </div>
+      {% if page.title %}
+      <p class="page-title">{{ page.title }}</p>
+      {% endif %}
+    </header>
+
+    {% include top-nav.html %}
+
+    <div class="workspace">
+      <aside class="toc-pane" aria-label="Table of Contents">
+        <h2>On This Page</h2>
+        <ul id="toc-list"></ul>
+      </aside>
+
+      <main class="content-pane" id="page-content">
+        {{ content }}
+      </main>
+    </div>
+  </div>
+
+  <script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
+</body>
+</html>

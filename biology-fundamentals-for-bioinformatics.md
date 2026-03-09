@@ -1,5 +1,8 @@
 ---
 layout: default
+title: Biology Fundamentals for Bioinformatics
+description: Core molecular biology concepts every bioinformatics learner needs.
+permalink: /biology-fundamentals-for-bioinformatics/
 ---
 
 # Chapter 1: Introduction to the Central Dogma

@@ -1,42 +1,227 @@
-html {
-  scroll-behavior: smooth;
+:root {
+  --bg: #f3f7fb;
+  --surface: #ffffff;
+  --surface-soft: #eaf1f8;
+  --border: #cddbea;
+  --ink: #1b2a3a;
+  --ink-soft: #4a6075;
+  --accent: #0e4a73;
+  --accent-soft: #d6eaf9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: none;
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 0 0, #e8f2fc 0%, transparent 45%),
+    radial-gradient(circle at 100% 100%, #eef6ec 0%, transparent 40%),
+    var(--bg);
 }
 
-.container {
-    display: flex;
-    min-height: 100vh;
-    width: 100%;
-    max-width: none;
+.site-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.sidebar {
-    width: 250px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-right: 1px solid #ccc;
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
 }
 
-.content {
-    flex: 1;
-    padding: 20px;
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.sidebar h2 {
-    margin-top: 0;
+.brand {
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.01em;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+.home-link {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.sidebar li {
-    margin-bottom: 5px;
+.home-link:hover,
+.brand:hover {
+  text-decoration: underline;
+}
+
+.page-title {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.lesson-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-soft);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.lesson-nav-label {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.lesson-nav ul {
+  display: flex;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lesson-nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.86rem;
+}
+
+.lesson-nav a:hover,
+.lesson-nav a.is-active {
+  background: var(--accent-soft);
+  border-color: #9ec7e7;
+}
+
+.workspace {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 0;
+}
+
+.toc-pane {
+  background: rgba(255, 255, 255, 0.72);
+  border-right: 1px solid var(--border);
+  padding: 1rem 0.95rem;
+  overflow-y: auto;
+}
+
+.toc-pane h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+#toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item {
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.toc-item a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.toc-item a:hover,
+.toc-item a.is-current {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.toc-level-3 {
+  padding-left: 0.85rem;
+}
+
+.toc-empty {
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.content-pane {
+  background: var(--surface);
+  overflow-y: auto;
+  padding: 1.5rem clamp(1rem, 4vw, 3rem) 3rem;
+}
+
+.content-pane h1,
+.content-pane h2,
+.content-pane h3 {
+  line-height: 1.2;
+  color: #102a43;
+}
+
+.content-pane p,
+.content-pane li {
+  line-height: 1.65;
+}
+
+.content-pane img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.35rem;
+}
+
+.content-pane table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.content-pane th,
+.content-pane td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+@media (max-width: 960px) {
+  .workspace {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .toc-pane {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    max-height: 32vh;
+  }
+
+  .page-title {
+    display: none;
+  }
 }

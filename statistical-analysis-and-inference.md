@@ -1,5 +1,8 @@
 ---
 layout: default
+title: Statistical Analysis and Inference
+description: Hypothesis testing and statistics essentials for bioinformatics.
+permalink: /statistical-analysis-and-inference/
 ---
 
 # 7: Statistics for Bioinformatics

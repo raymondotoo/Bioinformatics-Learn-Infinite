@@ -1,5 +1,8 @@
 ---
 layout: default
+title: Bioinformatics Core Skills
+description: Practical command-line, programming, and reproducibility foundations.
+permalink: /bioinformatics-core-skills/
 ---
 
 # Bioinformatics Core Skills

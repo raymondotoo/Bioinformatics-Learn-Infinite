@@ -1,5 +1,8 @@
 ---
 layout: default
+title: Neuro-imaging Data Analysis
+description: Core neuroinformatics modalities, preprocessing, and analysis basics.
+permalink: /neuro-imaging-data-analysis/
 ---
 
 # Neuro-imaging Data Analysis
