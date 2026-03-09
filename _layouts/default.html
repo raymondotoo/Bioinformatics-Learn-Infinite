@@ -45,7 +45,7 @@
 
         {% if page.url != '/' %}
         <section class="learning-support" aria-label="Learning support resources">
-          <div class="support-card">
+          <div class="support-card support-feedback">
             <h2>Give Feedback</h2>
             <p class="support-note">Submit feedback below. You do not need a GitHub login. Entries are stored in this repository for review.</p>
             {% assign max_words = site.feedback.max_words | default: 120 %}
@@ -77,10 +77,7 @@
               <p id="feedback-word-count" class="feedback-meta">0 / {{ max_words }} words</p>
               <p id="feedback-error" class="feedback-error" aria-live="polite"></p>
 
-              <button
-                type="submit"
-                class="feedback-submit"
-                {% if site.feedback.endpoint contains 'YOUR-STATICMAN-ENDPOINT' %}disabled{% endif %}>
+              <button type="submit" class="feedback-submit">
                 Send Feedback
               </button>
             </form>
