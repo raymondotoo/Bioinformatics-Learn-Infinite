@@ -13,6 +13,9 @@
   <div class="site-shell">
     <header class="topbar">
       <div class="topbar-left">
+        <a class="brand-logo-link" href="{{ '/' | relative_url }}" aria-label="Bioinformatics Learn Infinite home">
+          <img class="brand-logo" src="{{ '/bioinf_logo.png' | relative_url }}" alt="Bioinformatics Learn Infinite logo">
+        </a>
         <a class="brand" href="{{ '/' | relative_url }}">Bioinformatics Learn Infinite</a>
         <a class="home-link" href="{{ '/' | relative_url }}">Home</a>
       </div>
@@ -25,6 +28,14 @@
 
     <div class="workspace">
       <aside class="toc-pane" aria-label="Table of Contents">
+        <form class="page-search" id="page-search-form" role="search">
+          <label for="page-search-input">Search This Page</label>
+          <div class="page-search-controls">
+            <input id="page-search-input" name="q" type="search" placeholder="e.g. RNA-seq" autocomplete="off">
+            <button id="page-search-btn" type="submit">Find</button>
+          </div>
+          <p id="page-search-status" class="page-search-status" aria-live="polite"></p>
+        </form>
         <h2>On This Page</h2>
         <ul id="toc-list"></ul>
       </aside>

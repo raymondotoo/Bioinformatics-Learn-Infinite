@@ -1,9 +1,13 @@
 (function () {
   var content = document.getElementById('page-content');
   var tocList = document.getElementById('toc-list');
+  var searchForm = document.getElementById('page-search-form');
+  var searchInput = document.getElementById('page-search-input');
+  var searchStatus = document.getElementById('page-search-status');
   if (!content || !tocList) return;
 
   var headings = Array.from(content.querySelectorAll('h2, h3'));
+  var tocItems = [];
   if (headings.length === 0) {
     var empty = document.createElement('li');
     empty.className = 'toc-item toc-empty';
@@ -48,6 +52,7 @@
     item.appendChild(link);
     tocList.appendChild(item);
     linkById[id] = link;
+    tocItems.push({ item: item, text: link.textContent.toLowerCase() });
   });
 
   var observer = new IntersectionObserver(
@@ -72,5 +77,65 @@
 
   headings.forEach(function (heading) {
     observer.observe(heading);
+  });
+
+  if (!searchForm || !searchInput || !searchStatus) return;
+
+  var searchableNodes = Array.from(content.querySelectorAll('h1, h2, h3, h4, p, li, td, th, blockquote, pre'));
+  var activeHits = [];
+
+  function clearHits() {
+    activeHits.forEach(function (node) {
+      node.classList.remove('search-hit');
+      node.classList.remove('search-hit-current');
+    });
+    activeHits = [];
+  }
+
+  function filterToc(query) {
+    tocItems.forEach(function (entry) {
+      entry.item.style.display = !query || entry.text.indexOf(query) !== -1 ? '' : 'none';
+    });
+  }
+
+  function runSearch() {
+    var query = searchInput.value.trim().toLowerCase();
+    clearHits();
+    filterToc(query);
+
+    if (!query) {
+      searchStatus.textContent = '';
+      return;
+    }
+
+    searchableNodes.forEach(function (node) {
+      if ((node.textContent || '').toLowerCase().indexOf(query) !== -1) {
+        node.classList.add('search-hit');
+        activeHits.push(node);
+      }
+    });
+
+    if (activeHits.length === 0) {
+      searchStatus.textContent = 'No matches found.';
+      return;
+    }
+
+    var first = activeHits[0];
+    first.classList.add('search-hit-current');
+    first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    searchStatus.textContent = 'Found ' + activeHits.length + ' match' + (activeHits.length === 1 ? '' : 'es') + '.';
+  }
+
+  searchForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    runSearch();
+  });
+
+  searchInput.addEventListener('input', function () {
+    if (!searchInput.value.trim()) {
+      clearHits();
+      filterToc('');
+      searchStatus.textContent = '';
+    }
   });
 })();

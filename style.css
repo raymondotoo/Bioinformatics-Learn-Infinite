@@ -50,6 +50,19 @@ body {
   gap: 1rem;
 }
 
+.brand-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
 .brand {
   font-weight: 700;
   color: var(--accent);
@@ -139,6 +152,55 @@ body {
   color: var(--ink-soft);
 }
 
+.page-search {
+  margin-bottom: 1rem;
+}
+
+.page-search label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.page-search-controls {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.page-search-controls input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  padding: 0.42rem 0.55rem;
+  font: inherit;
+}
+
+.page-search-controls button {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+  border-radius: 0.35rem;
+  padding: 0.42rem 0.6rem;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.page-search-controls button:hover {
+  background: #0a3f62;
+}
+
+.page-search-status {
+  min-height: 1rem;
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
 #toc-list {
   list-style: none;
   margin: 0;
@@ -207,6 +269,15 @@ body {
   border: 1px solid var(--border);
   padding: 0.5rem;
   text-align: left;
+}
+
+.search-hit {
+  background: #fff5b8;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.search-hit-current {
+  background: #ffe177;
 }
 
 @media (max-width: 960px) {
