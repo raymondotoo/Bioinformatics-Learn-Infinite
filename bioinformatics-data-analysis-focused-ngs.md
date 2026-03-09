@@ -3,8 +3,6 @@ layout: default
 title: Bioinformatics Data Analysis Focused (NGS)
 description: NGS workflows, QC, and sequencing analysis pipelines.
 permalink: /bioinformatics-data-analysis-focused-ngs/
-youtube_video_title: RNA-seq / NGS Data Analysis Tutorial
-youtube_video_id: tlf6wYJrwKY
 ---
 
 # Bioinformatics Data Analysis Focused (NGS)

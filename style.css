@@ -240,11 +240,30 @@ body {
   padding: 1.5rem clamp(1rem, 4vw, 3rem) 3rem;
 }
 
+.content-pane > * {
+  max-width: 980px;
+}
+
 .content-pane h1,
 .content-pane h2,
 .content-pane h3 {
   line-height: 1.2;
   color: #102a43;
+}
+
+.content-pane h1 {
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  margin-bottom: 0.75rem;
+}
+
+.content-pane h2 {
+  margin-top: 1.9rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e2ebf4;
+}
+
+.content-pane h3 {
+  margin-top: 1.25rem;
 }
 
 .content-pane p,
@@ -269,6 +288,97 @@ body {
   border: 1px solid var(--border);
   padding: 0.5rem;
   text-align: left;
+}
+
+.content-pane pre {
+  background: #0f2233;
+  color: #e6eff8;
+  border-radius: 0.55rem;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  border: 1px solid #1f3950;
+}
+
+.content-pane code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.content-pane p code,
+.content-pane li code {
+  background: #eef5fc;
+  color: #183650;
+  border: 1px solid #d7e5f2;
+  border-radius: 0.25rem;
+  padding: 0.08rem 0.25rem;
+}
+
+.content-pane blockquote {
+  margin: 1rem 0;
+  padding: 0.2rem 0.9rem;
+  border-left: 4px solid #9ac3e1;
+  background: #f7fbff;
+}
+
+.home-hero {
+  border: 1px solid #cfe0ef;
+  background: linear-gradient(145deg, #f8fbff 0%, #eef5ff 100%);
+  border-radius: 0.8rem;
+  padding: 1rem 1.1rem;
+  margin-top: 1rem;
+}
+
+.home-hero h2 {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1rem;
+}
+
+.home-panel {
+  border: 1px solid #d8e4f0;
+  border-radius: 0.75rem;
+  background: #fbfdff;
+  padding: 0.95rem 1rem;
+  margin-top: 1rem;
+}
+
+.home-panel h2 {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0;
+}
+
+.home-path-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.home-path-list li {
+  margin: 0.3rem 0;
+}
+
+.home-path-list a {
+  text-decoration: none;
+  color: #0f3e63;
+  font-weight: 600;
+}
+
+.home-path-list a:hover {
+  text-decoration: underline;
+}
+
+.home-connect {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
 }
 
 
@@ -344,6 +454,10 @@ body {
 
   .page-title {
     display: none;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
   }
 
 }

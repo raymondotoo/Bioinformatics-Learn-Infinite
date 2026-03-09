@@ -3,8 +3,6 @@ layout: default
 title: Introduction to Bioinformatics
 description: Definitions, history, and key sub-disciplines in bioinformatics.
 permalink: /introduction-to-bioinformatics/
-youtube_video_title: Introduction to Bioinformatics
-youtube_video_id: Wze-fZ_ac8o
 ---
 
 # Introduction to Bioinformatics

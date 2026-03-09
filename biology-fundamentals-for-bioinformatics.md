@@ -3,8 +3,6 @@ layout: default
 title: Biology Fundamentals for Bioinformatics
 description: Core molecular biology concepts every bioinformatics learner needs.
 permalink: /biology-fundamentals-for-bioinformatics/
-youtube_video_title: Central Dogma of Molecular Biology
-youtube_video_id: wW90gn-M4kI
 ---
 
 # Biology Fundamentals for Bioinformatics

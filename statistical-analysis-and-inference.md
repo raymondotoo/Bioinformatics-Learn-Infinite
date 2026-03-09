@@ -3,17 +3,15 @@ layout: default
 title: Statistical Analysis and Inference
 description: Hypothesis testing and statistics essentials for bioinformatics.
 permalink: /statistical-analysis-and-inference/
-youtube_video_title: P-values and Statistical Significance Explained
-youtube_video_id: vemZtEM63GY
 ---
 
-# 7: Statistics for Bioinformatics
+# Statistics for Bioinformatics
 
-## 7.1 The Language of Evidence
+## The Language of Evidence
 
 Bioinformatics is data-driven. When we observe a difference—say, gene A is expressed more in tumor cells than normal cells—we need to know if this difference is real or just random noise. Statistics provides the framework to quantify this uncertainty.
 
-## 7.2 Hypothesis Testing and the P-value
+## Hypothesis Testing and the P-value
 
 The core of statistical inference is **Hypothesis Testing**.
 
@@ -35,7 +33,7 @@ The **p-value** is one of the most misunderstood concepts in science.
 *   **ANOVA:** Compares means of 3+ groups.
 *   **Fisher's Exact Test:** Tests associations between categorical variables (e.g., Gene Set Enrichment).
 
-## 7.3 The Z-Score (Standard Score)
+## The Z-Score (Standard Score)
 
 Often in bioinformatics (especially for heatmaps), we need to compare genes that have vastly different expression levels.
 
@@ -49,7 +47,7 @@ Where $\mu$ is the mean and $\sigma$ is the standard deviation.
 
 This allows us to see relative patterns of "up" and "down" regulation across all genes simultaneously.
 
-## 7.4 The Multiple Testing Problem & FDR
+## The Multiple Testing Problem and FDR
 
 In bioinformatics, we often test thousands of genes simultaneously (e.g., in RNA-Seq or GWAS).
 
@@ -61,7 +59,7 @@ To fix this, we apply **Multiple Testing Correction**. The standard method in om
 *   **Bonferroni Correction:** Very strict. Tries to prevent *any* false positives. (Cutoff becomes $0.05 / 20,000$). Often too strict for biology, causing us to miss real discoveries (False Negatives).
 *   **FDR (Benjamini-Hochberg):** Less strict. It controls the *proportion* of false discoveries. An FDR of 0.05 means "Of all the genes we call significant, we expect 5% to be false positives." This is the gold standard for high-throughput data.
 
-## 7.5 Dimensionality Reduction: PCA
+## Dimensionality Reduction: PCA
 
 Omics data is high-dimensional (thousands of genes per sample). **Principal Component Analysis (PCA)** reduces this complexity by finding new axes (Principal Components) that capture the most variance in the data.
 
@@ -74,7 +72,7 @@ Omics data is high-dimensional (thousands of genes per sample). **Principal Comp
 
 Plotting samples on PC1 vs. PC2 allows us to see clusters, batch effects, or outliers instantly.
 
-## 7.6 Bioinformatics in Action: Stats with R
+## Bioinformatics in Action: Stats with R
 
 R is the language of statistics. Let's simulate a gene expression experiment and see the difference between raw p-values and FDR correction.
 

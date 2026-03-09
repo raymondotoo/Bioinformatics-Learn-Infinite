@@ -3,8 +3,6 @@ layout: default
 title: Bioinformatics Core Skills
 description: Practical command-line, programming, and reproducibility foundations.
 permalink: /bioinformatics-core-skills/
-youtube_video_title: Linux Command Line for Bioinformatics
-youtube_video_id: sMNa6TzkjrM
 ---
 
 # Bioinformatics Core Skills
