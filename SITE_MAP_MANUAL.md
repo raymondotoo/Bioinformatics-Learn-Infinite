@@ -251,6 +251,38 @@ Rotation is automatic (weekly) via `assets/js/site.js`.
   - blog cards
   - feedback section
 
+### Change Theme from Green to Blue
+
+The global theme colors are controlled by CSS variables at the top of `style.css` inside `:root`.
+
+1. Open `style.css`.
+2. Find the `:root { ... }` block.
+3. Replace the current values with this blue-leaning palette:
+
+```css
+:root {
+  --bg: #f3f8ff;
+  --surface: #ffffff;
+  --surface-soft: #e4efff;
+  --border: #a8c5ee;
+  --ink: #0f2238;
+  --ink-soft: #3d5773;
+  --accent: #1f5ea8;
+  --accent-soft: #cddff9;
+}
+```
+
+4. Save and run:
+
+```bash
+bundle exec jekyll build
+```
+
+5. Preview the site and adjust if needed:
+- Darker buttons: make `--accent` deeper (for example `#184b88`).
+- Softer cards/nav: lighten `--surface-soft`.
+- Stronger outlines: darken `--border`.
+
 ---
 
 ## 11. Feedback Form Management
