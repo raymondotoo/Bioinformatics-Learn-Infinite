@@ -43,6 +43,11 @@ permalink: /
       <li><strong>Email:</strong> <a href="mailto:raymondotoo115@gmail.com">raymondotoo115@gmail.com</a></li>
       <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/raymondotoo">Raymond Otoo</a></li>
     </ul>
+    <section class="quote-day" aria-live="polite">
+      <h3>Quote of the Day</h3>
+      <blockquote id="quote-of-day-text">Science is not only a disciple of reason but, also, one of romance and passion.</blockquote>
+      <p class="quote-author" id="quote-of-day-author">- Stephen Hawking</p>
+    </section>
   </article>
 </section>
 

@@ -138,4 +138,26 @@
       searchStatus.textContent = '';
     }
   });
+
+  var quoteText = document.getElementById('quote-of-day-text');
+  var quoteAuthor = document.getElementById('quote-of-day-author');
+  if (quoteText && quoteAuthor) {
+    var quotes = [
+      { text: 'Science is not only a disciple of reason but, also, one of romance and passion.', author: 'Stephen Hawking' },
+      { text: 'Somewhere, something incredible is waiting to be known.', author: 'Carl Sagan' },
+      { text: 'Research is what I am doing when I do not know what I am doing.', author: 'Wernher von Braun' },
+      { text: 'The important thing is to never stop questioning.', author: 'Albert Einstein' },
+      { text: 'Science and everyday life cannot and should not be separated.', author: 'Rosalind Franklin' },
+      { text: 'An investment in knowledge pays the best interest.', author: 'Benjamin Franklin' },
+      { text: 'The good thing about science is that it is true whether or not you believe in it.', author: 'Neil deGrasse Tyson' },
+      { text: 'The greatest enemy of knowledge is not ignorance, it is the illusion of knowledge.', author: 'Stephen Hawking' },
+      { text: 'Biology gives you a brain. Life turns it into a mind.', author: 'Jeffrey Eugenides' },
+      { text: 'In questions of science, the authority of a thousand is not worth the humble reasoning of a single individual.', author: 'Galileo Galilei' }
+    ];
+
+    var dayIndex = Math.floor(Date.now() / 86400000) % quotes.length;
+    var quote = quotes[dayIndex];
+    quoteText.textContent = quote.text;
+    quoteAuthor.textContent = '- ' + quote.author;
+  }
 })();

@@ -139,6 +139,19 @@ body {
   gap: 0;
 }
 
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: #eef9f7;
+  padding: 0.6rem 1rem;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 .toc-pane {
   background: rgba(255, 255, 255, 0.72);
   border-right: 1px solid var(--border);
@@ -398,6 +411,35 @@ body {
 .home-connect {
   margin: 0;
   padding-left: 1rem;
+}
+
+.quote-day {
+  margin-top: 1rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #cce9e3;
+  background: linear-gradient(140deg, #f5fcfb 0%, #ebf8f5 100%);
+  border-radius: 0.65rem;
+}
+
+.quote-day h3 {
+  margin: 0 0 0.35rem;
+  color: #0f5f67;
+  font-size: 1rem;
+}
+
+.quote-day blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-style: italic;
+}
+
+.quote-author {
+  margin: 0.45rem 0 0;
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 0.92rem;
 }
 
 .author-photo {
