@@ -1,12 +1,12 @@
 :root {
-  --bg: #f4fbfa;
+  --bg: #f3f8ff;
   --surface: #ffffff;
-  --surface-soft: #dff6f2;
-  --border: #9edfd4;
-  --ink: #102a2b;
-  --ink-soft: #3e5c5d;
-  --accent: #0f766e;
-  --accent-soft: #b9efe8;
+  --surface-soft: #e4efff;
+  --border: #a8c5ee;
+  --ink: #0f2238;
+  --ink-soft: #3d5773;
+  --accent: #1f5ea8;
+  --accent-soft: #cddff9;
 }
 
 * {
@@ -24,7 +24,7 @@ body {
   color: var(--ink);
   background:
     radial-gradient(circle at 0 0, #e8f2fc 0%, transparent 45%),
-    radial-gradient(circle at 100% 100%, #eef6ec 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, #edf3ff 0%, transparent 40%),
     var(--bg);
 }
 
@@ -147,7 +147,7 @@ body {
 
 .site-footer {
   border-top: 1px solid var(--border);
-  background: #eef9f7;
+  background: #eef4ff;
   padding: 0.6rem 1rem;
 }
 
@@ -210,7 +210,7 @@ body {
 }
 
 .page-search-controls button:hover {
-  background: #0b5f59;
+  background: #184b88;
 }
 
 .page-search-status {
@@ -256,7 +256,7 @@ body {
 .toc-support {
   margin-top: 1rem;
   padding-top: 0.8rem;
-  border-top: 1px solid #cfe7e1;
+  border-top: 1px solid #d3e2f6;
   text-align: center;
 }
 
@@ -292,7 +292,7 @@ body {
 .content-pane h2,
 .content-pane h3 {
   line-height: 1.2;
-  color: #0d4f57;
+  color: #123f73;
 }
 
 .content-pane h1 {
@@ -303,7 +303,7 @@ body {
 .content-pane h2 {
   margin-top: 1.9rem;
   padding-top: 0.5rem;
-  border-top: 1px solid #cfece7;
+  border-top: 1px solid #d8e5f8;
 }
 
 .content-pane h3 {
@@ -335,12 +335,12 @@ body {
 }
 
 .content-pane pre {
-  background: #0b2f34;
-  color: #e8f8f5;
+  background: #10243f;
+  color: #eaf1ff;
   border-radius: 0.55rem;
   padding: 0.9rem 1rem;
   overflow-x: auto;
-  border: 1px solid #1f5b61;
+  border: 1px solid #2f578c;
 }
 
 .content-pane code {
@@ -349,9 +349,9 @@ body {
 
 .content-pane p code,
 .content-pane li code {
-  background: #e8f8f5;
-  color: #134447;
-  border: 1px solid #c8ece6;
+  background: #e9f0ff;
+  color: #173c68;
+  border: 1px solid #cadcf7;
   border-radius: 0.25rem;
   padding: 0.08rem 0.25rem;
 }
@@ -359,13 +359,13 @@ body {
 .content-pane blockquote {
   margin: 1rem 0;
   padding: 0.2rem 0.9rem;
-  border-left: 4px solid #64c7ba;
-  background: #f1fcfa;
+  border-left: 4px solid #6ba8ea;
+  background: #f3f8ff;
 }
 
 .home-hero {
-  border: 1px solid #bee6df;
-  background: linear-gradient(145deg, #f3fcfb 0%, #e4f8f5 100%);
+  border: 1px solid #c7d9f4;
+  background: linear-gradient(145deg, #f5f9ff 0%, #eaf1ff 100%);
   border-radius: 0.8rem;
   padding: 1rem 1.1rem;
   margin-top: 1rem;
@@ -378,8 +378,8 @@ body {
 }
 
 .learning-goals-card {
-  border: 1px solid #bee6df;
-  background: linear-gradient(145deg, #f3fcfb 0%, #e4f8f5 100%);
+  border: 1px solid #c7d9f4;
+  background: linear-gradient(145deg, #f5f9ff 0%, #eaf1ff 100%);
   border-radius: 0.8rem;
   padding: 1rem 1.1rem;
   margin: 1rem 0 0.8rem;
@@ -407,9 +407,9 @@ body {
 }
 
 .home-panel {
-  border: 1px solid #c9e9e3;
+  border: 1px solid #ccdcf5;
   border-radius: 0.75rem;
-  background: #fbfffe;
+  background: #fcfdff;
   padding: 0.95rem 1rem;
   margin-top: 1rem;
 }
@@ -431,7 +431,7 @@ body {
 
 .home-path-list a {
   text-decoration: none;
-  color: #0f5f67;
+  color: #1b4f89;
   font-weight: 600;
 }
 
@@ -447,14 +447,14 @@ body {
 .quote-day {
   margin-top: 1rem;
   padding: 0.8rem 0.9rem;
-  border: 1px solid #cce9e3;
-  background: linear-gradient(140deg, #f5fcfb 0%, #ebf8f5 100%);
+  border: 1px solid #cfddf5;
+  background: linear-gradient(140deg, #f6f9ff 0%, #edf3ff 100%);
   border-radius: 0.65rem;
 }
 
 .quote-day h3 {
   margin: 0 0 0.35rem;
-  color: #0f5f67;
+  color: #1b4f89;
   font-size: 1rem;
 }
 
@@ -476,14 +476,14 @@ body {
 .connect-extra {
   margin-top: 0.9rem;
   padding: 0.8rem 0.9rem;
-  border: 1px solid #cce9e3;
-  background: linear-gradient(140deg, #f9fdff 0%, #edf5ff 100%);
+  border: 1px solid #cfddf5;
+  background: linear-gradient(140deg, #fbfdff 0%, #eef3ff 100%);
   border-radius: 0.65rem;
 }
 
 .connect-extra h3 {
   margin: 0 0 0.35rem;
-  color: #0f5f67;
+  color: #1b4f89;
   font-size: 1rem;
 }
 
@@ -523,7 +523,7 @@ body {
 }
 
 .connect-extra-link:hover {
-  background: #0b5f59;
+  background: #184b88;
 }
 
 .author-photo {
@@ -531,8 +531,8 @@ body {
   height: 160px;
   object-fit: cover;
   border-radius: 0.7rem;
-  border: 2px solid #b8e4dc;
-  box-shadow: 0 6px 16px rgba(9, 67, 70, 0.16);
+  border: 2px solid #c4d7f5;
+  box-shadow: 0 6px 16px rgba(15, 43, 80, 0.16);
 }
 
 .author-photo-wrap {
@@ -545,7 +545,7 @@ body {
 }
 
 .blog-hero {
-  background: linear-gradient(130deg, #f2fbff 0%, #e8f7ff 55%, #e6f8f2 100%);
+  background: linear-gradient(130deg, #f2f8ff 0%, #e8f1ff 55%, #eaf4ff 100%);
 }
 
 .blog-list {
@@ -589,8 +589,8 @@ body {
   margin-top: 0.25rem;
   text-decoration: none;
   color: #ffffff;
-  background: #0f766e;
-  border: 1px solid #0f766e;
+  background: #1f5ea8;
+  border: 1px solid #1f5ea8;
   border-radius: 999px;
   padding: 0.25rem 0.65rem;
   font-size: 0.86rem;
@@ -598,7 +598,7 @@ body {
 }
 
 .blog-read-link:hover {
-  background: #0b5f59;
+  background: #184b88;
 }
 
 .latest-blog-panel {
@@ -635,7 +635,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 0.6rem;
   padding: 1rem;
-  background: #f9fcff;
+  background: #f7faff;
 }
 
 .support-feedback {
@@ -665,7 +665,7 @@ body {
 }
 
 .feedback-button:hover {
-  background: #0b5f59;
+  background: #184b88;
 }
 
 @media (max-width: 960px) {
