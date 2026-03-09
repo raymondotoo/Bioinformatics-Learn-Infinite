@@ -32,11 +32,11 @@ Here are some useful links and platforms for bioinformatics-directed analysis.
 
 ## About the Author
 
-![JBML JBML](https://lh3.googleusercontent.com/sitesv/APaQ0SRbWuKfF5f4FOVs6riXSul2lqnBK53GELMaCQoI1VVP9MQErIzVgThlPcDxU8iiEfAPDEQSmznNJVlmJXAs_CKAc7zA6YcqziRlPzaO2DoA9OYvtkjv5sxxFcRuIPIAjC7kv_KkwJw1wem-V_mKK2tX19ainwE5U_uicjZImgduQiP8bDrR3ls9KgCBUTHXdJhyvdhPMZUDEOVPVdFzO8taohCO8PsuOzYZ=w1280)
+![Raymond Otoo](https://lh3.googleusercontent.com/sitesv/APaQ0SRbWuKfF5f4FOVs6riXSul2lqnBK53GELMaCQoI1VVP9MQErIzVgThlPcDxU8iiEfAPDEQSmznNJVlmJXAs_CKAc7zA6YcqziRlPzaO2DoA9OYvtkjv5sxxFcRuIPIAjC7kv_KkwJw1wem-V_mKK2tX19ainwE5U_uicjZImgduQiP8bDrR3ls9KgCBUTHXdJhyvdhPMZUDEOVPVdFzO8taohCO8PsuOzYZ=w1280)
 
-**JBML JBML, MS**
+**Raymond Otoo, MS**
 
-JBML JBML is a Bioinformatician with 3+ years of experience in Bioinformatics Research and Machine Learning, with a demonstrated command of Object Oriented programming and data structures. Focused on further developing acquired skills by learning from top teams and completing development projects. He loves to share his knowledge and experience and is open to collaborations.
+Raymond Otoo is a Bioinformatician with 3+ years of experience in Bioinformatics Research and Machine Learning, with a demonstrated command of Object Oriented programming and data structures. Focused on further developing acquired skills by learning from top teams and completing development projects. He loves to share his knowledge and experience and is open to collaborations.
 
 ## Connect with Us
 
