@@ -9,9 +9,10 @@ permalink: /biology-fundamentals-for-bioinformatics/
 
 Before analyzing real datasets, you need a clear mental model of how biological information flows in cells. This chapter introduces the concepts that repeatedly appear in genomics, transcriptomics, and proteomics analyses.
 
-<section class="learning-goals-card">
-<h2>Learning Goals</h2>
-<p>By the end of this chapter, you should be able to:</p>
+## Learning Goals
+
+<section class="learning-goals-card" markdown="1">
+By the end of this chapter, you should be able to:
 
 1. Explain DNA, RNA, genes, and proteins in simple terms.
 2. Describe transcription and translation (Central Dogma).

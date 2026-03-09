@@ -7,9 +7,10 @@ permalink: /statistical-analysis-and-inference/
 
 # Statistics for Bioinformatics
 
-<section class="learning-goals-card">
-<h2>Learning Goals</h2>
-<p>By the end of this chapter, you should be able to:</p>
+## Learning Goals
+
+<section class="learning-goals-card" markdown="1">
+By the end of this chapter, you should be able to:
 
 1. Explain key statistical concepts used in bioinformatics.
 2. Interpret p-values and multiple-testing corrections correctly.

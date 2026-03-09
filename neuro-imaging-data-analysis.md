@@ -9,9 +9,10 @@ permalink: /neuro-imaging-data-analysis/
 
 Neuro-imaging analysis combines neuroscience, statistics, and computing to understand brain structure and function.
 
-<section class="learning-goals-card">
-<h2>Learning Goals</h2>
-<p>By the end of this chapter, you should be able to:</p>
+## Learning Goals
+
+<section class="learning-goals-card" markdown="1">
+By the end of this chapter, you should be able to:
 
 1. Distinguish major imaging modalities and use cases.
 2. Understand data standards and preprocessing steps.

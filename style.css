@@ -400,13 +400,6 @@ body {
   padding-left: 1rem;
 }
 
-.home-author {
-  display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: 0.9rem;
-  align-items: start;
-}
-
 .author-photo {
   width: 160px;
   height: 160px;
@@ -414,6 +407,11 @@ body {
   border-radius: 0.7rem;
   border: 2px solid #b8e4dc;
   box-shadow: 0 6px 16px rgba(9, 67, 70, 0.16);
+}
+
+.author-photo-wrap {
+  float: left;
+  margin: 0.15rem 0.95rem 0.6rem 0;
 }
 
 .table-wrap {
@@ -499,13 +497,15 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .home-author {
-    grid-template-columns: 1fr;
-  }
-
   .author-photo {
     width: 180px;
     height: 180px;
+  }
+
+  .author-photo-wrap {
+    float: none;
+    display: block;
+    margin: 0 auto 0.8rem;
   }
 
 }
