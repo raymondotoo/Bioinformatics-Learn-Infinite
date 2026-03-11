@@ -3,11 +3,18 @@ name: Process Feedback to CSV
 on:
   issues:
     types: [opened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to process'
+        required: true
+        type: number
 
 jobs:
   process-feedback:
-    # Only run if the issue body contains our feedback marker
-    if: contains(github.event.issue.body, 'FEEDBACK_DATA_START')
+    # For issues trigger: check if body contains feedback marker
+    # For workflow_dispatch: always run (we'll fetch the issue)
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.body, 'FEEDBACK_DATA_START')
     runs-on: ubuntu-latest
     
     permissions:
@@ -21,13 +28,31 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Extract feedback data and append to CSV
+        id: extract-feedback
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             const path = require('path');
             
-            const issue = context.payload.issue;
+            // Get issue - either from event payload or fetch it for workflow_dispatch
+            let issue;
+            if (context.eventName === 'workflow_dispatch') {
+              const issueNumber = ${{ inputs.issue_number || 0 }};
+              if (!issueNumber) {
+                console.log('No issue number provided for workflow_dispatch');
+                return;
+              }
+              const response = await github.rest.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber
+              });
+              issue = response.data;
+            } else {
+              issue = context.payload.issue;
+            }
+            
             const body = issue.body || '';
             
             // Extract data from the hidden comment block
@@ -107,16 +132,31 @@ jobs:
           fi
           
           git add _data/feedback/responses.csv
-          git commit -m "📊 Add feedback from issue #${{ github.event.issue.number }}"
+          git commit -m "📊 Add feedback from issue #${{ steps.extract-feedback.outputs.issue_number }}"
           git push
       
-      - name: Add confirmation comment to issue
+      - name: Add labels to issue
+        if: steps.extract-feedback.outputs.csv_updated == 'true'
         uses: actions/github-script@v7
         with:
           script: |
+            const issueNumber = ${{ steps.extract-feedback.outputs.issue_number }};
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              labels: ['feedback', 'user-submitted']
+            });
+      
+      - name: Add confirmation comment to issue
+        if: steps.extract-feedback.outputs.csv_updated == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueNumber = ${{ steps.extract-feedback.outputs.issue_number }};
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: context.payload.issue.number,
+              issue_number: issueNumber,
               body: `✅ **Thank you for your feedback!**\n\nYour submission has been recorded and added to our feedback tracking system. We review all feedback regularly and use it to improve our tutorials.\n\n---\n*This is an automated response.*`
             });

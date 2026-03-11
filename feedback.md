@@ -558,10 +558,9 @@ FEEDBACK_DATA_END -->
     // Encode for URL
     const encodedTitle = encodeURIComponent(issueTitle);
     const encodedBody = encodeURIComponent(issueBody);
-    const labels = encodeURIComponent('feedback,user-submitted');
     
-    // Create GitHub issue URL
-    const issueUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/new?title=${encodedTitle}&body=${encodedBody}&labels=${labels}`;
+    // Create GitHub issue URL (labels removed - they can cause issues if they don't exist)
+    const issueUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/new?title=${encodedTitle}&body=${encodedBody}`;
     
     // Auto-open GitHub in new tab
     const githubWindow = window.open(issueUrl, '_blank');
