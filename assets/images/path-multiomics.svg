@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="omicsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a18cd1"/>
+      <stop offset="100%" style="stop-color:#fbc2eb"/>
+    </linearGradient>
+    <linearGradient id="omicsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f0fa"/>
+      <stop offset="100%" style="stop-color:#fef5fa"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="120" height="120" rx="16" fill="url(#omicsBg)"/>
+  
+  <!-- Venn diagram - three overlapping circles -->
+  <!-- Genomics circle -->
+  <circle cx="45" cy="45" r="28" fill="#4facfe" opacity="0.5" stroke="#4facfe" stroke-width="2"/>
+  <text x="30" y="35" font-family="sans-serif" font-size="7" font-weight="bold" fill="#1a5f8f">Genomics</text>
+  
+  <!-- Transcriptomics circle -->
+  <circle cx="75" cy="45" r="28" fill="#f093fb" opacity="0.5" stroke="#f093fb" stroke-width="2"/>
+  <text x="68" y="35" font-family="sans-serif" font-size="7" font-weight="bold" fill="#9f4b9f">Transcr.</text>
+  
+  <!-- Proteomics circle -->
+  <circle cx="60" cy="75" r="28" fill="#38ef7d" opacity="0.5" stroke="#38ef7d" stroke-width="2"/>
+  <text x="45" y="90" font-family="sans-serif" font-size="7" font-weight="bold" fill="#1a8f4f">Proteomics</text>
+  
+  <!-- Integration symbol in center -->
+  <circle cx="60" cy="55" r="12" fill="url(#omicsGrad)" stroke="#fff" stroke-width="2"/>
+  <text x="55" y="59" font-family="sans-serif" font-size="12" font-weight="bold" fill="#fff">∫</text>
+  
+  <!-- Connecting arrows hint -->
+  <path d="M35 100 Q60 110, 85 100" fill="none" stroke="#a18cd1" stroke-width="2" stroke-dasharray="3,2"/>
+  <polygon points="85,100 82,95 88,97" fill="#a18cd1"/>
+</svg>

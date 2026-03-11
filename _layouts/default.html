@@ -51,16 +51,12 @@
       <main class="content-pane" id="page-content">
         {{ content }}
 
-        {% if page.url != '/' %}
+        {% if page.url != '/' and page.url != '/feedback/' %}
         <section class="learning-support" aria-label="Learning support resources">
           <div class="support-card support-feedback">
-            <h2>Give Feedback</h2>
-            <p class="support-note">Use the feedback form to share what worked, what was unclear, and what should be improved.</p>
-            {% if site.feedback.form_url contains 'YOUR_FORM_ID' %}
-            <p class="support-note"><strong>Setup needed:</strong> set <code>feedback.form_url</code> in <code>_config.yml</code> to your Google Form URL.</p>
-            {% else %}
-            <a class="feedback-button" href="{{ site.feedback.form_url }}" target="_blank" rel="noopener noreferrer">Open Feedback Form</a>
-            {% endif %}
+            <h2>💬 Give Feedback</h2>
+            <p class="support-note">Help us improve! Share what worked, what was unclear, or suggest new topics.</p>
+            <a class="feedback-button" href="{{ '/feedback/' | relative_url }}">Share Your Feedback</a>
           </div>
         </section>
         {% endif %}

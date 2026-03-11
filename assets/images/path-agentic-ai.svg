@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="aiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#eef2ff"/>
+      <stop offset="100%" style="stop-color:#f3e8ff"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="120" height="120" rx="16" fill="url(#aiBg)"/>
+  
+  <!-- Robot/Agent head -->
+  <rect x="35" y="25" width="50" height="45" rx="10" fill="url(#aiGrad)"/>
+  
+  <!-- Eyes -->
+  <circle cx="50" cy="45" r="8" fill="#fff"/>
+  <circle cx="70" cy="45" r="8" fill="#fff"/>
+  <circle cx="52" cy="45" r="4" fill="#1a1a2e"/>
+  <circle cx="72" cy="45" r="4" fill="#1a1a2e"/>
+  
+  <!-- Eye glow -->
+  <circle cx="53" cy="44" r="1.5" fill="#fff"/>
+  <circle cx="73" cy="44" r="1.5" fill="#fff"/>
+  
+  <!-- Antenna -->
+  <line x1="60" y1="25" x2="60" y2="15" stroke="#6366f1" stroke-width="3"/>
+  <circle cx="60" cy="12" r="5" fill="#8b5cf6"/>
+  <circle cx="60" cy="12" r="2" fill="#fff"/>
+  
+  <!-- Mouth - LED bar style -->
+  <rect x="48" y="58" width="24" height="4" rx="2" fill="#22d3ee"/>
+  
+  <!-- DNA helix flowing out -->
+  <g transform="translate(25, 75)">
+    <path d="M0 10 Q10 5, 20 10 Q30 15, 40 10 Q50 5, 60 10 Q70 15, 80 10" 
+          fill="none" stroke="#6366f1" stroke-width="2.5" opacity="0.7"/>
+    <path d="M0 20 Q10 25, 20 20 Q30 15, 40 20 Q50 25, 60 20 Q70 15, 80 20" 
+          fill="none" stroke="#8b5cf6" stroke-width="2.5" opacity="0.7"/>
+    <!-- Connecting lines -->
+    <line x1="10" y1="12" x2="10" y2="18" stroke="#a78bfa" stroke-width="1.5"/>
+    <line x1="30" y1="12" x2="30" y2="18" stroke="#a78bfa" stroke-width="1.5"/>
+    <line x1="50" y1="12" x2="50" y2="18" stroke="#a78bfa" stroke-width="1.5"/>
+    <line x1="70" y1="12" x2="70" y2="18" stroke="#a78bfa" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Code brackets on sides -->
+  <text x="15" y="55" font-family="monospace" font-size="20" font-weight="bold" fill="#6366f1" opacity="0.5">{</text>
+  <text x="98" y="55" font-family="monospace" font-size="20" font-weight="bold" fill="#6366f1" opacity="0.5">}</text>
+  
+  <!-- Sparkles -->
+  <g fill="#fbbf24">
+    <polygon points="18,25 20,28 23,28 21,30 22,33 18,31 14,33 15,30 13,28 16,28"/>
+    <polygon points="102,35 104,38 107,38 105,40 106,43 102,41 98,43 99,40 97,38 100,38" transform="scale(0.8) translate(20, 5)"/>
+  </g>
+</svg>

@@ -1,0 +1,122 @@
+name: Process Feedback to CSV
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  process-feedback:
+    # Only run if the "feedback" label is added
+    if: github.event.label.name == 'feedback'
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      issues: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Extract feedback data and append to CSV
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            const issue = context.payload.issue;
+            const body = issue.body || '';
+            
+            // Extract data from the hidden comment block
+            const dataMatch = body.match(/<!-- FEEDBACK_DATA_START\n([\s\S]*?)\nFEEDBACK_DATA_END -->/);
+            
+            if (!dataMatch) {
+              console.log('No structured feedback data found in issue. Skipping.');
+              return;
+            }
+            
+            // Parse the YAML-like data
+            const dataBlock = dataMatch[1];
+            const data = {};
+            
+            dataBlock.split('\n').forEach(line => {
+              const colonIndex = line.indexOf(':');
+              if (colonIndex > -1) {
+                const key = line.substring(0, colonIndex).trim();
+                const value = line.substring(colonIndex + 1).trim();
+                data[key] = value;
+              }
+            });
+            
+            // Prepare CSV row
+            const csvRow = [
+              issue.number,
+              data.timestamp || new Date().toISOString(),
+              data.type || 'unknown',
+              (data.page || '').replace(/,/g, ';'),
+              data.rating || '',
+              data.expertise || '',
+              (data.topics || '').replace(/,/g, ';'),
+              (data.email || '').replace(/,/g, ';'),
+              issue.html_url
+            ].map(field => `"${String(field).replace(/"/g, '""')}"`).join(',');
+            
+            // Ensure _data/feedback directory exists
+            const feedbackDir = '_data/feedback';
+            if (!fs.existsSync(feedbackDir)) {
+              fs.mkdirSync(feedbackDir, { recursive: true });
+            }
+            
+            const csvPath = path.join(feedbackDir, 'responses.csv');
+            
+            // Check if CSV exists, if not create with headers
+            const headers = 'issue_number,timestamp,type,related_page,rating,expertise,topics,email,issue_url';
+            
+            let csvContent = '';
+            if (fs.existsSync(csvPath)) {
+              csvContent = fs.readFileSync(csvPath, 'utf8');
+            } else {
+              csvContent = headers + '\n';
+            }
+            
+            // Append new row
+            csvContent += csvRow + '\n';
+            
+            // Write back
+            fs.writeFileSync(csvPath, csvContent);
+            
+            console.log(`Feedback from issue #${issue.number} appended to CSV`);
+            console.log('Data:', JSON.stringify(data, null, 2));
+            
+            // Set output for commit step
+            core.setOutput('issue_number', issue.number);
+            core.setOutput('csv_updated', 'true');
+      
+      - name: Commit CSV update
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Check if there are changes to commit
+          if git diff --quiet _data/feedback/responses.csv 2>/dev/null; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git add _data/feedback/responses.csv
+          git commit -m "📊 Add feedback from issue #${{ github.event.issue.number }}"
+          git push
+      
+      - name: Add confirmation comment to issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: `✅ **Thank you for your feedback!**\n\nYour submission has been recorded and added to our feedback tracking system. We review all feedback regularly and use it to improve our tutorials.\n\n---\n*This is an automated response.*`
+            });

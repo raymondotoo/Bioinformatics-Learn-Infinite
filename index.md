@@ -5,94 +5,754 @@ description: Bioinformatics tutorials from fundamentals to advanced data analysi
 permalink: /
 ---
 
-# Bioinformatics Learn Infinite
+<style>
+/* Enhanced Homepage Styles */
+.hero-section {
+  background: linear-gradient(135deg, #0a1628 0%, #1a365d 40%, #234e8a 100%);
+  color: #ffffff;
+  padding: 3rem 2.5rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(10, 22, 40, 0.25);
+}
 
-![Bioinformatics Learn Infinite Banner]({{ '/assets/banners/home-banner.svg' | relative_url }})
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse 60% 50% at 85% 50%, rgba(74, 144, 226, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 15% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
 
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Cdefs%3E%3ClinearGradient id='dna' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' style='stop-color:%234ade80;stop-opacity:0.3'/%3E%3Cstop offset='100%25' style='stop-color:%2322d3ee;stop-opacity:0.3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M320 30 Q340 50 320 70 Q300 90 320 110 Q340 130 320 150 Q300 170 320 190' fill='none' stroke='url(%23dna)' stroke-width='3' opacity='0.4'/%3E%3Cpath d='M360 30 Q340 50 360 70 Q380 90 360 110 Q340 130 360 150 Q380 170 360 190' fill='none' stroke='url(%23dna)' stroke-width='3' opacity='0.4'/%3E%3Cline x1='323' y1='40' x2='357' y2='40' stroke='%2322d3ee' stroke-width='2' opacity='0.25'/%3E%3Cline x1='313' y1='70' x2='367' y2='70' stroke='%234ade80' stroke-width='2' opacity='0.25'/%3E%3Cline x1='323' y1='100' x2='357' y2='100' stroke='%2322d3ee' stroke-width='2' opacity='0.25'/%3E%3Cline x1='313' y1='130' x2='367' y2='130' stroke='%234ade80' stroke-width='2' opacity='0.25'/%3E%3Cline x1='323' y1='160' x2='357' y2='160' stroke='%2322d3ee' stroke-width='2' opacity='0.25'/%3E%3Ccircle cx='80' cy='40' r='4' fill='%234ade80' opacity='0.2'/%3E%3Ccircle cx='120' cy='160' r='6' fill='%2322d3ee' opacity='0.15'/%3E%3Ccircle cx='250' cy='180' r='3' fill='%234ade80' opacity='0.2'/%3E%3C/svg%3E");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+  opacity: 0.8;
+  pointer-events: none;
+}
 
-<section class="home-hero">
-  <h2>Introduction to the Bioinformatics Learning Path</h2>
-  <p>This platform is to serve all who are interested in either mastering/polishing their technical wherewithal in bioinformatics as well as any curious persons interested in learning the science of bioinformatics. The contents herein have been carefully selected and designed such that it gives you the relevant skills in the industry. Various literature that are consulted are duly acknowledged. Recommended materials will also be added as a guide for further reading/studies. All you will need to be successful in completing this path is a curious mindset, diligence and consistency. It is recommended to follow the path in the order listed for an easier understanding of the concepts and a gradual build-up into your studies. Good luck and happy learning.</p>
-</section>
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
 
-<section class="home-panel">
-  <h2>Learning Paths</h2>
-  <ol class="home-path-list">
-    <li><a href="{{ '/introduction-to-bioinformatics/' | relative_url }}">Introduction to Bioinformatics</a></li>
-    <li><a href="{{ '/biology-fundamentals-for-bioinformatics/' | relative_url }}">Biology Fundamentals for Bioinformatics</a></li>
-    <li><a href="{{ '/statistical-analysis-and-inference/' | relative_url }}">Statistical Analysis and Inference</a></li>
-    <li><a href="{{ '/bioinformatics-core-skills/' | relative_url }}">Bioinformatics Core Skills</a></li>
-    <li><a href="{{ '/bioinformatics-data-analysis-focused-ngs/' | relative_url }}">Bioinformatics Data Analysis Focused (NGS)</a></li>
-    <li><a href="{{ '/machine-learning/' | relative_url }}">Machine Learning</a></li>
-    <li><a href="{{ '/multiomics-data-integration/' | relative_url }}">Multi-Omics Data Integration</a></li>
-    <li><a href="{{ '/single-cell-and-spatial-omics-analysis/' | relative_url }}">Single-Cell and Spatial Omics Analysis</a></li>
-    <li><a href="{{ '/agentic-ai-bioinformatics/' | relative_url }}">Agentic AI for Bioinformatics</a> <span class="new-badge">NEW</span></li>
-  </ol>
-</section>
+.hero-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(34, 211, 238, 0.2));
+  color: #a7f3d0;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  letter-spacing: 0.02em;
+}
 
-<section class="home-grid">
-  <article class="home-panel">
-    <h2>About the Author</h2>
-    <img src="{{ '/author.png' | relative_url }}" alt="Portrait of Raymond Otoo" class="author-photo author-photo-wrap">
-    <p><strong>Raymond Otoo, Ph.D.</strong></p>
-    <p>Dr. Raymond Otoo is a Bioinformatics Scientist with 5+ years of experience at the intersection of bioinformatics research and machine learning. He specializes in integrative multimodal omics analytics, leveraging AI-driven approaches to advance translational discovery and enhance disease modeling. At the Barrow Neuroanalytics Center of the BNI, his current work focuses on uncovering risk factors and molecular mechanisms underlying Alzheimer’s disease and traumatic brain injury through integrative analysis of terabyte-scale genomics, proteomics, transcriptomics, and neuroimaging data. Outside of research, Raymond enjoys traveling and photography, passions that inspire his curiosity and creativity. Raymond is always open to connect and collaborate on innovative bioinformatics challenges!</p>
-  </article>
+.hero-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
 
-  <article class="home-panel">
-    <h2>Connect with Us</h2>
-    <ul class="home-connect">
-      <li><strong>Twitter:</strong> <a href="https://twitter.com/BioLnInfinite">@BioLnInfinite</a></li>
-      <li><strong>Email:</strong> <a href="mailto:raymondotoo115@gmail.com">raymondotoo115@gmail.com</a></li>
-      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/raymondotoo">Raymond Otoo</a></li>
-    </ul>
-    <section class="quote-day" aria-live="polite">
-      <h3>Quote of the Day</h3>
-      <blockquote id="quote-of-day-text">Science is not only a disciple of reason but, also, one of romance and passion.</blockquote>
-      <p class="quote-author" id="quote-of-day-author">- Stephen Hawking</p>
-    </section>
-    <section class="connect-extra">
-      <h3>Featured Resource of the Week</h3>
-      <p class="tip-kicker">Latest bioinformatics tip</p>
-      <p id="featured-tip-title"><strong>Read FASTQ quality profiles before trimming.</strong></p>
-      <p id="featured-tip-text">Use a quick QC pass to avoid over-trimming and preserve informative reads for downstream analysis.</p>
-      <a class="connect-extra-link" id="featured-tip-link" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" target="_blank" rel="noopener">Open this week’s resource</a>
-    </section>
-    <script id="weekly-tips-data" type="application/json">{{ site.data.weekly_tips | jsonify }}</script>
-  </article>
-</section>
+.hero-subtitle {
+  font-size: 1.15rem;
+  opacity: 0.92;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
 
-<section class="home-panel latest-blog-panel">
-  <h2>Latest from the Blog</h2>
-  {% assign latest_post = site.posts.first %}
-  {% if latest_post %}
-  <article class="latest-blog-card">
-    <p class="blog-card-date">{{ latest_post.date | date: "%B %-d, %Y" }}</p>
-    <h3><a href="{{ latest_post.url | relative_url }}">{{ latest_post.title }}</a></h3>
-    {% if latest_post.summary %}
-    <p>{{ latest_post.summary }}</p>
-    {% else %}
-    <p>{{ latest_post.excerpt | strip_html | truncatewords: 45 }}</p>
-    {% endif %}
-    <a class="blog-read-link" href="{{ latest_post.url | relative_url }}">Read latest post</a>
-  </article>
-  {% else %}
-  <p>No blog posts published yet. New weekly updates will appear here.</p>
-  {% endif %}
-</section>
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #4ade80, #22d3ee);
+  color: #0a1628;
+  padding: 0.9rem 1.75rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+}
 
-<section class="home-panel">
-  <h2>Explore External Learning Resources</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Platform</th><th>Description</th><th>Link</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Bulk RNA-seq</td><td>Basic steps in RNA-seq analysis</td><td><a href="https://hbctraining.github.io/DGE_workshop/lessons/01_DGE_setup_and_overview.html">Harvard Chan Bioinformatics Core</a></td></tr>
-        <tr><td>Single Cell RNA-Seq</td><td>Walkthrough example of scRNA-seq</td><td><a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial.html">Seurat Tutorial</a></td></tr>
-        <tr><td>Proteomics</td><td>Walkthrough example of proteomics analysis</td><td><a href="https://statomics.github.io/PDA21/pda_quantification_preprocessing.html">StatOmics</a></td></tr>
-        <tr><td>Microbiome</td><td>Walkthrough example of microbiome analysis</td><td><a href="https://github.com/tanyabrown9/Resilient_vs_Susceptible_Mcapitata">GitHub Repository</a></td></tr>
-      </tbody>
-    </table>
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(74, 222, 128, 0.4);
+  filter: brightness(1.05);
+}
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(31, 79, 143, 0.1);
+}
+
+.stat-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.section-header h2 {
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.path-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.path-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.path-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+.path-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.path-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(31, 79, 143, 0.12);
+  border-color: var(--accent);
+}
+
+.path-card.featured {
+  background: linear-gradient(135deg, #f8faff 0%, #eef4ff 100%);
+  border-color: var(--accent);
+}
+
+.path-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.path-card.featured .path-number {
+  background: var(--accent);
+  color: #fff;
+}
+
+.path-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
+}
+
+.path-desc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.path-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #00c853, #00a844);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+}
+
+.feature-text {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.panel-enhanced {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  padding: 1.75rem;
+}
+
+.panel-enhanced h2 {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: none;
+  font-size: 1.25rem;
+}
+
+.author-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.author-photo-enhanced {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-soft);
+  flex-shrink: 0;
+}
+
+.author-info {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.author-bio {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.author-info h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.author-role {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.social-link:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.resources-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.resources-table th,
+.resources-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.resources-table th {
+  background: var(--surface-soft);
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.resources-table td {
+  font-size: 0.95rem;
+}
+
+.resources-table tr:hover td {
+  background: var(--surface-soft);
+}
+
+.resources-table a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.resources-table a:hover {
+  text-decoration: underline;
+}
+
+.cta-final {
+  text-align: center;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, var(--surface-soft) 0%, #e8f0ff 100%);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.cta-final h2 {
+  margin: 0 0 0.75rem;
+  border: none;
+  padding: 0;
+  color: var(--ink);
+}
+
+.cta-final p {
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.cta-btn-primary:hover {
+  background: #163d73;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(31, 79, 143, 0.2);
+}
+
+@media (max-width: 900px) {
+  .path-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .path-grid {
+    grid-template-columns: 1fr;
+  }
+  .two-col-grid {
+    grid-template-columns: 1fr;
+  }
+  .author-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .author-photo-enhanced {
+    margin: 0 auto;
+  }
+  .social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+</style>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <span class="hero-badge">🧬 Free Bioinformatics Education</span>
+    <h1 class="hero-title">Master Bioinformatics from Zero to Expert</h1>
+    <p class="hero-subtitle">A comprehensive, industry-aligned curriculum covering everything from biology fundamentals to cutting-edge AI-driven analysis. Join thousands of learners transforming their careers in computational biology.</p>
+    <a href="{{ '/introduction-to-bioinformatics/' | relative_url }}" class="hero-cta">
+      Start Learning Now →
+    </a>
   </div>
+</section>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+  <div class="stat-card">
+    <div class="stat-icon">📚</div>
+    <div class="stat-number">9</div>
+    <div class="stat-label">Learning Paths</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">💻</div>
+    <div class="stat-number">500+</div>
+    <div class="stat-label">Code Examples</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">🔬</div>
+    <div class="stat-number">50+</div>
+    <div class="stat-label">Hands-on Tutorials</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">🌍</div>
+    <div class="stat-number">Free</div>
+    <div class="stat-label">Forever</div>
+  </div>
+</div>
+
+<!-- Learning Paths -->
+<section class="panel-enhanced">
+  <div class="section-header">
+    <h2>📖 Learning Paths</h2>
+    <span style="font-size: 0.9rem; color: var(--ink-soft);">Follow in order for best results</span>
+  </div>
+  
+  <div class="path-grid">
+    <a href="{{ '/introduction-to-bioinformatics/' | relative_url }}" class="path-card featured">
+      <div class="path-card-header">
+        <img src="{{ '/assets/images/path-intro.svg' | relative_url }}" alt="" class="path-image">
+        <div class="path-header-text">
+          <span class="path-number">1</span>
+          <h3 class="path-title">Introduction to Bioinformatics</h3>
+        </div>
+      </div>
+      <p class="path-desc">Start here. Understand the field, career paths, and fundamental concepts.</p>
+    </a>
+    
+    <a href="{{ '/biology-fundamentals-for-bioinformatics/' | relative_url }}" class="path-card">
+      <div class="path-card-header">
+        <img src="{{ '/assets/images/path-biology.svg' | relative_url }}" alt="" class="path-image">
+        <div class="path-header-text">
+          <span class="path-number">2</span>
+          <h3 class="path-title">Biology Fundamentals</h3>
+        </div>
+      </div>
+      <p class="path-desc">Essential molecular biology, genetics, and biochemistry concepts.</p>
+    </a>
+    
+    <a href="{{ '/statistical-analysis-and-inference/' | relative_url }}" class="path-card">
+      <div class="path-card-header">
+        <img src="{{ '/assets/images/path-statistics.svg' | relative_url }}" alt="" class="path-image">
+        <div class="path-header-text">
+          <span class="path-number">3</span>
+          <h3 class="path-title">Statistics & Inference</h3>
+        </div>
+      </div>
+      <p class="path-desc">Hypothesis testing, FDR correction, and statistical modeling.</p>
+    </a>
+    
+    <a href="{{ '/bioinformatics-core-skills/' | relative_url }}" class="path-card">
+      <div class="path-card-header">
+        <img src="{{ '/assets/images/path-core-skills.svg' | relative_url }}" alt="" class="path-image">
+        <div class="path-header-text">
+          <span class="path-number">4</span>
+          <h3 class="path-title">Core Skills</h3>
+        </div>
+      </div>
+      <p class="path-desc">Linux, Python, R, Git, and reproducible research practices.</p>
+    </a>
+    
+    <a href="{{ '/bioinformatics-data-analysis-focused-ngs/' | relative_url }}" class="path-card">
+      <div class="path-card-header">
+        <img src="{{ '/assets/images/path-ngs.svg' | relative_url }}" alt="" class="path-image">
+        <div class="path-header-text">
+          <span class="path-number">5</span>
+          <h3 class="path-title">NGS Data Analysis</h3>
+        </div>
+      </div>
+      <p class="path-desc">RNA-seq, DNA-seq, variant calling, and ChIP-seq workflows.</p>
+    </a>
+    
+    <a href="{{ '/machine-learning/' | relative_url }}" class="path-card">
+      <div class="path-card-header">
+        <img src="{{ '/assets/images/path-ml.svg' | relative_url }}" alt="" class="path-image">
+        <div class="path-header-text">
+          <span class="path-number">6</span>
+          <h3 class="path-title">Machine Learning</h3>
+        </div>
+      </div>
+      <p class="path-desc">Classification, clustering, deep learning for biological data.</p>
+    </a>
+    
+    <a href="{{ '/multiomics-data-integration/' | relative_url }}" class="path-card">
+      <div class="path-card-header">
+        <img src="{{ '/assets/images/path-multiomics.svg' | relative_url }}" alt="" class="path-image">
+        <div class="path-header-text">
+          <span class="path-number">7</span>
+          <h3 class="path-title">Multi-Omics Integration</h3>
+        </div>
+      </div>
+      <p class="path-desc">MOFA+, DIABLO, and cross-platform data integration methods.</p>
+    </a>
+    
+    <a href="{{ '/single-cell-and-spatial-omics-analysis/' | relative_url }}" class="path-card">
+      <div class="path-card-header">
+        <img src="{{ '/assets/images/path-singlecell.svg' | relative_url }}" alt="" class="path-image">
+        <div class="path-header-text">
+          <span class="path-number">8</span>
+          <h3 class="path-title">Single-Cell & Spatial Omics</h3>
+        </div>
+      </div>
+      <p class="path-desc">scRNA-seq, Visium, Xenium, and spatial analysis workflows.</p>
+    </a>
+    
+    <a href="{{ '/agentic-ai-bioinformatics/' | relative_url }}" class="path-card">
+      <span class="path-badge">NEW</span>
+      <div class="path-card-header">
+        <img src="{{ '/assets/images/path-agentic-ai.svg' | relative_url }}" alt="" class="path-image">
+        <div class="path-header-text">
+          <span class="path-number">9</span>
+          <h3 class="path-title">Agentic AI for Bioinformatics</h3>
+        </div>
+      </div>
+      <p class="path-desc">Build AI agents that automate analysis from data to interpretation.</p>
+    </a>
+  </div>
+</section>
+
+<!-- Why This Platform -->
+<section class="features-grid">
+  <div class="feature-card">
+    <div class="feature-icon">🎯</div>
+    <h3 class="feature-title">Industry-Aligned</h3>
+    <p class="feature-text">Curriculum designed by working bioinformatics scientists using real-world tools and workflows.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🔧</div>
+    <h3 class="feature-title">Hands-On Code</h3>
+    <p class="feature-text">Every concept includes working code examples in Python, R, and Bash that you can run immediately.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">📈</div>
+    <h3 class="feature-title">Zero to Expert</h3>
+    <p class="feature-text">Progressive learning path from absolute beginner to advanced multi-omics and AI integration.</p>
+  </div>
+</section>
+
+<!-- Two Column: Author + Blog -->
+<div class="two-col-grid">
+  <article class="panel-enhanced">
+    <h2>👨‍🔬 Meet the Author</h2>
+    <div class="author-card">
+      <img src="{{ '/author.png' | relative_url }}" alt="Dr. Raymond Otoo" class="author-photo-enhanced">
+      <div class="author-info">
+        <h3>Dr. Raymond Otoo, Ph.D.</h3>
+        <p class="author-role">Senior Bioinformatics Scientist</p>
+        <p class="author-bio">5+ years advancing translational research through integrative multi-omics and AI-driven analytics at the Barrow Neuroanalytics Center.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/raymondotoo" class="social-link" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://twitter.com/BioLnInfinite" class="social-link" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Twitter
+          </a>
+          <a href="mailto:raymondotoo115@gmail.com" class="social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="panel-enhanced">
+    <h2>📝 Latest from the Blog</h2>
+    {% assign latest_post = site.posts.first %}
+    {% if latest_post %}
+    <article style="margin-bottom: 1rem;">
+      <p style="font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 0.5rem;">{{ latest_post.date | date: "%B %-d, %Y" }}</p>
+      <h3 style="margin: 0 0 0.5rem; font-size: 1.1rem;"><a href="{{ latest_post.url | relative_url }}" style="color: var(--ink); text-decoration: none;">{{ latest_post.title }}</a></h3>
+      <p style="font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 1rem; line-height: 1.6;">{{ latest_post.excerpt | strip_html | truncatewords: 30 }}</p>
+      <a href="{{ latest_post.url | relative_url }}" style="color: var(--accent); font-weight: 600; text-decoration: none;">Read more →</a>
+    </article>
+    {% else %}
+    <p style="color: var(--ink-soft);">Blog posts coming soon.</p>
+    {% endif %}
+    
+    <div style="border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1rem;">
+      <h4 style="margin: 0 0 0.5rem; font-size: 0.95rem; color: var(--ink);">💡 Tip of the Week</h4>
+      <p style="font-size: 0.9rem; color: var(--ink-soft); margin: 0; line-height: 1.6;"><strong>Always check library sizes before normalization.</strong> Samples with very low read counts may need to be excluded or handled differently in your analysis.</p>
+    </div>
+  </article>
+</div>
+
+<!-- External Resources -->
+<section class="panel-enhanced">
+  <h2>🔗 Recommended External Resources</h2>
+  <table class="resources-table">
+    <thead>
+      <tr><th>Topic</th><th>Description</th><th>Resource</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bulk RNA-seq</td>
+        <td>Complete differential expression workflow</td>
+        <td><a href="https://hbctraining.github.io/DGE_workshop/lessons/01_DGE_setup_and_overview.html" target="_blank" rel="noopener">Harvard Chan Bioinformatics Core</a></td>
+      </tr>
+      <tr>
+        <td>Single-Cell RNA-seq</td>
+        <td>PBMC 3k tutorial with Seurat</td>
+        <td><a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial.html" target="_blank" rel="noopener">Seurat Tutorial</a></td>
+      </tr>
+      <tr>
+        <td>Proteomics</td>
+        <td>Quantification and preprocessing</td>
+        <td><a href="https://statomics.github.io/PDA21/pda_quantification_preprocessing.html" target="_blank" rel="noopener">StatOmics</a></td>
+      </tr>
+      <tr>
+        <td>Microbiome</td>
+        <td>16S rRNA analysis pipeline</td>
+        <td><a href="https://github.com/tanyabrown9/Resilient_vs_Susceptible_Mcapitata" target="_blank" rel="noopener">GitHub Repository</a></td>
+      </tr>
+      <tr>
+        <td>Variant Annotation</td>
+        <td>ANNOVAR, VEP, and SnpEff guides</td>
+        <td><a href="https://annovar.openbioinformatics.org/en/latest/" target="_blank" rel="noopener">ANNOVAR Documentation</a></td>
+      </tr>
+      <tr>
+        <td>Galaxy Platform</td>
+        <td>Web-based analysis for non-coders</td>
+        <td><a href="https://usegalaxy.org/" target="_blank" rel="noopener">UseGalaxy.org</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-final">
+  <h2>Ready to Start Your Journey?</h2>
+  <p>Begin with the fundamentals and work your way to advanced analysis techniques.</p>
+  <a href="{{ '/introduction-to-bioinformatics/' | relative_url }}" class="cta-btn-primary">Begin Module 1 →</a>
 </section>

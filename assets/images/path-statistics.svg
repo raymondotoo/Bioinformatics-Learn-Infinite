@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="statGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+    <linearGradient id="statBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0edff"/>
+      <stop offset="100%" style="stop-color:#e8e0ff"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="120" height="120" rx="16" fill="url(#statBg)"/>
+  
+  <!-- Axes -->
+  <line x1="25" y1="95" x2="105" y2="95" stroke="#764ba2" stroke-width="3" stroke-linecap="round"/>
+  <line x1="25" y1="95" x2="25" y2="20" stroke="#764ba2" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Bell curve -->
+  <path d="M30 90 Q45 88, 50 75 Q55 55, 65 35 Q75 55, 80 75 Q85 88, 100 90" 
+        fill="url(#statGrad)" opacity="0.3" stroke="url(#statGrad)" stroke-width="3"/>
+  
+  <!-- Mean line -->
+  <line x1="65" y1="35" x2="65" y2="95" stroke="#667eea" stroke-width="2" stroke-dasharray="4,3"/>
+  
+  <!-- Standard deviation markers -->
+  <line x1="50" y1="75" x2="50" y2="95" stroke="#764ba2" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="80" y1="75" x2="80" y2="95" stroke="#764ba2" stroke-width="1.5" stroke-dasharray="3,2"/>
+  
+  <!-- Data points -->
+  <circle cx="40" cy="85" r="4" fill="#667eea"/>
+  <circle cx="55" cy="60" r="4" fill="#667eea"/>
+  <circle cx="65" cy="40" r="4" fill="#764ba2"/>
+  <circle cx="72" cy="55" r="4" fill="#667eea"/>
+  <circle cx="88" cy="82" r="4" fill="#667eea"/>
+  
+  <!-- Sigma symbol -->
+  <text x="15" y="18" font-family="serif" font-size="18" font-style="italic" fill="#764ba2">σ</text>
+  
+  <!-- p-value indicator -->
+  <text x="85" y="25" font-family="sans-serif" font-size="10" font-weight="bold" fill="#667eea">p&lt;0.05</text>
+</svg>
