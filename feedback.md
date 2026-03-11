@@ -293,6 +293,21 @@ permalink: /feedback/
   display: block;
 }
 
+/* Loading spinner */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .feedback-container {
@@ -479,6 +494,10 @@ document.addEventListener('DOMContentLoaded', function() {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     
+    // Disable submit button
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
+    
     // Gather form data
     const feedbackType = document.getElementById('feedback-type').value;
     const pageRef = document.getElementById('page-ref').value.trim();
@@ -544,20 +563,41 @@ FEEDBACK_DATA_END -->
     // Create GitHub issue URL
     const issueUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/new?title=${encodedTitle}&body=${encodedBody}&labels=${labels}`;
     
-    // Show success message
-    messageDiv.className = 'form-message success show';
-    messageDiv.innerHTML = `
-      <strong>Almost there!</strong> Click below to submit your feedback via GitHub:
-      <br><br>
-      <a href="${issueUrl}" target="_blank" rel="noopener" style="display: inline-block; background: #166534; color: white; padding: 0.6rem 1.2rem; border-radius: 0.4rem; text-decoration: none; font-weight: 600;">
-        Open GitHub to Submit →
-      </a>
-      <br><br>
-      <small style="color: #666;">Don't have a GitHub account? <a href="mailto:raymondotoo115@gmail.com?subject=${encodedTitle}&body=${encodeURIComponent(feedbackText)}">Send via email instead</a></small>
-    `;
+    // Auto-open GitHub in new tab
+    const githubWindow = window.open(issueUrl, '_blank');
     
-    // Scroll to message
-    messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Show success message
+    setTimeout(() => {
+      messageDiv.className = 'form-message success show';
+      messageDiv.innerHTML = `
+        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+          <span style="font-size: 2rem;">✅</span>
+          <div>
+            <strong style="font-size: 1.1rem;">GitHub Issue Page Opened!</strong>
+            <p style="margin: 0.5rem 0 0; line-height: 1.6;">
+              A new tab should have opened with your feedback pre-filled. 
+              <strong>Click "Submit new issue"</strong> on GitHub to complete your submission.
+            </p>
+            <p style="margin: 0.75rem 0 0; font-size: 0.9rem; color: #666;">
+              Popup blocked? <a href="${issueUrl}" target="_blank" rel="noopener" style="color: #166534; font-weight: 600;">Click here to open manually</a>
+            </p>
+            <p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: #666;">
+              No GitHub account? <a href="mailto:raymondotoo115@gmail.com?subject=${encodedTitle}&body=${encodeURIComponent(feedbackText)}" style="color: var(--accent);">Send via email instead</a>
+            </p>
+          </div>
+        </div>
+      `;
+      
+      // Re-enable button with different text
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '✓ Submit Another';
+      
+      // Scroll to message
+      messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Reset form for potential new submission
+      form.reset();
+    }, 500);
   });
 });
 </script>

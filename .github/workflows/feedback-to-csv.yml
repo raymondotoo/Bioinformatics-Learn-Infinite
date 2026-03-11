@@ -2,12 +2,12 @@ name: Process Feedback to CSV
 
 on:
   issues:
-    types: [labeled]
+    types: [opened]
 
 jobs:
   process-feedback:
-    # Only run if the "feedback" label is added
-    if: github.event.label.name == 'feedback'
+    # Only run if the issue body contains our feedback marker
+    if: contains(github.event.issue.body, 'FEEDBACK_DATA_START')
     runs-on: ubuntu-latest
     
     permissions:
