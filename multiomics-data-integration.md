@@ -152,6 +152,209 @@ Start with one interpretable baseline and one advanced model:
 - Unsupervised latent factors.
 - Separates shared vs layer-specific variation.
 
+## Complete Integration Tutorials
+
+### MOFA+ Tutorial (R/Python)
+
+MOFA+ discovers latent factors capturing variance shared or specific to each omics layer.
+
+```r
+# Install MOFA+
+# devtools::install_github("bioFAM/MOFA2")
+library(MOFA2)
+
+# Prepare data as named list
+data_list <- list(
+  RNA = as.matrix(rna_common),
+  Protein = as.matrix(protein_common),
+  Methylation = as.matrix(meth_common)
+)
+
+# Create MOFA object
+mofa_obj <- create_mofa(data_list)
+
+# Set training options
+data_opts <- get_default_data_options(mofa_obj)
+model_opts <- get_default_model_options(mofa_obj)
+model_opts$num_factors <- 15  # Number of latent factors
+
+train_opts <- get_default_training_options(mofa_obj)
+train_opts$convergence_mode <- "slow"
+train_opts$seed <- 42
+
+# Prepare and train
+mofa_obj <- prepare_mofa(
+  mofa_obj,
+  data_options = data_opts,
+  model_options = model_opts,
+  training_options = train_opts
+)
+
+mofa_obj <- run_mofa(mofa_obj, outfile = "mofa_model.hdf5")
+
+# Explore results
+# Variance explained by each factor per view
+plot_variance_explained(mofa_obj, max_r2 = 25)
+
+# Factor values (latent representation of samples)
+factors <- get_factors(mofa_obj, as.data.frame = TRUE)
+
+# Plot samples in factor space colored by phenotype
+plot_factor(mofa_obj, factor = 1, color_by = "condition")
+
+# Get top features for each factor
+weights <- get_weights(mofa_obj, views = "all", factors = 1:5, as.data.frame = TRUE)
+top_genes <- weights %>%
+  filter(view == "RNA") %>%
+  group_by(factor) %>%
+  slice_max(abs(value), n = 20)
+
+# Pathway enrichment on top factor genes
+library(gprofiler2)
+enrichment <- gost(query = top_genes$feature, organism = "hsapiens")
+```
+
+### mixOmics DIABLO Tutorial (Supervised Multi-Omics)
+
+DIABLO finds sparse multi-omics signatures that discriminate groups.
+
+```r
+library(mixOmics)
+
+# Prepare matrices (samples x features)
+X_list <- list(
+  mRNA = t(rna_common),
+  miRNA = t(mirna_common),
+  Protein = t(protein_common)
+)
+
+# Outcome variable
+Y <- as.factor(metadata$condition)
+
+# Design matrix (0 = no correlation, 1 = full correlation between blocks)
+design <- matrix(0.1, ncol = length(X_list), nrow = length(X_list),
+                 dimnames = list(names(X_list), names(X_list)))
+diag(design) <- 0
+
+# Tune number of components and variables
+tune_splsda <- tune.block.splsda(
+  X = X_list,
+  Y = Y,
+  design = design,
+  ncomp = 5,
+  test.keepX = list(
+    mRNA = c(10, 30, 50),
+    miRNA = c(5, 10, 20),
+    Protein = c(10, 30, 50)
+  ),
+  BPPARAM = BiocParallel::MulticoreParam(workers = 4)
+)
+
+# Extract optimal parameters
+optimal_keepX <- tune_splsda$choice.keepX
+
+# Train final model
+diablo_model <- block.splsda(
+  X = X_list,
+  Y = Y,
+  ncomp = tune_splsda$choice.ncomp$ncomp,
+  keepX = optimal_keepX,
+  design = design
+)
+
+# Visualize results
+# Sample plot
+plotIndiv(diablo_model, ind.names = FALSE, legend = TRUE,
+          title = "DIABLO: Sample Space")
+
+# Arrow plot (connect sample projections across omics)
+plotArrow(diablo_model, ind.names = FALSE, legend = TRUE)
+
+# Circos plot (correlations between selected features)
+circosPlot(diablo_model, cutoff = 0.7, line = TRUE,
+           color.blocks = c("darkorchid", "brown1", "lightgreen"))
+
+# Get selected features
+selected_features <- selectVar(diablo_model)
+# mRNA: selected_features$mRNA$name
+# Protein: selected_features$Protein$name
+
+# Cross-validation performance
+perf_diablo <- perf(diablo_model, validation = "Mfold", 
+                     folds = 5, nrepeat = 10)
+plot(perf_diablo)
+```
+
+### Similarity Network Fusion (SNF)
+
+SNF combines patient similarity networks from different omics into a unified network.
+
+```r
+library(SNFtool)
+
+# Calculate distance matrices for each omics
+dist_rna <- dist2(as.matrix(t(rna_common)), as.matrix(t(rna_common)))
+dist_protein <- dist2(as.matrix(t(protein_common)), as.matrix(t(protein_common)))
+dist_meth <- dist2(as.matrix(t(meth_common)), as.matrix(t(meth_common)))
+
+# Convert to affinity matrices
+K <- 20  # Number of neighbors
+alpha <- 0.5  # Hyperparameter for kernel
+
+aff_rna <- affinityMatrix(dist_rna, K, alpha)
+aff_protein <- affinityMatrix(dist_protein, K, alpha)
+aff_meth <- affinityMatrix(dist_meth, K, alpha)
+
+# Fuse networks
+fused_network <- SNF(list(aff_rna, aff_protein, aff_meth), K, 20)
+
+# Cluster patients using spectral clustering
+num_clusters <- estimateNumberOfClustersGivenGraph(fused_network, NUMC = 2:5)
+clusters <- spectralClustering(fused_network, K = num_clusters$`Eigen-gap best`)
+
+# Visualize fused network
+displayClusters(fused_network, clusters)
+
+# Compare with individual omics clustering
+cluster_rna <- spectralClustering(aff_rna, K = num_clusters$`Eigen-gap best`)
+table(clusters, cluster_rna)  # Agreement between fused and RNA-only
+```
+
+### Network-Based Integration with WGCNA
+
+```r
+library(WGCNA)
+allowWGCNAThreads()
+
+# Transpose matrices (samples x genes)
+datExpr_rna <- t(rna_common)
+datExpr_protein <- t(protein_common)
+
+# Build RNA co-expression network
+softPower_rna <- pickSoftThreshold(datExpr_rna, verbose = 5)$powerEstimate
+adjacency_rna <- adjacency(datExpr_rna, power = softPower_rna)
+TOM_rna <- TOMsimilarity(adjacency_rna)
+geneTree_rna <- hclust(as.dist(1 - TOM_rna), method = "average")
+
+# Detect modules
+modules_rna <- cutreeDynamic(dendro = geneTree_rna, distM = 1 - TOM_rna,
+                              deepSplit = 2, minClusterSize = 30)
+
+# Calculate module eigengenes
+MEList_rna <- moduleEigengenes(datExpr_rna, colors = modules_rna)
+MEs_rna <- MEList_rna$eigengenes
+
+# Correlate RNA modules with protein expression
+moduleTraitCor <- cor(MEs_rna, datExpr_protein, use = "p")
+moduleTraitPvalue <- corPvalueStudent(moduleTraitCor, nrow(datExpr_rna))
+
+# Visualize module-protein correlations
+library(pheatmap)
+pheatmap(moduleTraitCor[, 1:50],  # Top 50 proteins
+         clustering_method = "ward.D2",
+         main = "RNA Module - Protein Correlations")
+```
+
 ## Practical Quality Control for Multi-Omics
 
 1. Plot missingness by layer and sample.

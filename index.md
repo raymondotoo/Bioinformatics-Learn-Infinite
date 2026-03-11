@@ -26,6 +26,7 @@ permalink: /
     <li><a href="{{ '/machine-learning/' | relative_url }}">Machine Learning</a></li>
     <li><a href="{{ '/multiomics-data-integration/' | relative_url }}">Multi-Omics Data Integration</a></li>
     <li><a href="{{ '/single-cell-and-spatial-omics-analysis/' | relative_url }}">Single-Cell and Spatial Omics Analysis</a></li>
+    <li><a href="{{ '/agentic-ai-bioinformatics/' | relative_url }}">Agentic AI for Bioinformatics</a> <span class="new-badge">NEW</span></li>
   </ol>
 </section>
 
