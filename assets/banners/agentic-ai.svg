@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-label="Agentic AI for Bioinformatics banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="50%" stop-color="#16213e"/>
+      <stop offset="100%" stop-color="#0f3460"/>
+    </linearGradient>
+    <linearGradient id="circuit" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00ff8833"/>
+      <stop offset="50%" stop-color="#00d9ff44"/>
+      <stop offset="100%" stop-color="#ff006633"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1600" height="520" fill="url(#bg)"/>
+  
+  <!-- Circuit pattern overlay -->
+  <g stroke="url(#circuit)" stroke-width="1.5" fill="none" opacity="0.4">
+    <!-- Horizontal lines -->
+    <path d="M0 100 H400 M450 100 H600 M650 100 H1000"/>
+    <path d="M1100 150 H1300 M1350 150 H1600"/>
+    <path d="M0 400 H200 M250 400 H500"/>
+    <path d="M1200 420 H1400 M1450 420 H1600"/>
+    <!-- Vertical connectors -->
+    <path d="M400 100 V150 H450 V100"/>
+    <path d="M600 100 V180 H650 V100"/>
+    <path d="M200 400 V350 H250 V400"/>
+    <path d="M1300 150 V200 H1350 V150"/>
+    <!-- Nodes -->
+    <circle cx="400" cy="100" r="4" fill="#00ff88"/>
+    <circle cx="600" cy="100" r="4" fill="#00d9ff"/>
+    <circle cx="1300" cy="150" r="4" fill="#00ff88"/>
+    <circle cx="200" cy="400" r="4" fill="#00d9ff"/>
+    <circle cx="1400" cy="420" r="4" fill="#ff0066"/>
+  </g>
+  
+  <!-- AI Brain/Network illustration -->
+  <g transform="translate(1150, 180)" fill="none" stroke-width="2">
+    <!-- Neural network nodes -->
+    <circle cx="0" cy="0" r="15" fill="#00d9ff33" stroke="#00d9ff" filter="url(#glow)"/>
+    <circle cx="80" cy="-60" r="12" fill="#00ff8833" stroke="#00ff88"/>
+    <circle cx="80" cy="60" r="12" fill="#00ff8833" stroke="#00ff88"/>
+    <circle cx="160" cy="-80" r="10" fill="#ff006633" stroke="#ff0066"/>
+    <circle cx="160" cy="0" r="10" fill="#ff006633" stroke="#ff0066"/>
+    <circle cx="160" cy="80" r="10" fill="#ff006633" stroke="#ff0066"/>
+    <circle cx="240" cy="-40" r="12" fill="#00d9ff33" stroke="#00d9ff"/>
+    <circle cx="240" cy="40" r="12" fill="#00d9ff33" stroke="#00d9ff"/>
+    <circle cx="320" cy="0" r="15" fill="#00ff8833" stroke="#00ff88" filter="url(#glow)"/>
+    
+    <!-- Connections -->
+    <g stroke="#ffffff33" stroke-width="1">
+      <line x1="15" y1="0" x2="68" y2="-55"/>
+      <line x1="15" y1="0" x2="68" y2="55"/>
+      <line x1="92" y1="-55" x2="150" y2="-75"/>
+      <line x1="92" y1="-55" x2="150" y2="0"/>
+      <line x1="92" y1="55" x2="150" y2="0"/>
+      <line x1="92" y1="55" x2="150" y2="75"/>
+      <line x1="170" y1="-75" x2="228" y2="-40"/>
+      <line x1="170" y1="0" x2="228" y2="-35"/>
+      <line x1="170" y1="0" x2="228" y2="35"/>
+      <line x1="170" y1="75" x2="228" y2="40"/>
+      <line x1="252" y1="-35" x2="305" y2="0"/>
+      <line x1="252" y1="35" x2="305" y2="0"/>
+    </g>
+    
+    <!-- Pulse animation effect (static representation) -->
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#00d9ff22" stroke-width="1"/>
+    <circle cx="320" cy="0" r="25" fill="none" stroke="#00ff8822" stroke-width="1"/>
+  </g>
+  
+  <!-- DNA helix symbol -->
+  <g transform="translate(1050, 320)" opacity="0.5">
+    <path d="M0 0 Q15 20 0 40 Q-15 60 0 80 Q15 100 0 120" stroke="#00d9ff" stroke-width="2" fill="none"/>
+    <path d="M20 0 Q5 20 20 40 Q35 60 20 80 Q5 100 20 120" stroke="#00ff88" stroke-width="2" fill="none"/>
+    <line x1="2" y1="10" x2="18" y2="10" stroke="#ffffff44" stroke-width="1.5"/>
+    <line x1="2" y1="30" x2="18" y2="30" stroke="#ffffff44" stroke-width="1.5"/>
+    <line x1="2" y1="50" x2="18" y2="50" stroke="#ffffff44" stroke-width="1.5"/>
+    <line x1="2" y1="70" x2="18" y2="70" stroke="#ffffff44" stroke-width="1.5"/>
+    <line x1="2" y1="90" x2="18" y2="90" stroke="#ffffff44" stroke-width="1.5"/>
+    <line x1="2" y1="110" x2="18" y2="110" stroke="#ffffff44" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="80" r="60" fill="#00d9ff08"/>
+  <circle cx="1500" cy="450" r="100" fill="#ff006608"/>
+  
+  <!-- Wave at bottom -->
+  <path d="M0 420 C180 380, 400 480, 650 420 C900 360, 1150 470, 1600 400 L1600 520 L0 520 Z" fill="#ffffff0a"/>
+  
+  <!-- Main text -->
+  <text x="90" y="200" fill="#ffffff" font-family="Georgia, serif" font-size="64" font-weight="700">Agentic AI for</text>
+  <text x="90" y="280" fill="#ffffff" font-family="Georgia, serif" font-size="64" font-weight="700">Bioinformatics</text>
+  <text x="92" y="340" fill="#b8e6f0" font-family="Verdana, sans-serif" font-size="28">Autonomous analysis from raw data to biological insight</text>
+  
+  <!-- Accent badge -->
+  <g transform="translate(92, 380)">
+    <rect x="0" y="0" width="80" height="28" rx="14" fill="#00ff8844"/>
+    <text x="40" y="19" fill="#00ff88" font-family="Verdana, sans-serif" font-size="12" font-weight="700" text-anchor="middle">NEW</text>
+  </g>
+</svg>

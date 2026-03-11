@@ -19,6 +19,7 @@
         <a class="brand" href="{{ '/' | relative_url }}">Bioinformatics Learn Infinite</a>
         <a class="menu-link{% if page.url == '/' %} is-active{% endif %}" href="{{ '/' | relative_url }}">Home</a>
         <a class="menu-link{% if page.url == '/blog/' or page.url contains '/blog/' %} is-active{% endif %}" href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a class="menu-link{% if page.url == '/hire-expert/' %} is-active{% endif %}" href="{{ '/hire-expert/' | relative_url }}">Hire an Expert</a>
       </div>
       {% if page.title %}
       <p class="page-title">{{ page.title }}</p>
