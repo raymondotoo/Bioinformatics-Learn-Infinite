@@ -29,7 +29,7 @@ Bioinformatics is data-driven. When we observe a difference—say, gene A is exp
 The core of statistical inference is **Hypothesis Testing**.
 
 <p align="center">
-  <img src="https://placehold.co/600x300/E8F5E9/333333?text=Hypothesis+Testing+and+P-values" alt="Illustration of Hypothesis Testing">
+  <img src="https://placehold.co/600x300/E8F5E9/333333?text=Hypothesis+Testing+and+P-values" alt="Illustration of Hypothesis Testing" style="display: none;">
 </p>
 
 1.  **Null Hypothesis ($H_0$):** There is no difference between the groups (e.g., Drug has no effect).
@@ -62,6 +62,10 @@ This allows us to see relative patterns of "up" and "down" regulation across all
 
 ## The Multiple Testing Problem and FDR
 
+<p align="center">
+  <img src="{{ '/assets/images/fdr-correction.svg' | relative_url }}" alt="Multiple Testing and FDR Correction" style="max-width: 100%; height: auto;">
+</p>
+
 In bioinformatics, we often test thousands of genes simultaneously (e.g., in RNA-Seq or GWAS).
 
 If you test 20,000 genes with a p-value cutoff of 0.05, you expect $20,000 \times 0.05 = 1,000$ false positives by chance alone!
@@ -77,7 +81,7 @@ To fix this, we apply **Multiple Testing Correction**. The standard method in om
 Omics data is high-dimensional (thousands of genes per sample). **Principal Component Analysis (PCA)** reduces this complexity by finding new axes (Principal Components) that capture the most variance in the data.
 
 <p align="center">
-  <img src="https://placehold.co/600x400/E8F5E9/333333?text=PCA:+Principal+Component+Analysis" alt="Illustration of PCA">
+  <img src="{{ '/assets/images/pca-concept.svg' | relative_url }}" alt="PCA Principal Component Analysis" style="max-width: 100%; height: auto;">
 </p>
 
 *   **PC1:** Captures the most variation.

@@ -45,6 +45,10 @@ This shows two reads (4 lines per read in FASTQ format).
 
 ## Working with Bioinformatics File Formats
 
+<p align="center">
+  <img src="{{ '/assets/images/file-formats.svg' | relative_url }}" alt="Common Bioinformatics File Formats" style="max-width: 100%; height: auto;">
+</p>
+
 You should know what each format represents:
 
 - FASTA: sequence only
@@ -132,6 +136,10 @@ Best practices:
 - Keep analysis notebooks and scripts under version control.
 
 ## Reproducible Research Principles
+
+<p align="center">
+  <img src="{{ '/assets/images/project-structure.svg' | relative_url }}" alt="Recommended Project Structure" style="max-width: 100%; height: auto;">
+</p>
 
 A result is reproducible when someone else can regenerate it using your code, inputs, and parameters.
 

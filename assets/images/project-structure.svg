@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" role="img" aria-label="Project Directory Structure">
+  <defs>
+    <filter id="folderShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <rect width="800" height="300" fill="#fafafa" rx="12"/>
+  
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#333">Recommended Project Structure for Reproducibility</text>
+  
+  <!-- Directory tree -->
+  <rect x="30" y="50" width="340" height="230" rx="8" fill="#263238" filter="url(#folderShadow)"/>
+  
+  <g font-family="monospace" font-size="12" fill="#ECEFF1">
+    <text x="50" y="75" fill="#FFD54F">project/</text>
+    <text x="70" y="95" fill="#81D4FA">├── data_raw/</text>
+    <text x="90" y="112" fill="#90A4AE">│   └── sample1.fastq.gz</text>
+    <text x="70" y="132" fill="#81D4FA">├── data_processed/</text>
+    <text x="90" y="149" fill="#90A4AE">│   └── counts.csv</text>
+    <text x="70" y="169" fill="#81D4FA">├── scripts/</text>
+    <text x="90" y="186" fill="#90A4AE">│   ├── 01_qc.sh</text>
+    <text x="90" y="203" fill="#90A4AE">│   └── 02_analysis.R</text>
+    <text x="70" y="223" fill="#81D4FA">├── results/</text>
+    <text x="70" y="243" fill="#81D4FA">├── figures/</text>
+    <text x="70" y="263" fill="#A5D6A7">└── README.md</text>
+  </g>
+  
+  <!-- Annotations -->
+  <g font-family="Verdana, sans-serif" font-size="10">
+    <rect x="400" y="55" width="180" height="40" rx="5" fill="#FFF3E0"/>
+    <text x="410" y="72" fill="#E65100" font-weight="bold">data_raw/</text>
+    <text x="410" y="87" fill="#555">Untouched original files</text>
+    
+    <rect x="400" y="105" width="180" height="40" rx="5" fill="#E3F2FD"/>
+    <text x="410" y="122" fill="#1565C0" font-weight="bold">data_processed/</text>
+    <text x="410" y="137" fill="#555">Cleaned, normalized data</text>
+    
+    <rect x="400" y="155" width="180" height="40" rx="5" fill="#F3E5F5"/>
+    <text x="410" y="172" fill="#7B1FA2" font-weight="bold">scripts/</text>
+    <text x="410" y="187" fill="#555">Numbered analysis steps</text>
+    
+    <rect x="400" y="205" width="180" height="40" rx="5" fill="#E8F5E9"/>
+    <text x="410" y="222" fill="#2E7D32" font-weight="bold">results/ &amp; figures/</text>
+    <text x="410" y="237" fill="#555">Outputs, plots (regenerable)</text>
+    
+    <rect x="600" y="55" width="180" height="70" rx="5" fill="#ECEFF1"/>
+    <text x="610" y="75" fill="#37474F" font-weight="bold">Best Practices:</text>
+    <text x="610" y="93" fill="#555">✓ Version control (Git)</text>
+    <text x="610" y="108" fill="#555">✓ Record software versions</text>
+    <text x="610" y="123" fill="#555">✓ Parameterize scripts</text>
+    
+    <rect x="600" y="135" width="180" height="110" rx="5" fill="#FFEBEE"/>
+    <text x="610" y="155" fill="#C62828" font-weight="bold">Avoid:</text>
+    <text x="610" y="173" fill="#555">✗ Modifying raw data</text>
+    <text x="610" y="188" fill="#555">✗ Hard-coded paths</text>
+    <text x="610" y="203" fill="#555">✗ Manual steps not</text>
+    <text x="620" y="218" fill="#555">documented</text>
+    <text x="610" y="235" fill="#555">✗ Mixing data versions</text>
+  </g>
+</svg>

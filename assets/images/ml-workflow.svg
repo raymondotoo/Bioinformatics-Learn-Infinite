@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-label="Machine Learning Workflow for Bioinformatics">
+  <defs>
+    <linearGradient id="mlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5E35B1"/>
+      <stop offset="100%" stop-color="#7E57C2"/>
+    </linearGradient>
+    <filter id="mlShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="mlArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#7E57C2"/>
+    </marker>
+  </defs>
+  
+  <rect width="800" height="420" fill="#fafafa" rx="12"/>
+  
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#333">End-to-End Machine Learning Workflow</text>
+  
+  <!-- Step boxes -->
+  <!-- Step 1: Data -->
+  <g filter="url(#mlShadow)">
+    <rect x="40" y="60" width="100" height="70" rx="8" fill="url(#mlGrad)"/>
+    <text x="90" y="90" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#fff">1. Data</text>
+    <text x="90" y="108" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">Gene expr</text>
+    <text x="90" y="120" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">+ labels</text>
+  </g>
+  <path d="M145 95 L165 95" stroke="#7E57C2" stroke-width="2" fill="none" marker-end="url(#mlArrow)"/>
+  
+  <!-- Step 2: Split -->
+  <g filter="url(#mlShadow)">
+    <rect x="170" y="60" width="100" height="70" rx="8" fill="url(#mlGrad)"/>
+    <text x="220" y="90" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#fff">2. Split</text>
+    <text x="220" y="108" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">Train/Val/</text>
+    <text x="220" y="120" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">Test</text>
+  </g>
+  <path d="M275 95 L295 95" stroke="#7E57C2" stroke-width="2" fill="none" marker-end="url(#mlArrow)"/>
+  
+  <!-- Step 3: Preprocess -->
+  <g filter="url(#mlShadow)">
+    <rect x="300" y="60" width="100" height="70" rx="8" fill="url(#mlGrad)"/>
+    <text x="350" y="90" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#fff">3. Preprocess</text>
+    <text x="350" y="108" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">Scale, filter,</text>
+    <text x="350" y="120" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">select features</text>
+  </g>
+  <path d="M405 95 L425 95" stroke="#7E57C2" stroke-width="2" fill="none" marker-end="url(#mlArrow)"/>
+  
+  <!-- Step 4: Train -->
+  <g filter="url(#mlShadow)">
+    <rect x="430" y="60" width="100" height="70" rx="8" fill="url(#mlGrad)"/>
+    <text x="480" y="90" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#fff">4. Train</text>
+    <text x="480" y="108" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">RF, SVM,</text>
+    <text x="480" y="120" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">XGBoost...</text>
+  </g>
+  <path d="M535 95 L555 95" stroke="#7E57C2" stroke-width="2" fill="none" marker-end="url(#mlArrow)"/>
+  
+  <!-- Step 5: Evaluate -->
+  <g filter="url(#mlShadow)">
+    <rect x="560" y="60" width="100" height="70" rx="8" fill="url(#mlGrad)"/>
+    <text x="610" y="90" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#fff">5. Evaluate</text>
+    <text x="610" y="108" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">AUC, F1,</text>
+    <text x="610" y="120" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#D1C4E9">Confusion</text>
+  </g>
+  <path d="M665 95 L685 95" stroke="#7E57C2" stroke-width="2" fill="none" marker-end="url(#mlArrow)"/>
+  
+  <!-- Step 6: Interpret -->
+  <g filter="url(#mlShadow)">
+    <rect x="690" y="60" width="100" height="70" rx="8" fill="#43A047"/>
+    <text x="740" y="90" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#fff">6. Interpret</text>
+    <text x="740" y="108" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#C8E6C9">Feature imp,</text>
+    <text x="740" y="120" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#C8E6C9">SHAP</text>
+  </g>
+  
+  <!-- Supervised vs Unsupervised comparison -->
+  <rect x="40" y="155" width="355" height="130" rx="8" fill="#E8EAF6" stroke="#5E35B1" stroke-width="1"/>
+  <text x="217" y="178" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#311B92">Supervised Learning</text>
+  <text x="217" y="195" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#555">(Labels are known)</text>
+  
+  <rect x="55" y="210" width="150" height="60" rx="6" fill="#fff"/>
+  <text x="130" y="232" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" font-weight="bold" fill="#333">Classification</text>
+  <text x="130" y="248" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#666">Tumor vs Normal</text>
+  <text x="130" y="262" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#666">Responder vs Non</text>
+  
+  <rect x="220" y="210" width="160" height="60" rx="6" fill="#fff"/>
+  <text x="300" y="232" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" font-weight="bold" fill="#333">Regression</text>
+  <text x="300" y="248" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#666">Survival time</text>
+  <text x="300" y="262" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#666">Drug sensitivity score</text>
+  
+  <!-- Unsupervised -->
+  <rect x="405" y="155" width="355" height="130" rx="8" fill="#FCE4EC" stroke="#C2185B" stroke-width="1"/>
+  <text x="582" y="178" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#880E4F">Unsupervised Learning</text>
+  <text x="582" y="195" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#555">(No labels)</text>
+  
+  <rect x="420" y="210" width="150" height="60" rx="6" fill="#fff"/>
+  <text x="495" y="232" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" font-weight="bold" fill="#333">Clustering</text>
+  <text x="495" y="248" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#666">Cell type discovery</text>
+  <text x="495" y="262" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#666">Patient stratification</text>
+  
+  <rect x="585" y="210" width="160" height="60" rx="6" fill="#fff"/>
+  <text x="665" y="232" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" font-weight="bold" fill="#333">Dim. Reduction</text>
+  <text x="665" y="248" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#666">PCA, UMAP, t-SNE</text>
+  <text x="665" y="262" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#666">Visualization</text>
+  
+  <!-- Pitfalls warning box -->
+  <rect x="40" y="300" width="720" height="105" rx="8" fill="#FFEBEE" stroke="#EF5350" stroke-width="1"/>
+  <text x="60" y="322" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#C62828">⚠ Critical Pitfalls to Avoid</text>
+  
+  <g font-family="Verdana, sans-serif" font-size="10" fill="#333">
+    <rect x="55" y="335" width="200" height="55" rx="4" fill="#fff"/>
+    <text x="65" y="352" font-weight="bold" fill="#D32F2F">Overfitting</text>
+    <text x="65" y="368" fill="#555">Model memorizes training</text>
+    <text x="65" y="382" fill="#555">data, fails on new data</text>
+    
+    <rect x="270" y="335" width="240" height="55" rx="4" fill="#fff"/>
+    <text x="280" y="352" font-weight="bold" fill="#D32F2F">Data Leakage</text>
+    <text x="280" y="368" fill="#555">Test info leaks into training</text>
+    <text x="280" y="382" fill="#555">(e.g., normalize before split)</text>
+    
+    <rect x="525" y="335" width="220" height="55" rx="4" fill="#fff"/>
+    <text x="535" y="352" font-weight="bold" fill="#D32F2F">Class Imbalance</text>
+    <text x="535" y="368" fill="#555">95% one class → misleading</text>
+    <text x="535" y="382" fill="#555">accuracy. Use F1, PR-AUC</text>
+  </g>
+</svg>

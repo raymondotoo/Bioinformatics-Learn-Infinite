@@ -113,6 +113,10 @@ Major impacts:
 
 ## A Typical Bioinformatics Workflow
 
+<p align="center">
+  <img src="{{ '/assets/images/bioinformatics-workflow.svg' | relative_url }}" alt="Bioinformatics Analysis Workflow" style="max-width: 100%; height: auto;">
+</p>
+
 1. Define the biological question.
 2. Acquire raw data and metadata.
 3. Perform quality control and preprocessing.

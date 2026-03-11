@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" role="img" aria-label="Single-cell RNA-seq Analysis Workflow">
+  <defs>
+    <linearGradient id="scGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00897B"/>
+      <stop offset="100%" stop-color="#4DB6AC"/>
+    </linearGradient>
+    <filter id="scShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="scArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#00897B"/>
+    </marker>
+  </defs>
+  
+  <rect width="820" height="500" fill="#fafafa" rx="12"/>
+  
+  <!-- Title -->
+  <text x="410" y="30" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#333">Single-Cell RNA-seq Analysis Workflow</text>
+  
+  <!-- Step 1: Raw Data -->
+  <g filter="url(#scShadow)">
+    <rect x="30" y="55" width="140" height="85" rx="8" fill="url(#scGrad)"/>
+    <text x="100" y="82" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">1. Raw Data</text>
+    <text x="100" y="100" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">Gene × Cell</text>
+    <text x="100" y="115" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">Count Matrix</text>
+    <text x="100" y="130" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#B2DFDB">10X, Drop-seq...</text>
+  </g>
+  
+  <path d="M175 97 L200 97" stroke="#00897B" stroke-width="2" fill="none" marker-end="url(#scArrow)"/>
+  
+  <!-- Step 2: QC -->
+  <g filter="url(#scShadow)">
+    <rect x="205" y="55" width="140" height="85" rx="8" fill="url(#scGrad)"/>
+    <text x="275" y="82" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">2. Quality Control</text>
+    <text x="275" y="100" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">Filter cells:</text>
+    <text x="275" y="115" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#B2DFDB">nGenes, nCounts</text>
+    <text x="275" y="130" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#B2DFDB">%Mito, Doublets</text>
+  </g>
+  
+  <path d="M350 97 L375 97" stroke="#00897B" stroke-width="2" fill="none" marker-end="url(#scArrow)"/>
+  
+  <!-- Step 3: Normalize -->
+  <g filter="url(#scShadow)">
+    <rect x="380" y="55" width="140" height="85" rx="8" fill="url(#scGrad)"/>
+    <text x="450" y="82" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">3. Normalize</text>
+    <text x="450" y="100" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">LogNormalize</text>
+    <text x="450" y="115" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">or SCTransform</text>
+    <text x="450" y="130" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#B2DFDB">HVG selection</text>
+  </g>
+  
+  <path d="M525 97 L550 97" stroke="#00897B" stroke-width="2" fill="none" marker-end="url(#scArrow)"/>
+  
+  <!-- Step 4: Reduce Dims -->
+  <g filter="url(#scShadow)">
+    <rect x="555" y="55" width="140" height="85" rx="8" fill="url(#scGrad)"/>
+    <text x="625" y="82" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">4. Dim Reduction</text>
+    <text x="625" y="100" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">PCA → Graph</text>
+    <text x="625" y="115" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">→ UMAP/t-SNE</text>
+  </g>
+  
+  <path d="M625 145 L625 170" stroke="#00897B" stroke-width="2" fill="none" marker-end="url(#scArrow)"/>
+  
+  <!-- Step 5: Cluster -->
+  <g filter="url(#scShadow)">
+    <rect x="555" y="175" width="140" height="85" rx="8" fill="url(#scGrad)"/>
+    <text x="625" y="202" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">5. Clustering</text>
+    <text x="625" y="220" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">Leiden / Louvain</text>
+    <text x="625" y="235" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">Graph-based</text>
+    <text x="625" y="250" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#B2DFDB">Resolution param</text>
+  </g>
+  
+  <path d="M550 217 L525 217" stroke="#00897B" stroke-width="2" fill="none" marker-end="url(#scArrow)"/>
+  
+  <!-- Step 6: Annotate -->
+  <g filter="url(#scShadow)">
+    <rect x="380" y="175" width="140" height="85" rx="8" fill="url(#scGrad)"/>
+    <text x="450" y="202" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">6. Annotate</text>
+    <text x="450" y="220" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">Marker genes</text>
+    <text x="450" y="235" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#E0F2F1">Reference mapping</text>
+    <text x="450" y="250" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#B2DFDB">SingleR, Azimuth</text>
+  </g>
+  
+  <path d="M375 217 L350 217" stroke="#00897B" stroke-width="2" fill="none" marker-end="url(#scArrow)"/>
+  
+  <!-- Step 7: Differential Expr -->
+  <g filter="url(#scShadow)">
+    <rect x="205" y="175" width="140" height="85" rx="8" fill="#43A047"/>
+    <text x="275" y="202" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">7. DE Analysis</text>
+    <text x="275" y="220" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#C8E6C9">FindMarkers</text>
+    <text x="275" y="235" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#C8E6C9">Pseudobulk DE</text>
+    <text x="275" y="250" text-anchor="middle" font-family="Verdana, sans-serif" font-size="8" fill="#A5D6A7">Pathway enrichment</text>
+  </g>
+  
+  <!-- UMAP visualization mock -->
+  <rect x="30" y="175" width="160" height="130" rx="8" fill="#E0F2F1" stroke="#00897B" stroke-width="1"/>
+  <text x="110" y="195" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" font-weight="bold" fill="#004D40">UMAP Visualization</text>
+  
+  <!-- Mock UMAP clusters -->
+  <circle cx="60" cy="240" r="8" fill="#E91E63" opacity="0.7"/>
+  <circle cx="72" cy="250" r="8" fill="#E91E63" opacity="0.7"/>
+  <circle cx="55" cy="258" r="8" fill="#E91E63" opacity="0.7"/>
+  <circle cx="68" cy="268" r="8" fill="#E91E63" opacity="0.7"/>
+  
+  <circle cx="110" cy="225" r="8" fill="#2196F3" opacity="0.7"/>
+  <circle cx="125" cy="235" r="8" fill="#2196F3" opacity="0.7"/>
+  <circle cx="115" cy="248" r="8" fill="#2196F3" opacity="0.7"/>
+  <circle cx="130" cy="220" r="8" fill="#2196F3" opacity="0.7"/>
+  
+  <circle cx="150" cy="265" r="8" fill="#4CAF50" opacity="0.7"/>
+  <circle cx="160" cy="280" r="8" fill="#4CAF50" opacity="0.7"/>
+  <circle cx="145" cy="278" r="8" fill="#4CAF50" opacity="0.7"/>
+  
+  <text x="65" y="295" font-family="Verdana, sans-serif" font-size="7" fill="#E91E63">T cells</text>
+  <text x="110" y="295" font-family="Verdana, sans-serif" font-size="7" fill="#2196F3">B cells</text>
+  <text x="150" y="295" font-family="Verdana, sans-serif" font-size="7" fill="#4CAF50">Mono</text>
+  
+  <!-- QC metrics panel -->
+  <rect x="30" y="320" width="370" height="165" rx="8" fill="#FFF8E1" stroke="#FFA000" stroke-width="1"/>
+  <text x="215" y="342" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#E65100">Critical QC Metrics</text>
+  
+  <g font-family="Verdana, sans-serif" font-size="10" fill="#333">
+    <rect x="45" y="355" width="160" height="55" rx="4" fill="#fff"/>
+    <text x="55" y="375" font-weight="bold" fill="#00897B">nFeature_RNA</text>
+    <text x="55" y="392" fill="#555">Genes detected per cell</text>
+    <text x="55" y="405" fill="#888">Typical: 300 – 7000</text>
+    
+    <rect x="220" y="355" width="165" height="55" rx="4" fill="#fff"/>
+    <text x="230" y="375" font-weight="bold" fill="#00897B">percent.mt</text>
+    <text x="230" y="392" fill="#555">Mitochondrial %</text>
+    <text x="230" y="405" fill="#888">High = dying cells</text>
+    
+    <rect x="45" y="420" width="160" height="55" rx="4" fill="#fff"/>
+    <text x="55" y="440" font-weight="bold" fill="#00897B">nCount_RNA</text>
+    <text x="55" y="457" fill="#555">Total UMI counts</text>
+    <text x="55" y="470" fill="#888">Library size per cell</text>
+    
+    <rect x="220" y="420" width="165" height="55" rx="4" fill="#fff"/>
+    <text x="230" y="440" font-weight="bold" fill="#00897B">Doublet Score</text>
+    <text x="230" y="457" fill="#555">Two cells in one</text>
+    <text x="230" y="470" fill="#888">DoubletFinder, Scrublet</text>
+  </g>
+  
+  <!-- Batch correction info -->
+  <rect x="420" y="320" width="380" height="165" rx="8" fill="#E8EAF6" stroke="#5C6BC0" stroke-width="1"/>
+  <text x="610" y="342" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#283593">Batch Correction Methods</text>
+  
+  <g font-family="Verdana, sans-serif" font-size="10" fill="#333">
+    <rect x="435" y="355" width="165" height="55" rx="4" fill="#fff"/>
+    <text x="445" y="375" font-weight="bold" fill="#3949AB">Seurat Integration</text>
+    <text x="445" y="392" fill="#555">Anchor-based</text>
+    <text x="445" y="405" fill="#888">CCA + MNN</text>
+    
+    <rect x="615" y="355" width="170" height="55" rx="4" fill="#fff"/>
+    <text x="625" y="375" font-weight="bold" fill="#3949AB">Harmony</text>
+    <text x="625" y="392" fill="#555">Fast, scalable</text>
+    <text x="625" y="405" fill="#888">Soft clustering in PCA</text>
+    
+    <rect x="435" y="420" width="165" height="55" rx="4" fill="#fff"/>
+    <text x="445" y="440" font-weight="bold" fill="#3949AB">Scanorama</text>
+    <text x="445" y="457" fill="#555">Python ecosystem</text>
+    <text x="445" y="470" fill="#888">Panoramic stitching</text>
+    
+    <rect x="615" y="420" width="170" height="55" rx="4" fill="#fff"/>
+    <text x="625" y="440" font-weight="bold" fill="#3949AB">BBKNN</text>
+    <text x="625" y="457" fill="#555">Batch-balanced kNN</text>
+    <text x="625" y="470" fill="#888">Graph-level correction</text>
+  </g>
+</svg>

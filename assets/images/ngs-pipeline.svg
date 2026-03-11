@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 500" role="img" aria-label="NGS Analysis Pipeline">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00695C"/>
+      <stop offset="100%" stop-color="#26A69A"/>
+    </linearGradient>
+    <filter id="boxShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="pipeArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#607D8B"/>
+    </marker>
+  </defs>
+  
+  <rect width="850" height="500" fill="#fafafa" rx="12"/>
+  
+  <!-- Title -->
+  <text x="425" y="35" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#333">NGS Analysis Pipeline: DNA-seq vs RNA-seq</text>
+  
+  <!-- Shared steps header -->
+  <rect x="30" y="55" width="790" height="30" rx="6" fill="url(#headerGrad)"/>
+  <text x="425" y="76" text-anchor="middle" font-family="Verdana, sans-serif" font-size="13" font-weight="bold" fill="#fff">Shared Steps</text>
+  
+  <!-- Shared Step 1: Raw Data -->
+  <g filter="url(#boxShadow)">
+    <rect x="50" y="100" width="140" height="55" rx="8" fill="#E0F2F1"/>
+    <text x="120" y="125" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#00695C">Raw FASTQ</text>
+    <text x="120" y="142" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">Sequencer output</text>
+  </g>
+  
+  <path d="M195 127 L230 127" stroke="#607D8B" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <!-- Shared Step 2: QC -->
+  <g filter="url(#boxShadow)">
+    <rect x="235" y="100" width="140" height="55" rx="8" fill="#E0F2F1"/>
+    <text x="305" y="125" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#00695C">Quality Control</text>
+    <text x="305" y="142" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">FastQC, MultiQC</text>
+  </g>
+  
+  <path d="M380 127 L415 127" stroke="#607D8B" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <!-- Shared Step 3: Trimming -->
+  <g filter="url(#boxShadow)">
+    <rect x="420" y="100" width="140" height="55" rx="8" fill="#E0F2F1"/>
+    <text x="490" y="125" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#00695C">Trim &amp; Filter</text>
+    <text x="490" y="142" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">Cutadapt, Trimmomatic</text>
+  </g>
+  
+  <path d="M565 127 L600 127" stroke="#607D8B" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <!-- Shared Step 4: Clean Reads -->
+  <g filter="url(#boxShadow)">
+    <rect x="605" y="100" width="140" height="55" rx="8" fill="#B2DFDB"/>
+    <text x="675" y="125" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#00695C">Clean Reads</text>
+    <text x="675" y="142" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">Ready for alignment</text>
+  </g>
+  
+  <!-- Branch arrow -->
+  <path d="M675 160 L675 185" stroke="#607D8B" stroke-width="2" fill="none"/>
+  <path d="M675 185 L300 185 L300 215" stroke="#1565C0" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  <path d="M675 185 L675 215" stroke="#7B1FA2" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <!-- DNA-seq column header -->
+  <rect x="50" y="220" width="360" height="26" rx="5" fill="#1565C0"/>
+  <text x="230" y="239" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">DNA-seq (Variant Calling)</text>
+  
+  <!-- RNA-seq column header -->
+  <rect x="440" y="220" width="360" height="26" rx="5" fill="#7B1FA2"/>
+  <text x="620" y="239" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">RNA-seq (Expression)</text>
+  
+  <!-- DNA-seq steps -->
+  <g filter="url(#boxShadow)">
+    <rect x="70" y="260" width="150" height="50" rx="6" fill="#E3F2FD"/>
+    <text x="145" y="282" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#1565C0">Align</text>
+    <text x="145" y="298" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">BWA-MEM</text>
+  </g>
+  <path d="M145 315 L145 330" stroke="#1565C0" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <g filter="url(#boxShadow)">
+    <rect x="70" y="335" width="150" height="50" rx="6" fill="#E3F2FD"/>
+    <text x="145" y="357" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#1565C0">Post-process</text>
+    <text x="145" y="373" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">Sort, MarkDups, Index</text>
+  </g>
+  <path d="M145 390 L145 405" stroke="#1565C0" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <g filter="url(#boxShadow)">
+    <rect x="70" y="410" width="150" height="50" rx="6" fill="#BBDEFB"/>
+    <text x="145" y="432" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#1565C0">Call Variants</text>
+    <text x="145" y="448" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">GATK, FreeBayes</text>
+  </g>
+  
+  <!-- DNA downstream -->
+  <g filter="url(#boxShadow)">
+    <rect x="240" y="260" width="150" height="50" rx="6" fill="#E3F2FD"/>
+    <text x="315" y="282" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#1565C0">Filter Variants</text>
+    <text x="315" y="298" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">Depth, Quality</text>
+  </g>
+  <path d="M315 315 L315 330" stroke="#1565C0" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <g filter="url(#boxShadow)">
+    <rect x="240" y="335" width="150" height="50" rx="6" fill="#E3F2FD"/>
+    <text x="315" y="357" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#1565C0">Annotate</text>
+    <text x="315" y="373" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">SnpEff, ANNOVAR</text>
+  </g>
+  <path d="M315 390 L315 405" stroke="#1565C0" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <g filter="url(#boxShadow)">
+    <rect x="240" y="410" width="150" height="50" rx="6" fill="#90CAF9"/>
+    <text x="315" y="432" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#0D47A1">VCF Output</text>
+    <text x="315" y="448" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#333">SNPs, Indels</text>
+  </g>
+  
+  <!-- RNA-seq steps -->
+  <g filter="url(#boxShadow)">
+    <rect x="460" y="260" width="150" height="50" rx="6" fill="#F3E5F5"/>
+    <text x="535" y="282" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#7B1FA2">Align / Quant</text>
+    <text x="535" y="298" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">STAR or Salmon</text>
+  </g>
+  <path d="M535 315 L535 330" stroke="#7B1FA2" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <g filter="url(#boxShadow)">
+    <rect x="460" y="335" width="150" height="50" rx="6" fill="#F3E5F5"/>
+    <text x="535" y="357" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#7B1FA2">Count Matrix</text>
+    <text x="535" y="373" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">featureCounts</text>
+  </g>
+  <path d="M535 390 L535 405" stroke="#7B1FA2" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <g filter="url(#boxShadow)">
+    <rect x="460" y="410" width="150" height="50" rx="6" fill="#E1BEE7"/>
+    <text x="535" y="432" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#7B1FA2">Differential Expr</text>
+    <text x="535" y="448" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">DESeq2, edgeR</text>
+  </g>
+  
+  <!-- RNA downstream -->
+  <g filter="url(#boxShadow)">
+    <rect x="630" y="260" width="150" height="50" rx="6" fill="#F3E5F5"/>
+    <text x="705" y="282" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#7B1FA2">Normalize</text>
+    <text x="705" y="298" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">TPM, FPKM, VST</text>
+  </g>
+  <path d="M705 315 L705 330" stroke="#7B1FA2" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <g filter="url(#boxShadow)">
+    <rect x="630" y="335" width="150" height="50" rx="6" fill="#F3E5F5"/>
+    <text x="705" y="357" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#7B1FA2">Pathway Analysis</text>
+    <text x="705" y="373" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">GSEA, GO, KEGG</text>
+  </g>
+  <path d="M705 390 L705 405" stroke="#7B1FA2" stroke-width="2" fill="none" marker-end="url(#pipeArrow)"/>
+  
+  <g filter="url(#boxShadow)">
+    <rect x="630" y="410" width="150" height="50" rx="6" fill="#CE93D8"/>
+    <text x="705" y="432" text-anchor="middle" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#4A148C">Biological Insight</text>
+    <text x="705" y="448" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#333">Volcano, Heatmap</text>
+  </g>
+</svg>

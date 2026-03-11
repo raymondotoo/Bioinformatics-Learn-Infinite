@@ -34,6 +34,10 @@ Do not use ML if a simple statistical model answers the question more clearly.
 
 ## End-to-End ML Workflow
 
+<p align="center">
+  <img src="{{ '/assets/images/ml-workflow.svg' | relative_url }}" alt="Machine Learning Workflow" style="max-width: 100%; height: auto;">
+</p>
+
 1. Define prediction target (for example, disease vs. control).
 2. Split data into train/validation/test sets.
 3. Preprocess features (missing values, scaling, encoding).

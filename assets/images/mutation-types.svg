@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" role="img" aria-label="Mutation Types and Effects">
+  <defs>
+    <filter id="mutShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <rect width="800" height="280" fill="#fafafa" rx="12"/>
+  
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#333">Types of Genetic Variation</text>
+  
+  <!-- SNP -->
+  <g filter="url(#mutShadow)">
+    <rect x="30" y="50" width="175" height="120" rx="8" fill="#E3F2FD"/>
+    <rect x="30" y="50" width="175" height="28" rx="8" fill="#1976D2"/>
+    <rect x="30" y="70" width="175" height="8" fill="#1976D2"/>
+    <text x="117" y="70" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">SNP</text>
+    <text x="117" y="100" text-anchor="middle" font-family="monospace" font-size="11" fill="#333">...ATG<tspan fill="#D32F2F" font-weight="bold">C</tspan>TA...</text>
+    <text x="117" y="118" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#666">↓</text>
+    <text x="117" y="136" text-anchor="middle" font-family="monospace" font-size="11" fill="#333">...ATG<tspan fill="#4CAF50" font-weight="bold">T</tspan>TA...</text>
+    <text x="117" y="158" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">Single nucleotide change</text>
+  </g>
+  
+  <!-- Insertion -->
+  <g filter="url(#mutShadow)">
+    <rect x="220" y="50" width="175" height="120" rx="8" fill="#E8F5E9"/>
+    <rect x="220" y="50" width="175" height="28" rx="8" fill="#388E3C"/>
+    <rect x="220" y="70" width="175" height="8" fill="#388E3C"/>
+    <text x="307" y="70" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">Insertion</text>
+    <text x="307" y="100" text-anchor="middle" font-family="monospace" font-size="11" fill="#333">...ATG-CTA...</text>
+    <text x="307" y="118" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#666">↓</text>
+    <text x="307" y="136" text-anchor="middle" font-family="monospace" font-size="11" fill="#333">...ATG<tspan fill="#4CAF50" font-weight="bold">GG</tspan>CTA...</text>
+    <text x="307" y="158" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">Bases added</text>
+  </g>
+  
+  <!-- Deletion -->
+  <g filter="url(#mutShadow)">
+    <rect x="410" y="50" width="175" height="120" rx="8" fill="#FFEBEE"/>
+    <rect x="410" y="50" width="175" height="28" rx="8" fill="#D32F2F"/>
+    <rect x="410" y="70" width="175" height="8" fill="#D32F2F"/>
+    <text x="497" y="70" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">Deletion</text>
+    <text x="497" y="100" text-anchor="middle" font-family="monospace" font-size="11" fill="#333">...ATG<tspan fill="#D32F2F" text-decoration="line-through">CC</tspan>TA...</text>
+    <text x="497" y="118" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#666">↓</text>
+    <text x="497" y="136" text-anchor="middle" font-family="monospace" font-size="11" fill="#333">...ATG--TA...</text>
+    <text x="497" y="158" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">Bases removed</text>
+  </g>
+  
+  <!-- CNV -->
+  <g filter="url(#mutShadow)">
+    <rect x="600" y="50" width="175" height="120" rx="8" fill="#F3E5F5"/>
+    <rect x="600" y="50" width="175" height="28" rx="8" fill="#7B1FA2"/>
+    <rect x="600" y="70" width="175" height="8" fill="#7B1FA2"/>
+    <text x="687" y="70" text-anchor="middle" font-family="Verdana, sans-serif" font-size="12" font-weight="bold" fill="#fff">CNV</text>
+    <rect x="620" y="90" width="25" height="15" fill="#CE93D8" rx="2"/>
+    <rect x="650" y="90" width="25" height="15" fill="#CE93D8" rx="2"/>
+    <text x="687" y="118" text-anchor="middle" font-family="Verdana, sans-serif" font-size="10" fill="#666">↓</text>
+    <rect x="610" y="125" width="20" height="15" fill="#CE93D8" rx="2"/>
+    <rect x="632" y="125" width="20" height="15" fill="#CE93D8" rx="2"/>
+    <rect x="654" y="125" width="20" height="15" fill="#CE93D8" rx="2"/>
+    <rect x="676" y="125" width="20" height="15" fill="#CE93D8" rx="2"/>
+    <text x="687" y="158" text-anchor="middle" font-family="Verdana, sans-serif" font-size="9" fill="#555">Copy number change</text>
+  </g>
+  
+  <!-- Effects legend -->
+  <rect x="30" y="185" width="745" height="80" rx="8" fill="#FFF8E1" stroke="#FFB300" stroke-width="1"/>
+  <text x="60" y="208" font-family="Verdana, sans-serif" font-size="11" font-weight="bold" fill="#E65100">Possible Effects on Protein:</text>
+  
+  <g font-family="Verdana, sans-serif" font-size="10">
+    <circle cx="60" cy="232" r="6" fill="#4CAF50"/>
+    <text x="75" y="236" fill="#333">Synonymous: No amino acid change</text>
+    
+    <circle cx="280" cy="232" r="6" fill="#FFC107"/>
+    <text x="295" y="236" fill="#333">Missense: Different amino acid</text>
+    
+    <circle cx="500" cy="232" r="6" fill="#F44336"/>
+    <text x="515" y="236" fill="#333">Nonsense: Premature stop</text>
+    
+    <circle cx="60" cy="255" r="6" fill="#9C27B0"/>
+    <text x="75" y="259" fill="#333">Frameshift: Reading frame disrupted</text>
+    
+    <circle cx="280" cy="255" r="6" fill="#2196F3"/>
+    <text x="295" y="259" fill="#333">Splice-site: Altered splicing</text>
+    
+    <circle cx="500" cy="255" r="6" fill="#607D8B"/>
+    <text x="515" y="259" fill="#333">Regulatory: Expression change</text>
+  </g>
+</svg>

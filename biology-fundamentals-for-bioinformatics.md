@@ -70,6 +70,10 @@ RNA -> Protein
 
 ## Central Dogma: Big Picture
 
+<p align="center">
+  <img src="{{ '/assets/images/central-dogma.svg' | relative_url }}" alt="Central Dogma of Molecular Biology" style="max-width: 100%; height: auto;">
+</p>
+
 ```text
 DNA -> RNA -> Protein
 ```
@@ -93,6 +97,10 @@ Key ideas:
 Common output: a matrix with genes as rows and samples as columns.
 
 ## Mutations and Variation
+
+<p align="center">
+  <img src="{{ '/assets/images/mutation-types.svg' | relative_url }}" alt="Types of Genetic Variation" style="max-width: 100%; height: auto;">
+</p>
 
 Genetic variants are differences in DNA sequence.
 

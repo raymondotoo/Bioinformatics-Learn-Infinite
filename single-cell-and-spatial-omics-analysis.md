@@ -49,6 +49,10 @@ Bulk omics averages signals across many cell types. Single-cell and spatial omic
 
 ## Recommended Analysis Workflow
 
+<p align="center">
+  <img src="{{ '/assets/images/single-cell-workflow.svg' | relative_url }}" alt="Single-cell RNA-seq Analysis Workflow" style="max-width: 100%; height: auto;">
+</p>
+
 ## 1) Experimental Design and Metadata
 
 Capture this before analysis:

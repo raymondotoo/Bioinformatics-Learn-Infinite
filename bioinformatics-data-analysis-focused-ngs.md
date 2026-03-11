@@ -37,6 +37,10 @@ Common file formats:
 
 ## Typical NGS Workflow
 
+<p align="center">
+  <img src="{{ '/assets/images/ngs-pipeline.svg' | relative_url }}" alt="NGS Analysis Pipeline" style="max-width: 100%; height: auto;">
+</p>
+
 1. Experimental design and metadata planning
 2. Sequencing and FASTQ generation
 3. Raw read quality control

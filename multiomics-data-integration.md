@@ -41,6 +41,10 @@ Common layers:
 
 ## Core Integration Strategies
 
+<p align="center">
+  <img src="{{ '/assets/images/multiomics-integration.svg' | relative_url }}" alt="Multi-omics Integration Strategies" style="max-width: 100%; height: auto;">
+</p>
+
 ### 1. Early Integration (Feature-Level)
 Concatenate features from all layers into one matrix.
 
