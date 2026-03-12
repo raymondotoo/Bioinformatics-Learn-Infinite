@@ -7,6 +7,11 @@
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="icon" type="image/png" href="{{ '/bioinf_logo.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/bioinf_logo.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Bioinfo Learn">
+  <meta name="theme-color" content="#2d7d32">
   <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 <body>
@@ -115,5 +120,14 @@
   </div>
 
   <script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registered'))
+          .catch(err => console.log('SW error:', err));
+      });
+    }
+  </script>
 </body>
 </html>
