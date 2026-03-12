@@ -7,15 +7,15 @@
   if (!content || !tocList) return;
 
   // Pages that should NOT use the pane navigation system
+  var pageType = document.body.getAttribute('data-page-type');
   var currentPath = window.location.pathname;
-  var isHomePage = currentPath === '/' || 
-                   currentPath === '/index.html' || 
-                   currentPath.match(/^\/[^\/]*\/?$/) !== null ||  // Handles /repo-name/ paths
-                   document.body.classList.contains('home') ||
-                   (document.querySelector('.hero-section') !== null);  // Home page has hero section
   
-  var excludedPaths = ['/feedback/', '/blog/', '/hire-expert/', '/privacy-policy/', '/SITE_MAP_MANUAL/'];
-  var isExcludedPage = isHomePage || excludedPaths.some(function(path) {
+  // Homepage and blog pages should never have pane navigation
+  var isHomePage = pageType === 'home';
+  var isBlogPage = pageType === 'blog';
+  
+  var excludedPaths = ['/feedback/', '/hire-expert/', '/privacy-policy/', '/SITE_MAP_MANUAL/'];
+  var isExcludedPage = isHomePage || isBlogPage || excludedPaths.some(function(path) {
     return currentPath.indexOf(path) !== -1;
   });
 

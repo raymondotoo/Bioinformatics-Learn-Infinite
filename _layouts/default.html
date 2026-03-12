@@ -63,7 +63,7 @@
   <meta name="theme-color" content="#2d7d32">
   <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
-<body>
+<body data-page-type="{% if page.url == '/' %}home{% elsif page.url contains '/blog/' %}blog{% else %}content{% endif %}">
   <div class="site-shell">
     <header class="topbar">
       <div class="topbar-left">
