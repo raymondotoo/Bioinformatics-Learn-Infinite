@@ -10,6 +10,14 @@ defaults:
       layout: default
 show_downloads: false
 
+exclude:
+  - node_modules
+  - dashboard/node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - ios-app
+
 # Feedback system - now uses integrated form at /feedback/
 # Old Google Form URL kept as backup
 feedback:
