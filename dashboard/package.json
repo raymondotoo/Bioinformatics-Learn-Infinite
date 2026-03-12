@@ -1,0 +1,17 @@
+{
+  "name": "bioinf-dashboard",
+  "version": "1.0.0",
+  "description": "Content management dashboard for Bioinformatics Learn Infinite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "simple-git": "^3.22.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^11.1.1",
+    "multer": "^1.4.5-lts.1"
+  }
+}

@@ -185,4 +185,47 @@
       tipLink.textContent = tip.link_label || 'Open this week\'s resource';
     }
   }
+
+  // Sticky header shadow on scroll
+  var topbar = document.querySelector('.topbar');
+  if (topbar) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 10) {
+        topbar.classList.add('scrolled');
+      } else {
+        topbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  // Copy link to clipboard
+  var copyBtn = document.getElementById('copy-link-btn');
+  var copyText = document.getElementById('copy-link-text');
+  if (copyBtn && copyText) {
+    copyBtn.addEventListener('click', function() {
+      var url = window.location.href;
+      navigator.clipboard.writeText(url).then(function() {
+        copyBtn.classList.add('copied');
+        copyText.textContent = 'Copied!';
+        setTimeout(function() {
+          copyBtn.classList.remove('copied');
+          copyText.textContent = 'Copy Link';
+        }, 2000);
+      }).catch(function() {
+        // Fallback for older browsers
+        var temp = document.createElement('input');
+        temp.value = url;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        copyBtn.classList.add('copied');
+        copyText.textContent = 'Copied!';
+        setTimeout(function() {
+          copyBtn.classList.remove('copied');
+          copyText.textContent = 'Copy Link';
+        }, 2000);
+      });
+    });
+  }
 })();

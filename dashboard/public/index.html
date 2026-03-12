@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Dashboard - Bioinformatics Learn Infinite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">🧬</span>
+          <span class="logo-text">BioInf Dashboard</span>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-view="posts">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          Blog Posts
+        </button>
+        <button class="nav-item" data-view="pages">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+          Pages
+        </button>
+        <button class="nav-item" data-view="images">
+          <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+          Images
+        </button>
+        <button class="nav-item" data-view="data">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Data Files
+        </button>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <button class="nav-item" data-view="git">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+          Git Status
+        </button>
+        <div class="git-indicator" id="git-indicator">
+          <span class="git-dot"></span>
+          <span class="git-text">Checking...</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <h1 class="header-title" id="view-title">Blog Posts</h1>
+        </div>
+        <div class="header-right">
+          <button class="btn btn-secondary" id="refresh-btn">
+            <svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+            Refresh
+          </button>
+          <button class="btn btn-primary" id="new-post-btn">
+            <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            New Post
+          </button>
+          <button class="btn btn-primary" id="upload-btn" style="display: none;">
+            <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+            Upload Image
+          </button>
+          <button class="btn btn-success" id="publish-btn">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Publish
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <div class="content" id="content">
+        <!-- Dynamic content loads here -->
+      </div>
+    </main>
+
+    <!-- Editor Modal -->
+    <div class="modal" id="editor-modal">
+      <div class="modal-content editor-modal">
+        <div class="modal-header">
+          <h2 id="editor-title">Edit File</h2>
+          <button class="modal-close" id="editor-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="editor-layout">
+            <div class="editor-pane">
+              <div class="editor-toolbar">
+                <button class="toolbar-btn" data-action="bold" title="Bold"><strong>B</strong></button>
+                <button class="toolbar-btn" data-action="italic" title="Italic"><em>I</em></button>
+                <button class="toolbar-btn" data-action="heading" title="Heading">H</button>
+                <button class="toolbar-btn" data-action="link" title="Link">🔗</button>
+                <button class="toolbar-btn" data-action="image" title="Insert Image">🖼️</button>
+                <button class="toolbar-btn" data-action="code" title="Code">&lt;/&gt;</button>
+                <button class="toolbar-btn" data-action="list" title="List">☰</button>
+              </div>
+              <textarea id="editor-content" class="editor-textarea" spellcheck="false"></textarea>
+            </div>
+            <div class="preview-pane">
+              <div class="preview-header">Preview</div>
+              <div id="editor-preview" class="preview-content"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="editor-cancel">Cancel</button>
+          <button class="btn btn-primary" id="editor-save">Save Changes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Post Modal -->
+    <div class="modal" id="new-post-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Create New Post</h2>
+          <button class="modal-close" id="new-post-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="post-title">Title</label>
+            <input type="text" id="post-title" placeholder="Enter post title...">
+          </div>
+          <div class="form-group">
+            <label for="post-description">Description</label>
+            <input type="text" id="post-description" placeholder="Brief description for SEO...">
+          </div>
+          <div class="form-group">
+            <label for="post-content">Content</label>
+            <textarea id="post-content" rows="10" placeholder="Write your post content in Markdown..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="new-post-cancel">Cancel</button>
+          <button class="btn btn-primary" id="new-post-create">Create Post</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publish Modal -->
+    <div class="modal" id="publish-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Publish Changes</h2>
+          <button class="modal-close" id="publish-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="publish-changes" id="publish-changes">
+            <!-- Changes list -->
+          </div>
+          <div class="form-group">
+            <label for="commit-message">Commit Message</label>
+            <input type="text" id="commit-message" placeholder="Describe your changes...">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="publish-cancel">Cancel</button>
+          <button class="btn btn-success" id="publish-confirm">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Push to GitHub
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Browser Modal -->
+    <div class="modal" id="image-browser-modal">
+      <div class="modal-content image-browser-modal">
+        <div class="modal-header">
+          <h2>Select Image</h2>
+          <button class="modal-close" id="image-browser-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="image-browser-tabs">
+            <button class="tab-btn active" data-folder="all">All Images</button>
+            <button class="tab-btn" data-folder="images">Content Images</button>
+            <button class="tab-btn" data-folder="banners">Banners</button>
+          </div>
+          <div class="image-grid" id="image-browser-grid">
+            <!-- Images load here -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="image-browser-cancel">Cancel</button>
+          <label class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+            Upload New
+            <input type="file" id="image-browser-upload" accept="image/*" style="display: none;">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Upload Modal -->
+    <div class="modal" id="upload-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Upload Image</h2>
+          <button class="modal-close" id="upload-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="upload-dropzone" id="upload-dropzone">
+            <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
+            <p>Drag & drop images here or click to browse</p>
+            <input type="file" id="upload-input" accept="image/*" multiple style="display: none;">
+          </div>
+          <div class="form-group">
+            <label for="upload-folder">Folder</label>
+            <select id="upload-folder">
+              <option value="images">Content Images (assets/images)</option>
+              <option value="banners">Banners (assets/banners)</option>
+            </select>
+          </div>
+          <div class="upload-preview" id="upload-preview"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="upload-cancel">Cancel</button>
+          <button class="btn btn-primary" id="upload-confirm" disabled>Upload</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

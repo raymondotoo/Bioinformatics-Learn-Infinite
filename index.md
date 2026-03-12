@@ -115,12 +115,30 @@ permalink: /
   border-radius: 0.75rem;
   padding: 1.25rem;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #4ade80);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .stat-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(31, 79, 143, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(31, 79, 143, 0.12);
+}
+
+.stat-card:hover::after {
+  transform: scaleX(1);
 }
 
 .stat-icon {
@@ -156,77 +174,68 @@ permalink: /
 .path-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1.25rem;
   margin-bottom: 2rem;
 }
 
 .path-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 0.85rem;
-  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-.path-card-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
-}
-
-.path-image {
-  width: 56px;
-  height: 56px;
-  border-radius: 0.5rem;
-  flex-shrink: 0;
-}
-
-.path-header-text {
-  flex: 1;
-  min-width: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .path-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 35px rgba(31, 79, 143, 0.12);
-  border-color: var(--accent);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
 }
 
-.path-card.featured {
-  background: linear-gradient(135deg, #f8faff 0%, #eef4ff 100%);
-  border-color: var(--accent);
+.path-card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: var(--card-header-bg);
+  height: 140px;
 }
 
-.path-number {
-  display: inline-flex;
+.path-card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #02b3e4 0%, #02ccba 100%);
+  border-radius: 6px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-radius: 50%;
-  font-size: 0.75rem;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.path-card.featured .path-number {
-  background: var(--accent);
-  color: #fff;
+.path-card-badge svg {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
+}
+
+.path-card-content {
+  padding: 1.25rem 1.25rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
 }
 
 .path-title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--purple);
   margin: 0 0 0.5rem;
   line-height: 1.35;
 }
@@ -235,21 +244,71 @@ permalink: /
   font-size: 0.88rem;
   color: var(--ink-soft);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
+  flex: 1;
 }
 
-.path-badge {
+.path-card-footer {
+  padding: 0.85rem 1.25rem;
+  background: var(--surface-soft);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.path-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.path-tag svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.path-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.path-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.path-meta-item svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  opacity: 0.7;
+}
+
+.path-new-badge {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 12px;
+  right: 12px;
   background: linear-gradient(135deg, #00c853, #00a844);
   color: #fff;
   font-size: 0.65rem;
   font-weight: 700;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  box-shadow: 0 2px 10px rgba(0, 200, 83, 0.3);
 }
 
 .features-grid {
@@ -265,11 +324,42 @@ permalink: /
   border-radius: 0.85rem;
   padding: 1.75rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), #4ade80);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(31, 79, 143, 0.12);
+  border-color: var(--accent-soft);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
 }
 
 .feature-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.15);
 }
 
 .feature-title {
@@ -298,6 +388,22 @@ permalink: /
   border: 1px solid var(--border);
   border-radius: 0.85rem;
   padding: 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.panel-enhanced:hover {
+  box-shadow: 0 8px 24px rgba(31, 79, 143, 0.08);
+}
+
+.panel-enhanced.paths-section {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 50%, #f5f8ff 100%);
+  border: 1px solid #dce5f5;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.panel-enhanced.paths-section:hover {
+  box-shadow: none;
 }
 
 .panel-enhanced h2 {
@@ -381,6 +487,8 @@ permalink: /
   width: 100%;
   border-collapse: collapse;
   margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .resources-table th,
@@ -391,9 +499,9 @@ permalink: /
 }
 
 .resources-table th {
-  background: var(--surface-soft);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
   font-weight: 700;
-  color: var(--ink);
+  color: #ffffff;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -403,8 +511,12 @@ permalink: /
   font-size: 0.95rem;
 }
 
-.resources-table tr:hover td {
-  background: var(--surface-soft);
+.resources-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.resources-table tbody tr:hover td {
+  background: var(--accent-soft);
 }
 
 .resources-table a {
@@ -419,43 +531,66 @@ permalink: /
 
 .cta-final {
   text-align: center;
-  padding: 2.5rem;
-  background: linear-gradient(135deg, var(--surface-soft) 0%, #e8f0ff 100%);
-  border: 1px solid var(--border);
+  padding: 3rem 2.5rem;
+  background: linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #2d4a7c 100%);
+  border: none;
   border-radius: 1rem;
   margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-final::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse 50% 50% at 80% 50%, rgba(74, 222, 128, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(34, 211, 238, 0.08) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .cta-final h2 {
   margin: 0 0 0.75rem;
   border: none;
   padding: 0;
-  color: var(--ink);
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-final p {
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 1.5rem;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-btn-primary {
   display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, #4ade80, #22d3ee);
+  color: #0a1628;
+  padding: 0.95rem 2.25rem;
   border-radius: 0.5rem;
   text-decoration: none;
   font-weight: 700;
-  transition: all 0.2s;
+  transition: all 0.25s;
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+  position: relative;
+  z-index: 1;
+}
 }
 
 .cta-btn-primary:hover {
-  background: #163d73;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(31, 79, 143, 0.2);
+  box-shadow: 0 8px 25px rgba(74, 222, 128, 0.4);
+  filter: brightness(1.05);
 }
 
 @media (max-width: 900px) {
@@ -476,6 +611,9 @@ permalink: /
   }
   .path-grid {
     grid-template-columns: 1fr;
+  }
+  .path-card-image {
+    height: 140px;
   }
   .two-col-grid {
     grid-template-columns: 1fr;
@@ -531,111 +669,273 @@ permalink: /
 </div>
 
 <!-- Learning Paths -->
-<section class="panel-enhanced">
+<section class="panel-enhanced paths-section">
   <div class="section-header">
     <h2>📖 Learning Paths</h2>
     <span style="font-size: 0.9rem; color: var(--ink-soft);">Follow in order for best results</span>
   </div>
   
   <div class="path-grid">
-    <a href="{{ '/introduction-to-bioinformatics/' | relative_url }}" class="path-card featured">
-      <div class="path-card-header">
-        <img src="{{ '/assets/images/path-intro.svg' | relative_url }}" alt="" class="path-image">
-        <div class="path-header-text">
-          <span class="path-number">1</span>
-          <h3 class="path-title">Introduction to Bioinformatics</h3>
+    <a href="{{ '/introduction-to-bioinformatics/' | relative_url }}" class="path-card">
+      <div class="path-card-image-wrapper">
+        <span class="path-card-badge">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+        </span>
+
+      </div>
+      <div class="path-card-content">
+        <h3 class="path-title">Introduction to Bioinformatics</h3>
+        <p class="path-desc">Start here. Understand the field, career paths, and fundamental concepts that form the foundation.</p>
+      </div>
+      <div class="path-card-footer">
+        <span class="path-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+          LEARNING PATH
+        </span>
+        <div class="path-meta">
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Beginner
+          </span>
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            8 hours
+          </span>
         </div>
       </div>
-      <p class="path-desc">Start here. Understand the field, career paths, and fundamental concepts.</p>
     </a>
     
     <a href="{{ '/biology-fundamentals-for-bioinformatics/' | relative_url }}" class="path-card">
-      <div class="path-card-header">
-        <img src="{{ '/assets/images/path-biology.svg' | relative_url }}" alt="" class="path-image">
-        <div class="path-header-text">
-          <span class="path-number">2</span>
-          <h3 class="path-title">Biology Fundamentals</h3>
+      <div class="path-card-image-wrapper">
+        <span class="path-card-badge">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+        </span>
+
+      </div>
+      <div class="path-card-content">
+        <h3 class="path-title">Biology Fundamentals</h3>
+        <p class="path-desc">Essential molecular biology, genetics, and biochemistry concepts every bioinformatician needs.</p>
+      </div>
+      <div class="path-card-footer">
+        <span class="path-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+          LEARNING PATH
+        </span>
+        <div class="path-meta">
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Beginner
+          </span>
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            12 hours
+          </span>
         </div>
       </div>
-      <p class="path-desc">Essential molecular biology, genetics, and biochemistry concepts.</p>
     </a>
     
     <a href="{{ '/statistical-analysis-and-inference/' | relative_url }}" class="path-card">
-      <div class="path-card-header">
-        <img src="{{ '/assets/images/path-statistics.svg' | relative_url }}" alt="" class="path-image">
-        <div class="path-header-text">
-          <span class="path-number">3</span>
-          <h3 class="path-title">Statistics & Inference</h3>
+      <div class="path-card-image-wrapper">
+        <span class="path-card-badge">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+        </span>
+
+      </div>
+      <div class="path-card-content">
+        <h3 class="path-title">Statistics & Inference</h3>
+        <p class="path-desc">Hypothesis testing, FDR correction, and statistical modeling for biological data analysis.</p>
+      </div>
+      <div class="path-card-footer">
+        <span class="path-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+          LEARNING PATH
+        </span>
+        <div class="path-meta">
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Intermediate
+          </span>
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            15 hours
+          </span>
         </div>
       </div>
-      <p class="path-desc">Hypothesis testing, FDR correction, and statistical modeling.</p>
     </a>
     
     <a href="{{ '/bioinformatics-core-skills/' | relative_url }}" class="path-card">
-      <div class="path-card-header">
-        <img src="{{ '/assets/images/path-core-skills.svg' | relative_url }}" alt="" class="path-image">
-        <div class="path-header-text">
-          <span class="path-number">4</span>
-          <h3 class="path-title">Core Skills</h3>
+      <div class="path-card-image-wrapper">
+        <span class="path-card-badge">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+        </span>
+
+      </div>
+      <div class="path-card-content">
+        <h3 class="path-title">Core Skills</h3>
+        <p class="path-desc">Linux, Python, R, Git, and reproducible research practices for computational biology.</p>
+      </div>
+      <div class="path-card-footer">
+        <span class="path-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+          LEARNING PATH
+        </span>
+        <div class="path-meta">
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Beginner
+          </span>
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            20 hours
+          </span>
         </div>
       </div>
-      <p class="path-desc">Linux, Python, R, Git, and reproducible research practices.</p>
     </a>
     
     <a href="{{ '/bioinformatics-data-analysis-focused-ngs/' | relative_url }}" class="path-card">
-      <div class="path-card-header">
-        <img src="{{ '/assets/images/path-ngs.svg' | relative_url }}" alt="" class="path-image">
-        <div class="path-header-text">
-          <span class="path-number">5</span>
-          <h3 class="path-title">NGS Data Analysis</h3>
+      <div class="path-card-image-wrapper">
+        <span class="path-card-badge">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+        </span>
+
+      </div>
+      <div class="path-card-content">
+        <h3 class="path-title">NGS Data Analysis</h3>
+        <p class="path-desc">RNA-seq, DNA-seq, variant calling, and ChIP-seq workflows from raw data to results.</p>
+      </div>
+      <div class="path-card-footer">
+        <span class="path-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+          LEARNING PATH
+        </span>
+        <div class="path-meta">
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Intermediate
+          </span>
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            25 hours
+          </span>
         </div>
       </div>
-      <p class="path-desc">RNA-seq, DNA-seq, variant calling, and ChIP-seq workflows.</p>
     </a>
     
     <a href="{{ '/machine-learning/' | relative_url }}" class="path-card">
-      <div class="path-card-header">
-        <img src="{{ '/assets/images/path-ml.svg' | relative_url }}" alt="" class="path-image">
-        <div class="path-header-text">
-          <span class="path-number">6</span>
-          <h3 class="path-title">Machine Learning</h3>
+      <div class="path-card-image-wrapper">
+        <span class="path-card-badge">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+        </span>
+
+      </div>
+      <div class="path-card-content">
+        <h3 class="path-title">Machine Learning</h3>
+        <p class="path-desc">Classification, clustering, deep learning, and neural networks for biological data.</p>
+      </div>
+      <div class="path-card-footer">
+        <span class="path-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+          LEARNING PATH
+        </span>
+        <div class="path-meta">
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Advanced
+          </span>
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            30 hours
+          </span>
         </div>
       </div>
-      <p class="path-desc">Classification, clustering, deep learning for biological data.</p>
     </a>
     
     <a href="{{ '/multiomics-data-integration/' | relative_url }}" class="path-card">
-      <div class="path-card-header">
-        <img src="{{ '/assets/images/path-multiomics.svg' | relative_url }}" alt="" class="path-image">
-        <div class="path-header-text">
-          <span class="path-number">7</span>
-          <h3 class="path-title">Multi-Omics Integration</h3>
+      <div class="path-card-image-wrapper">
+        <span class="path-card-badge">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+        </span>
+
+      </div>
+      <div class="path-card-content">
+        <h3 class="path-title">Multi-Omics Integration</h3>
+        <p class="path-desc">MOFA+, DIABLO, and cross-platform data integration methods for comprehensive analysis.</p>
+      </div>
+      <div class="path-card-footer">
+        <span class="path-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+          LEARNING PATH
+        </span>
+        <div class="path-meta">
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Advanced
+          </span>
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            22 hours
+          </span>
         </div>
       </div>
-      <p class="path-desc">MOFA+, DIABLO, and cross-platform data integration methods.</p>
     </a>
     
     <a href="{{ '/single-cell-and-spatial-omics-analysis/' | relative_url }}" class="path-card">
-      <div class="path-card-header">
-        <img src="{{ '/assets/images/path-singlecell.svg' | relative_url }}" alt="" class="path-image">
-        <div class="path-header-text">
-          <span class="path-number">8</span>
-          <h3 class="path-title">Single-Cell & Spatial Omics</h3>
+      <div class="path-card-image-wrapper">
+        <span class="path-card-badge">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+        </span>
+
+      </div>
+      <div class="path-card-content">
+        <h3 class="path-title">Single-Cell & Spatial Omics</h3>
+        <p class="path-desc">scRNA-seq, Visium, Xenium, and spatial analysis workflows at single-cell resolution.</p>
+      </div>
+      <div class="path-card-footer">
+        <span class="path-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+          LEARNING PATH
+        </span>
+        <div class="path-meta">
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Advanced
+          </span>
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            28 hours
+          </span>
         </div>
       </div>
-      <p class="path-desc">scRNA-seq, Visium, Xenium, and spatial analysis workflows.</p>
     </a>
     
     <a href="{{ '/agentic-ai-bioinformatics/' | relative_url }}" class="path-card">
-      <span class="path-badge">NEW</span>
-      <div class="path-card-header">
-        <img src="{{ '/assets/images/path-agentic-ai.svg' | relative_url }}" alt="" class="path-image">
-        <div class="path-header-text">
-          <span class="path-number">9</span>
-          <h3 class="path-title">Agentic AI for Bioinformatics</h3>
+      <span class="path-new-badge">NEW</span>
+      <div class="path-card-image-wrapper">
+        <span class="path-card-badge">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+        </span>
+
+      </div>
+      <div class="path-card-content">
+        <h3 class="path-title">Agentic AI for Bioinformatics</h3>
+        <p class="path-desc">Build AI agents that automate analysis pipelines from raw data to biological interpretation.</p>
+      </div>
+      <div class="path-card-footer">
+        <span class="path-tag">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg>
+          LEARNING PATH
+        </span>
+        <div class="path-meta">
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Advanced
+          </span>
+          <span class="path-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            35 hours
+          </span>
         </div>
       </div>
-      <p class="path-desc">Build AI agents that automate analysis from data to interpretation.</p>
     </a>
   </div>
 </section>
