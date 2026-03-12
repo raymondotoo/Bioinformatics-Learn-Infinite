@@ -6,8 +6,12 @@
   var searchStatus = document.getElementById('page-search-status');
   if (!content || !tocList) return;
 
+  // Determine if this is a learning path page (has multiple h2 sections)
+  var h2Headings = Array.from(content.querySelectorAll('h2'));
+  var isLearningPath = h2Headings.length >= 3;
   var headings = Array.from(content.querySelectorAll('h2, h3'));
   var tocItems = [];
+  
   if (headings.length === 0) {
     var empty = document.createElement('li');
     empty.className = 'toc-item toc-empty';
@@ -18,6 +22,7 @@
 
   var usedIds = new Set();
   var linkById = {};
+  var pageKey = window.location.pathname.replace(/\//g, '_') || 'home';
 
   function slugify(text) {
     return text
@@ -28,56 +33,391 @@
       .replace(/-+/g, '-');
   }
 
-  headings.forEach(function (heading, index) {
-    var baseId = heading.id || slugify(heading.textContent) || 'section-' + index;
-    var id = baseId;
-    var suffix = 2;
+  // Progress tracking functions
+  function getProgress() {
+    try {
+      var stored = localStorage.getItem('bioinfo_progress_' + pageKey);
+      return stored ? JSON.parse(stored) : { completed: [], currentSection: 0 };
+    } catch (e) {
+      return { completed: [], currentSection: 0 };
+    }
+  }
 
-    while (usedIds.has(id)) {
-      id = baseId + '-' + suffix;
-      suffix += 1;
+  function saveProgress(progress) {
+    try {
+      localStorage.setItem('bioinfo_progress_' + pageKey, JSON.stringify(progress));
+    } catch (e) {
+      console.warn('Could not save progress');
+    }
+  }
+
+  function resetProgress() {
+    try {
+      localStorage.removeItem('bioinfo_progress_' + pageKey);
+      window.location.reload();
+    } catch (e) {
+      console.warn('Could not reset progress');
+    }
+  }
+
+  // Section Pane System for Learning Paths
+  var sectionPanes = [];
+  var currentSectionIndex = 0;
+  var progress = getProgress();
+
+  if (isLearningPath) {
+    setupSectionPanes();
+  } else {
+    setupStandardToc();
+  }
+
+  function setupSectionPanes() {
+    // Find the first h1 (title) and content before first h2
+    var firstH1 = content.querySelector('h1');
+    var introContent = [];
+    var currentElement = firstH1 ? firstH1.nextElementSibling : content.firstElementChild;
+    
+    while (currentElement && currentElement.tagName !== 'H2') {
+      introContent.push(currentElement);
+      currentElement = currentElement.nextElementSibling;
     }
 
-    heading.id = id;
-    usedIds.add(id);
+    // Create progress bar
+    var progressBar = document.createElement('div');
+    progressBar.className = 'section-progress-bar';
+    progressBar.innerHTML = 
+      '<span class="section-progress-label">Progress</span>' +
+      '<div class="section-progress-track"><div class="section-progress-fill" id="progress-fill"></div></div>' +
+      '<span class="section-progress-text" id="progress-text">0 / ' + h2Headings.length + '</span>' +
+      '<button class="reset-progress-btn" id="reset-progress-btn" title="Reset progress">Reset</button>';
+    
+    // Insert progress bar after intro content
+    var insertPoint = introContent.length > 0 ? introContent[introContent.length - 1] : firstH1;
+    if (insertPoint && insertPoint.nextSibling) {
+      insertPoint.parentNode.insertBefore(progressBar, insertPoint.nextSibling);
+    } else {
+      content.appendChild(progressBar);
+    }
 
-    var item = document.createElement('li');
-    item.className = 'toc-item ' + (heading.tagName.toLowerCase() === 'h3' ? 'toc-level-3' : 'toc-level-2');
+    // Create section pane wrapper
+    var paneWrapper = document.createElement('div');
+    paneWrapper.className = 'section-pane-wrapper';
+    paneWrapper.id = 'section-pane-wrapper';
 
-    var link = document.createElement('a');
-    link.href = '#' + id;
-    link.textContent = heading.textContent;
-    link.dataset.targetId = id;
+    // Group content by h2 sections
+    h2Headings.forEach(function(h2, index) {
+      var pane = document.createElement('div');
+      pane.className = 'section-pane';
+      pane.dataset.sectionIndex = index;
+      pane.dataset.sectionId = h2.id || slugify(h2.textContent) || 'section-' + index;
+      
+      // Clone the h2
+      var clonedH2 = h2.cloneNode(true);
+      if (!clonedH2.id) {
+        var baseId = slugify(h2.textContent) || 'section-' + index;
+        var id = baseId;
+        var suffix = 2;
+        while (usedIds.has(id)) {
+          id = baseId + '-' + suffix;
+          suffix++;
+        }
+        clonedH2.id = id;
+        usedIds.add(id);
+      } else {
+        usedIds.add(clonedH2.id);
+      }
+      pane.appendChild(clonedH2);
+      
+      // Get all content until next h2
+      var nextElement = h2.nextElementSibling;
+      while (nextElement && nextElement.tagName !== 'H2') {
+        var cloned = nextElement.cloneNode(true);
+        // Handle h3 ids
+        if (cloned.tagName === 'H3') {
+          var h3BaseId = cloned.id || slugify(cloned.textContent) || 'subsection-' + index;
+          var h3Id = h3BaseId;
+          var h3Suffix = 2;
+          while (usedIds.has(h3Id)) {
+            h3Id = h3BaseId + '-' + h3Suffix;
+            h3Suffix++;
+          }
+          cloned.id = h3Id;
+          usedIds.add(h3Id);
+        }
+        pane.appendChild(cloned);
+        nextElement = nextElement.nextElementSibling;
+      }
 
-    item.appendChild(link);
-    tocList.appendChild(item);
-    linkById[id] = link;
-    tocItems.push({ item: item, text: link.textContent.toLowerCase() });
-  });
+      // Add completion button
+      var completeBtn = document.createElement('button');
+      completeBtn.className = 'section-complete-btn';
+      completeBtn.dataset.sectionIndex = index;
+      completeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg><span>Mark as Complete</span>';
+      if (progress.completed.includes(index)) {
+        completeBtn.classList.add('is-completed');
+        completeBtn.querySelector('span').textContent = 'Completed';
+      }
+      pane.appendChild(completeBtn);
 
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-
-        Object.values(linkById).forEach(function (link) {
-          link.classList.remove('is-current');
-        });
-
-        var active = linkById[entry.target.id];
-        if (active) active.classList.add('is-current');
+      sectionPanes.push({
+        element: pane,
+        id: clonedH2.id,
+        title: h2.textContent,
+        index: index
       });
-    },
-    {
-      root: content,
-      rootMargin: '0px 0px -70% 0px',
-      threshold: 0.1
-    }
-  );
 
-  headings.forEach(function (heading) {
-    observer.observe(heading);
-  });
+      paneWrapper.appendChild(pane);
+    });
+
+    // Create navigation controls
+    var navControls = document.createElement('div');
+    navControls.className = 'section-nav-controls';
+    navControls.innerHTML = 
+      '<button class="section-nav-btn" id="prev-section-btn" disabled>' +
+        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>' +
+        '<span>Previous</span>' +
+      '</button>' +
+      '<div class="section-nav-indicator" id="section-nav-indicator"></div>' +
+      '<button class="section-nav-btn" id="next-section-btn">' +
+        '<span>Next</span>' +
+        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>' +
+      '</button>';
+    paneWrapper.appendChild(navControls);
+
+    // Build dot indicators
+    var indicatorContainer = navControls.querySelector('#section-nav-indicator');
+    sectionPanes.forEach(function(pane, idx) {
+      var dot = document.createElement('button');
+      dot.className = 'section-dot';
+      dot.dataset.sectionIndex = idx;
+      dot.title = pane.title;
+      if (progress.completed.includes(idx)) {
+        dot.classList.add('is-completed');
+      }
+      indicatorContainer.appendChild(dot);
+    });
+
+    // Remove original h2 sections from content (keep intro)
+    h2Headings.forEach(function(h2) {
+      var elementsToRemove = [h2];
+      var nextEl = h2.nextElementSibling;
+      while (nextEl && nextEl.tagName !== 'H2' && !nextEl.classList.contains('section-progress-bar')) {
+        elementsToRemove.push(nextEl);
+        nextEl = nextEl.nextElementSibling;
+      }
+      elementsToRemove.forEach(function(el) {
+        if (el.parentNode) el.parentNode.removeChild(el);
+      });
+    });
+
+    // Insert pane wrapper
+    progressBar.parentNode.insertBefore(paneWrapper, progressBar.nextSibling);
+
+    // Build TOC with checkmarks
+    sectionPanes.forEach(function(pane, idx) {
+      var item = document.createElement('li');
+      item.className = 'toc-item toc-level-2 section-toc-item';
+      
+      var checkmark = document.createElement('span');
+      checkmark.className = 'section-toc-check';
+      checkmark.dataset.sectionIndex = idx;
+      if (progress.completed.includes(idx)) {
+        checkmark.classList.add('is-completed');
+      }
+      
+      var link = document.createElement('a');
+      link.href = '#' + pane.id;
+      link.textContent = pane.title;
+      link.dataset.sectionIndex = idx;
+
+      item.appendChild(checkmark);
+      item.appendChild(link);
+      tocList.appendChild(item);
+      linkById[pane.id] = link;
+      tocItems.push({ item: item, text: pane.title.toLowerCase(), sectionIndex: idx });
+    });
+
+    // Initialize display
+    currentSectionIndex = progress.currentSection || 0;
+    if (currentSectionIndex >= sectionPanes.length) currentSectionIndex = 0;
+    showSection(currentSectionIndex);
+    updateProgressDisplay();
+
+    // Event listeners
+    document.getElementById('prev-section-btn').addEventListener('click', function() {
+      if (currentSectionIndex > 0) {
+        showSection(currentSectionIndex - 1);
+      }
+    });
+
+    document.getElementById('next-section-btn').addEventListener('click', function() {
+      if (currentSectionIndex < sectionPanes.length - 1) {
+        showSection(currentSectionIndex + 1);
+      }
+    });
+
+    document.getElementById('reset-progress-btn').addEventListener('click', function() {
+      if (confirm('Reset all progress for this page?')) {
+        resetProgress();
+      }
+    });
+
+    // Dot navigation
+    indicatorContainer.addEventListener('click', function(e) {
+      if (e.target.classList.contains('section-dot')) {
+        var idx = parseInt(e.target.dataset.sectionIndex, 10);
+        showSection(idx);
+      }
+    });
+
+    // Mark complete buttons
+    paneWrapper.addEventListener('click', function(e) {
+      var btn = e.target.closest('.section-complete-btn');
+      if (btn) {
+        var idx = parseInt(btn.dataset.sectionIndex, 10);
+        toggleSectionComplete(idx, btn);
+      }
+    });
+
+    // TOC link clicks
+    tocList.addEventListener('click', function(e) {
+      var link = e.target.closest('a[data-section-index]');
+      if (link) {
+        e.preventDefault();
+        var idx = parseInt(link.dataset.sectionIndex, 10);
+        showSection(idx);
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowLeft' && currentSectionIndex > 0) {
+        showSection(currentSectionIndex - 1);
+      } else if (e.key === 'ArrowRight' && currentSectionIndex < sectionPanes.length - 1) {
+        showSection(currentSectionIndex + 1);
+      }
+    });
+  }
+
+  function showSection(index) {
+    currentSectionIndex = index;
+    
+    // Update pane visibility
+    sectionPanes.forEach(function(pane, idx) {
+      pane.element.classList.toggle('is-active', idx === index);
+    });
+
+    // Update nav buttons
+    document.getElementById('prev-section-btn').disabled = index === 0;
+    document.getElementById('next-section-btn').disabled = index === sectionPanes.length - 1;
+
+    // Update dot indicators
+    var dots = document.querySelectorAll('.section-dot');
+    dots.forEach(function(dot, idx) {
+      dot.classList.toggle('is-active', idx === index);
+    });
+
+    // Update TOC active state
+    var tocLinks = tocList.querySelectorAll('a[data-section-index]');
+    tocLinks.forEach(function(link, idx) {
+      link.classList.toggle('is-current', idx === index);
+    });
+
+    // Scroll to top of content
+    content.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Save current position
+    progress.currentSection = index;
+    saveProgress(progress);
+  }
+
+  function toggleSectionComplete(index, btn) {
+    var completedIndex = progress.completed.indexOf(index);
+    if (completedIndex === -1) {
+      progress.completed.push(index);
+      btn.classList.add('is-completed');
+      btn.querySelector('span').textContent = 'Completed';
+    } else {
+      progress.completed.splice(completedIndex, 1);
+      btn.classList.remove('is-completed');
+      btn.querySelector('span').textContent = 'Mark as Complete';
+    }
+    
+    // Update dot and TOC checkmark
+    var dot = document.querySelector('.section-dot[data-section-index="' + index + '"]');
+    var checkmark = document.querySelector('.section-toc-check[data-section-index="' + index + '"]');
+    if (dot) dot.classList.toggle('is-completed', progress.completed.includes(index));
+    if (checkmark) checkmark.classList.toggle('is-completed', progress.completed.includes(index));
+    
+    saveProgress(progress);
+    updateProgressDisplay();
+  }
+
+  function updateProgressDisplay() {
+    var completed = progress.completed.length;
+    var total = sectionPanes.length;
+    var percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+    
+    var fill = document.getElementById('progress-fill');
+    var text = document.getElementById('progress-text');
+    
+    if (fill) fill.style.width = percentage + '%';
+    if (text) text.textContent = completed + ' / ' + total + ' (' + percentage + '%)';
+  }
+
+  function setupStandardToc() {
+    headings.forEach(function (heading, index) {
+      var baseId = heading.id || slugify(heading.textContent) || 'section-' + index;
+      var id = baseId;
+      var suffix = 2;
+
+      while (usedIds.has(id)) {
+        id = baseId + '-' + suffix;
+        suffix += 1;
+      }
+
+      heading.id = id;
+      usedIds.add(id);
+
+      var item = document.createElement('li');
+      item.className = 'toc-item ' + (heading.tagName.toLowerCase() === 'h3' ? 'toc-level-3' : 'toc-level-2');
+
+      var link = document.createElement('a');
+      link.href = '#' + id;
+      link.textContent = heading.textContent;
+      link.dataset.targetId = id;
+
+      item.appendChild(link);
+      tocList.appendChild(item);
+      linkById[id] = link;
+      tocItems.push({ item: item, text: link.textContent.toLowerCase() });
+    });
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+
+          Object.values(linkById).forEach(function (link) {
+            link.classList.remove('is-current');
+          });
+
+          var active = linkById[entry.target.id];
+          if (active) active.classList.add('is-current');
+        });
+      },
+      {
+        root: content,
+        rootMargin: '0px 0px -70% 0px',
+        threshold: 0.1
+      }
+    );
+
+    headings.forEach(function (heading) {
+      observer.observe(heading);
+    });
+  }
 
   if (!searchForm || !searchInput || !searchStatus) return;
 

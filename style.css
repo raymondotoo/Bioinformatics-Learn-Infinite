@@ -1076,3 +1076,276 @@ body {
     justify-content: center;
   }
 }
+
+/* ========================================
+   Section Pane Navigation & Progress System
+   ======================================== */
+
+.section-progress-bar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.section-progress-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.section-progress-track {
+  flex: 1;
+  min-width: 150px;
+  height: 8px;
+  background: var(--accent-soft);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.section-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+.section-progress-text {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+  min-width: 80px;
+  text-align: right;
+}
+
+.section-pane-wrapper {
+  position: relative;
+}
+
+.section-pane {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.section-pane.is-active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-nav-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.section-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  color: var(--accent);
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.section-nav-btn:hover:not(:disabled) {
+  background: var(--accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(31, 79, 143, 0.2);
+}
+
+.section-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.section-nav-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.section-nav-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.section-dot:hover {
+  transform: scale(1.2);
+}
+
+.section-dot.is-active {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.section-dot.is-completed {
+  background: #10b981;
+}
+
+.section-dot.is-completed.is-active {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+.section-complete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid #10b981;
+  background: #f0fdf4;
+  color: #10b981;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.section-complete-btn:hover {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.section-complete-btn.is-completed {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.section-complete-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.section-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin-left: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+
+.section-header-badge svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Section list view for TOC */
+.section-toc-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-toc-check {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+
+.section-toc-check.is-completed {
+  background: #10b981;
+  border-color: #10b981;
+  position: relative;
+}
+
+.section-toc-check.is-completed::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 4px;
+  height: 7px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Reset progress button */
+.reset-progress-btn {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin-left: 0.5rem;
+}
+
+.reset-progress-btn:hover {
+  color: #ef4444;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .section-nav-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .section-nav-indicator {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .section-nav-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .section-progress-bar {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .section-progress-text {
+    text-align: center;
+  }
+}
