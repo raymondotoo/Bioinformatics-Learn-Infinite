@@ -1,0 +1,28 @@
+# Robots.txt for Bioinformatics Learn Infinite
+# https://www.bioinfolearninfinite.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.bioinfolearninfinite.com/sitemap.xml
+
+# Disallow admin/system paths
+Disallow: /dashboard/
+Disallow: /worker/
+Disallow: /scripts/
+Disallow: /_site/
+Disallow: /vendor/
+
+# Allow search engines to crawl all content pages
+Allow: /introduction-to-bioinformatics/
+Allow: /bioinformatics-core-skills/
+Allow: /biology-fundamentals-for-bioinformatics/
+Allow: /bioinformatics-data-analysis-focused-ngs/
+Allow: /statistical-analysis-and-inference/
+Allow: /machine-learning/
+Allow: /single-cell-and-spatial-omics-analysis/
+Allow: /multiomics-data-integration/
+Allow: /neuro-imaging-data-analysis/
+Allow: /agentic-ai-bioinformatics/
+Allow: /blog/
