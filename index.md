@@ -16,6 +16,7 @@ permalink: /
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(10, 22, 40, 0.25);
+  z-index: 0;
 }
 
 .hero-section::before {
@@ -606,6 +607,12 @@ permalink: /
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    margin-bottom: 1.5rem;
+  }
+  .hero-section::after {
+    display: none;
+  }
   .hero-title {
     font-size: 1.8rem;
   }
@@ -628,6 +635,14 @@ permalink: /
   .social-links {
     justify-content: center;
     flex-wrap: wrap;
+  }
+  .panel-enhanced {
+    position: relative;
+    z-index: 1;
+  }
+  .stats-bar {
+    position: relative;
+    z-index: 1;
   }
 }
 </style>
