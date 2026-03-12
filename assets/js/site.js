@@ -7,10 +7,16 @@
   if (!content || !tocList) return;
 
   // Pages that should NOT use the pane navigation system
-  var excludedPaths = ['/', '/index.html', '/feedback/', '/blog/', '/hire-expert/', '/privacy-policy/'];
   var currentPath = window.location.pathname;
-  var isExcludedPage = excludedPaths.some(function(path) {
-    return currentPath === path || currentPath.endsWith(path);
+  var isHomePage = currentPath === '/' || 
+                   currentPath === '/index.html' || 
+                   currentPath.match(/^\/[^\/]*\/?$/) !== null ||  // Handles /repo-name/ paths
+                   document.body.classList.contains('home') ||
+                   (document.querySelector('.hero-section') !== null);  // Home page has hero section
+  
+  var excludedPaths = ['/feedback/', '/blog/', '/hire-expert/', '/privacy-policy/', '/SITE_MAP_MANUAL/'];
+  var isExcludedPage = isHomePage || excludedPaths.some(function(path) {
+    return currentPath.indexOf(path) !== -1;
   });
 
   // Determine if this is a learning path page (has multiple h2 sections and not excluded)
