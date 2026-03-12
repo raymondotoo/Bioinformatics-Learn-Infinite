@@ -6,9 +6,16 @@
   var searchStatus = document.getElementById('page-search-status');
   if (!content || !tocList) return;
 
-  // Determine if this is a learning path page (has multiple h2 sections)
+  // Pages that should NOT use the pane navigation system
+  var excludedPaths = ['/', '/index.html', '/feedback/', '/blog/', '/hire-expert/', '/privacy-policy/'];
+  var currentPath = window.location.pathname;
+  var isExcludedPage = excludedPaths.some(function(path) {
+    return currentPath === path || currentPath.endsWith(path);
+  });
+
+  // Determine if this is a learning path page (has multiple h2 sections and not excluded)
   var h2Headings = Array.from(content.querySelectorAll('h2'));
-  var isLearningPath = h2Headings.length >= 3;
+  var isLearningPath = !isExcludedPage && h2Headings.length >= 3;
   var headings = Array.from(content.querySelectorAll('h2, h3'));
   var tocItems = [];
   
