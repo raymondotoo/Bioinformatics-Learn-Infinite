@@ -348,7 +348,7 @@ permalink: /feedback/
     
     <div id="form-message" class="form-message"></div>
     
-    <form id="feedback-form">
+    <form id="feedback-form" action="https://formspree.io/f/mojklkow" method="POST">
       <!-- Feedback Type -->
       <div class="form-group">
         <label for="feedback-type">Type of Feedback<span class="required">*</span></label>
@@ -483,120 +483,21 @@ permalink: /feedback/
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('feedback-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const messageDiv = document.getElementById('form-message');
-  
-  // GitHub repository details
-  const REPO_OWNER = 'BioinformaticsOnLine';
-  const REPO_NAME = 'Bioinformatics-Learn-Infinite';
-  
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Disable submit button
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
-    
-    // Gather form data
-    const feedbackType = document.getElementById('feedback-type').value;
-    const pageRef = document.getElementById('page-ref').value.trim();
-    const feedbackText = document.getElementById('feedback-text').value.trim();
-    const rating = document.querySelector('input[name="rating"]:checked')?.value || 'Not provided';
-    const expertise = document.getElementById('expertise').value || 'Not provided';
-    const email = document.getElementById('email').value.trim() || 'Not provided';
-    
-    // Get selected topics
-    const topics = Array.from(document.querySelectorAll('input[name="topics"]:checked'))
-      .map(cb => cb.value)
-      .join(', ') || 'None selected';
-    
-    // Build issue title
-    const typeLabels = {
-      'suggestion': '💡 Suggestion',
-      'bug': '🐛 Bug Report',
-      'content': '📝 Content',
-      'praise': '🌟 Praise',
-      'question': '❓ Question',
-      'other': '📌 Other'
-    };
-    const issueTitle = `[Feedback] ${typeLabels[feedbackType]}: ${feedbackText.substring(0, 50)}${feedbackText.length > 50 ? '...' : ''}`;
-    
-    // Build issue body with structured data for parsing
-    const issueBody = `## Feedback Submission
-
-**Type:** ${typeLabels[feedbackType]}
-**Related Page:** ${pageRef || 'Not specified'}
-**Rating:** ${'★'.repeat(parseInt(rating) || 0)}${'☆'.repeat(5 - (parseInt(rating) || 0))} (${rating}/5)
-**Experience Level:** ${expertise}
-**Topics of Interest:** ${topics}
-
----
-
-### Feedback Details
-
-${feedbackText}
-
----
-
-### Contact
-**Email:** ${email}
-
----
-<!-- FEEDBACK_DATA_START
-type: ${feedbackType}
-page: ${pageRef}
 rating: ${rating}
 expertise: ${expertise}
 topics: ${topics}
 email: ${email}
 timestamp: ${new Date().toISOString()}
-FEEDBACK_DATA_END -->
-
-*Submitted via Bioinformatics Learn Infinite feedback form*`;
-    
-    // Encode for URL
-    const encodedTitle = encodeURIComponent(issueTitle);
-    const encodedBody = encodeURIComponent(issueBody);
-    
-    // Create GitHub issue URL (labels removed - they can cause issues if they don't exist)
-    const issueUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/new?title=${encodedTitle}&body=${encodedBody}`;
-    
-    // Auto-open GitHub in new tab
-    const githubWindow = window.open(issueUrl, '_blank');
-    
-    // Show success message
-    setTimeout(() => {
-      messageDiv.className = 'form-message success show';
-      messageDiv.innerHTML = `
-        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-          <span style="font-size: 2rem;">✅</span>
-          <div>
-            <strong style="font-size: 1.1rem;">GitHub Issue Page Opened!</strong>
-            <p style="margin: 0.5rem 0 0; line-height: 1.6;">
-              A new tab should have opened with your feedback pre-filled. 
-              <strong>Click "Submit new issue"</strong> on GitHub to complete your submission.
-            </p>
-            <p style="margin: 0.75rem 0 0; font-size: 0.9rem; color: #666;">
-              Popup blocked? <a href="${issueUrl}" target="_blank" rel="noopener" style="color: #166534; font-weight: 600;">Click here to open manually</a>
-            </p>
-            <p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: #666;">
-              No GitHub account? <a href="mailto:raymondotoo115@gmail.com?subject=${encodedTitle}&body=${encodeURIComponent(feedbackText)}" style="color: var(--accent);">Send via email instead</a>
-            </p>
-          </div>
-        </div>
-      `;
-      
-      // Re-enable button with different text
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '✓ Submit Another';
-      
-      // Scroll to message
-      messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      
-      // Reset form for potential new submission
-      form.reset();
-    }, 500);
+  // Remove custom JS for GitHub issue creation, let Formspree handle submission
+  // Optionally, you can add a simple handler to show a success message
+  const form = document.getElementById('feedback-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const messageDiv = document.getElementById('form-message');
+  form.addEventListener('submit', function(e) {
+    // Let Formspree handle submission, but show a spinner and then a message
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
   });
-});
+  // Optionally, you can listen for Formspree's response and show a message
+  // See Formspree docs for AJAX handling if needed
 </script>
