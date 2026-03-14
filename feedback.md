@@ -494,10 +494,44 @@ timestamp: ${new Date().toISOString()}
   const submitBtn = document.getElementById('submit-btn');
   const messageDiv = document.getElementById('form-message');
   form.addEventListener('submit', function(e) {
-    // Let Formspree handle submission, but show a spinner and then a message
+    e.preventDefault();
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
+    const formData = new FormData(form);
+    fetch('https://formspree.io/f/mojklkow', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        messageDiv.className = 'form-message success show';
+        messageDiv.innerHTML = `
+          <div style="display: flex; align-items: flex-start; gap: 1rem;">
+            <span style="font-size: 2rem;">✅</span>
+            <div>
+              <strong style="font-size: 1.1rem;">Thank you for your feedback!</strong>
+              <p style="margin: 0.5rem 0 0; line-height: 1.6;">Your submission was received successfully. We appreciate your input and will use it to improve the site.</p>
+            </div>
+          </div>
+        `;
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '✓ Submit Another';
+        form.reset();
+        messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        return response.json().then(data => {
+          throw new Error(data.error || 'Submission failed');
+        });
+      }
+    })
+    .catch(error => {
+      messageDiv.className = 'form-message error show';
+      messageDiv.innerHTML = `<strong>Error:</strong> ${error.message || 'Could not submit feedback. Please try again later.'}`;
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Submit Feedback';
+    });
   });
-  // Optionally, you can listen for Formspree's response and show a message
-  // See Formspree docs for AJAX handling if needed
 </script>
