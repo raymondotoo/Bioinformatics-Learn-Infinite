@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bioinfo-learn-v1';
+const CACHE_NAME = 'bioinfo-learn-v3';
 const urlsToCache = [
   '/',
   '/style.css',
