@@ -1,8 +1,8 @@
-const CACHE_NAME = 'bioinfo-learn-v1';
+const CACHE_NAME = 'bioinfo-learn-v2';
 const urlsToCache = [
   '/',
   '/style.css',
-  '/assets/js/site.js',
+  '/assets/js/site.js?v=20260316',
   '/bioinf_logo.png',
   '/introduction-to-bioinformatics/',
   '/biology-fundamentals-for-bioinformatics/',

@@ -26,9 +26,16 @@
 
   // Determine if this is a learning path page (has multiple h2 sections and not excluded)
   var h2Headings = Array.from(content.querySelectorAll('h2'));
-  var isLearningPath = !isExcludedPage && h2Headings.length >= 3;
   var headings = Array.from(content.querySelectorAll('h2, h3'));
   var tocItems = [];
+
+  // Hard stop: if progress is explicitly disabled, bail out to standard TOC only
+  if (disableProgress) {
+    setupStandardToc();
+    return;
+  }
+  
+  var isLearningPath = !isExcludedPage && h2Headings.length >= 3;
   
   if (headings.length === 0) {
     var empty = document.createElement('li');
