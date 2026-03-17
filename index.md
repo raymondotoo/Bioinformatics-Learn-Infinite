@@ -3,7 +3,6 @@ layout: default
 title: Bioinformatics Learn Infinite
 description: Bioinformatics tutorials from fundamentals to advanced data analysis.
 permalink: /
-disable_progress: true
 ---
 
 <style>

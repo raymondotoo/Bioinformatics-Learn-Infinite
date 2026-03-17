@@ -8,34 +8,22 @@
 
   // Pages that should NOT use the pane navigation system
   var pageType = document.body.getAttribute('data-page-type');
-  var disableProgress = document.body.getAttribute('data-disable-progress') === 'true';
   var currentPath = window.location.pathname;
-  var normalizedPath = currentPath.replace(/\\/g, '/').replace(/\/+$/, '') || '/';
   
   // Homepage and blog pages should never have pane navigation
-  var isHomePage = pageType === 'home' ||
-    disableProgress ||
-    normalizedPath === '/' ||
-    /\/index\.html?$/i.test(normalizedPath);
+  var isHomePage = pageType === 'home';
   var isBlogPage = pageType === 'blog';
   
   var excludedPaths = ['/feedback/', '/hire-expert/', '/privacy-policy/', '/SITE_MAP_MANUAL/'];
-  var isExcludedPage = isHomePage || isBlogPage || disableProgress || excludedPaths.some(function(path) {
-    return normalizedPath.indexOf(path) !== -1;
+  var isExcludedPage = isHomePage || isBlogPage || excludedPaths.some(function(path) {
+    return currentPath.indexOf(path) !== -1;
   });
 
   // Determine if this is a learning path page (has multiple h2 sections and not excluded)
   var h2Headings = Array.from(content.querySelectorAll('h2'));
+  var isLearningPath = !isExcludedPage && h2Headings.length >= 3;
   var headings = Array.from(content.querySelectorAll('h2, h3'));
   var tocItems = [];
-
-  // Hard stop: if progress is explicitly disabled, bail out to standard TOC only
-  if (disableProgress) {
-    setupStandardToc();
-    return;
-  }
-  
-  var isLearningPath = !isExcludedPage && h2Headings.length >= 3;
   
   if (headings.length === 0) {
     var empty = document.createElement('li');

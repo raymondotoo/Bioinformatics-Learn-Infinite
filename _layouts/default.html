@@ -63,7 +63,7 @@
   <meta name="theme-color" content="#2d7d32">
   <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
-<body data-page-type="{% if page.url == '/' %}home{% elsif page.url contains '/blog/' %}blog{% else %}content{% endif %}" data-disable-progress="{{ page.disable_progress | default: 'false' }}">
+<body data-page-type="{% if page.url == '/' %}home{% elsif page.url contains '/blog/' %}blog{% else %}content{% endif %}">
   <div class="site-shell">
     <header class="topbar">
       <div class="topbar-left">
@@ -168,7 +168,7 @@
     </footer>
   </div>
 
-  <script defer src="{{ '/assets/js/site.js?v=20260316' | relative_url }}"></script>
+  <script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
