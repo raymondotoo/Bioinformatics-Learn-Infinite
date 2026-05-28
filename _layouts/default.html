@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% assign social_image = page.image | default: '/assets/banners/og-logo.png' %}
+  {% assign social_image_url = social_image | absolute_url %}
+  {% assign is_article = false %}
+  {% if page.path contains '_posts/' %}
+    {% assign is_article = true %}
+  {% endif %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
@@ -10,11 +16,18 @@
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:type" content="{% if is_article %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{{ page.description | default: site.description }}">
-  <meta property="og:image" content="{{ page.image | default: '/assets/banners/og-default.svg' | absolute_url }}">
+  <meta property="og:image" content="{{ social_image_url }}">
+  <meta property="og:image:secure_url" content="{{ social_image_url }}">
+  {% if social_image == '/assets/banners/og-logo.png' %}
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  {% endif %}
+  <meta property="og:image:alt" content="{{ site.title }} logo">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:locale" content="en_US">
   
@@ -23,7 +36,8 @@
   <meta name="twitter:site" content="@BioLnInfinite">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta name="twitter:description" content="{{ page.description | default: site.description }}">
-  <meta name="twitter:image" content="{{ page.image | default: '/assets/banners/og-default.svg' | absolute_url }}">
+  <meta name="twitter:image" content="{{ social_image_url }}">
+  <meta name="twitter:image:alt" content="{{ site.title }} logo">
   
   <!-- Additional SEO meta tags -->
   <meta name="robots" content="index, follow">
@@ -34,10 +48,11 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "{% if page.layout == 'post' %}Article{% else %}WebPage{% endif %}",
+    "@type": "{% if is_article %}Article{% else %}WebPage{% endif %}",
     "name": "{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}",
     "description": "{{ page.description | default: site.description }}",
     "url": "{{ page.url | absolute_url }}",
+    "image": "{{ social_image_url }}",
     "publisher": {
       "@type": "Organization",
       "name": "{{ site.title }}",
@@ -45,7 +60,7 @@
         "@type": "ImageObject",
         "url": "{{ '/bioinf_logo.png' | absolute_url }}"
       }
-    }{% if page.layout == 'post' %},
+    }{% if is_article %},
     "author": {
       "@type": "Person",
       "name": "Raymond Otoo, Ph.D."
